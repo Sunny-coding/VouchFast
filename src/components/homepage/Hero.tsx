@@ -15,14 +15,14 @@ const Hero = () => {
         width={300}
         height={300}
         alt="doodle"
-        className="absolute left-0 top-0 -translate-x-1/2 translate-y-72 opacity-30"
+        className="absolute left-0 bottom-0 -translate-y-16 lg:top-0 h-[150px] w-[150px] lg:h-[300px] lg:w-[300px] -translate-x-1/2 lg:translate-y-72 opacity-20 -z-10"
       />
       <Image
         src={spiralSvg}
         width={200}
         height={200}
         alt="doodle"
-        className="absolute right-0 top-1/4 rotate-45 opacity-30"
+        className="absolute right-0 bottom-0 -translate-y-52 translate-x-10 lg:translate-y-0 lg:translate-x-0 lg:top-1/4 h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] rotate-45 opacity-30 -z-10"
       />
 
       <div className="container mx-auto">
@@ -34,7 +34,7 @@ const Hero = () => {
           className="mt-16 mx-auto"
         />
 
-        <h2 className="text-center text-lg lg:text-2xl my-5 text-gray-200">
+        <h2 className="text-center text-lg lg:text-2xl mb-5 text-gray-400">
           One-stop platform
         </h2>
 

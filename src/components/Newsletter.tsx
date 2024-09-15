@@ -37,7 +37,7 @@ const Newsletter = () => {
             alt="doodle"
             height={200}
             width={200}
-            className="absolute top-10 right-32"
+            className="hidden lg:block absolute top-10 right-32"
           />
         </form>
       </div>
