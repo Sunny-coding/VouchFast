@@ -5,32 +5,63 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Using this platform made collecting client feedback effortless. My clients appreciated how simple the process was, and it’s made a real difference in securing new projects.",
+    name: "Sarah Williams",
+    title: "Freelance Graphic Designer",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "Our agency used to spend hours manually collecting testimonials. With this app, it's all automated, and we can display them on our site in just a few clicks.",
+    name: "James Thompson",
+    title: "Managing Director, Creative Solutions Agency",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "This platform has streamlined our testimonial process. It's not just a time-saver, but it adds a level of professionalism to our client feedback collection.",
+    name: "Megan Brown",
+    title: "Marketing Manager, Tech Innovators",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "As a solo developer, this tool has been invaluable. The ability to showcase verified client testimonials on my profile has boosted my reputation significantly.",
+    name: "Alex Murphy",
+    title: "Freelance Software Developer",
+  },
+  {
+    quote:
+      "We've seen a noticeable improvement in client trust after integrating testimonials collected through this platform into our product pages. It's a game changer!",
+    name: "Linda Nguyen",
+    title: "Co-Founder, SaaS Company",
+  },
+  {
+    quote:
+      "Gathering client feedback used to be a hassle, but this platform has simplified everything. The API integration also made embedding testimonials into our site seamless.",
+    name: "Chris Evans",
+    title: "Head of Product, WebAppify",
+  },
+  {
+    quote:
+      "I was struggling to collect client testimonials consistently, but with this tool, it's all automated. Plus, having them displayed on my profile looks super professional!",
+    name: "Jessica Lee",
+    title: "Freelance UX Designer",
+  },
+  {
+    quote:
+      "Our team uses this app to manage feedback from dozens of clients. It's easy to use and helps us maintain credibility with potential customers.",
+    name: "Robert Taylor",
+    title: "CEO, Digital Marketing Agency",
+  },
+  {
+    quote:
+      "This platform has become an essential part of our sales strategy. Testimonials collected through it have directly contributed to closing new deals.",
+    name: "Olivia Martinez",
+    title: "Business Development Manager, SoftLabs",
+  },
+  {
+    quote:
+      "I love how easy it is to invite clients for feedback. The testimonial dashboard is intuitive, and the results are immediate.",
+    name: "Daniel Harris",
+    title: "Freelance Mobile App Developer",
   },
 ];
 

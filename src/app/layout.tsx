@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/Footer";
 
 import { jakarta } from "@/components/font/jakarta";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={`overflow-x-hidden ${jakarta.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

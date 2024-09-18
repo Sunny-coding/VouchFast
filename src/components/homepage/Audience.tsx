@@ -13,7 +13,7 @@ interface BoxProps {
 
 const Box = ({ heading, description, Icon }: BoxProps) => {
   return (
-    <div className="bg-zinc-900 p-10 mx-10 lg:mx-0 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
+    <div className="bg-zinc-900 p-10 mx-5 lg:mx-0 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
       <Icon size={50} className="text-primary-500" />
       <h2 className="text-lg lg:text-3xl font-bold mt-10">{heading}</h2>
       <p className="mt-5 text-gray-400 text-lg font-medium">{description}</p>
@@ -43,7 +43,7 @@ const uses = [
 
 const Audience = () => {
   return (
-    <div className="container mx-auto pb-24">
+    <div className="container mx-auto pb-24 w-full">
       <h1 className="text-center text-2xl lg:text-5xl font-bold my-16">
         Who is Applauz for?
       </h1>

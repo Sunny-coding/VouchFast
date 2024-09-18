@@ -4,4 +4,9 @@
 
 body {
   @apply bg-background text-white;
+  overflow-x: hidden;
 }
+
+/* * {
+  border: 2px solid red;
+} */
