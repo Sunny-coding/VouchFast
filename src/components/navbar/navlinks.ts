@@ -4,7 +4,7 @@ const links = [
     label: "Features",
   },
   {
-    url: "/#pricing",
+    url: "/pricing",
     label: "Pricing",
   },
   {

@@ -1,5 +1,5 @@
 import Audience from "@/components/homepage/Audience";
-import Hero from "@/components/homepage/Hero";
+import Hero from "@/components/homepage/hero";
 import Testimonials from "@/components/homepage/Testimonials";
 import ProductBox from "@/components/homepage/ProductBox";
 import Newsletter from "@/components/Newsletter";
@@ -11,11 +11,11 @@ const Homepage = () => {
     <>
       <Hero />
       <ProductBox />
+      <Audience />
       <Newsletter />
       <Testimonials />
-      <Audience />
-      <CTA />
       <Pricing />
+      <CTA />
     </>
   );
 };

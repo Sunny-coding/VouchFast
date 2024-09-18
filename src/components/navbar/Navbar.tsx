@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto py-4 flex justify-between items-center text-lg">
         <h1 className="text-xl">
           <Link href={"/"} className={`text-3xl ${sansita.className}`}>
-            Applauz
+            VouchFast
           </Link>
         </h1>
 

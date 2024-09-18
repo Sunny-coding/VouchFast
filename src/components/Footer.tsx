@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           <section className="w-full text-center lg:text-start">
             <h3 className={cn("text-7xl font-black", sansita.className)}>
-              Applauz
+              VouchFast
             </h3>
             <p className="mt-6 text-lg text-gray-500 leading-relaxed font-medium">
               Your ultimate Testimonial collecting tool.
@@ -103,7 +103,7 @@ const Footer = () => {
             </p>
 
             <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-              &copy;Applauz, {new Date().getFullYear()}
+              &copy;VouchFast, {new Date().getFullYear()}
             </p>
           </div>
         </div>

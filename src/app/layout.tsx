@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { jakarta } from "@/components/font/jakarta";
 
 export const metadata: Metadata = {
-  title: "Applauz | Testimonials made easy",
+  title: "VouchFast | Testimonials made easy",
   description:
     "Testimonial collection and management made easy, for developers by developers.",
 };

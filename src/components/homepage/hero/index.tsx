@@ -1,29 +1,16 @@
 import Image from "next/image";
 
+import Doodles from "./Doodles";
+
 import heroSvg from "@/assets/hero.svg";
-import starSvg from "@/assets/star.svg";
-import spiralSvg from "@/assets/spiral.svg";
 import doubleArrow from "@/assets/double-arrow.svg";
 
 import { RoughNotation } from "react-rough-notation";
 
 const Hero = () => {
   return (
-    <div className="overflow-hidden pb-28">
-      <Image
-        src={starSvg}
-        width={300}
-        height={300}
-        alt="doodle"
-        className="absolute left-0 bottom-0 -translate-y-16 lg:top-0 h-[150px] w-[150px] lg:h-[300px] lg:w-[300px] -translate-x-1/2 lg:translate-y-72 opacity-20 -z-10"
-      />
-      <Image
-        src={spiralSvg}
-        width={200}
-        height={200}
-        alt="doodle"
-        className="absolute right-0 bottom-0 -translate-y-52 translate-x-10 lg:translate-y-0 lg:translate-x-0 lg:top-1/4 h-[100px] w-[100px] lg:h-[200px] lg:w-[200px] rotate-45 opacity-30 -z-10"
-      />
+    <div className="relative pb-28">
+      <Doodles />
 
       <div className="container mx-auto">
         <Image
@@ -47,7 +34,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg lg:text-xl max-w-4xl mt-10 text-center mx-auto text-gray-300">
-          Applauz offers everything you need to fetch testimonials from your
+          VouchFast offers everything you need to fetch testimonials from your
           clients.
         </p>
 
