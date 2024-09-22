@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`overflow-x-hidden ${jakarta.className}`}>
+      <body className={`overflow-x-hidden ${jakarta.className} dark`}>
         <Navbar />
         {children}
         <Footer />
