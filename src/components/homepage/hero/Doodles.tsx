@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import starSvg from "@/assets/star.svg";
-import spiralSvg from "@/assets/spiral.svg";
+import leafSvg from "@/assets/leaf.svg";
 
 import { motion } from "framer-motion";
 
@@ -21,7 +21,7 @@ const Doodles = () => {
           width={300}
           height={300}
           alt="doodle"
-          className="opacity-10"
+          className="opacity-30"
         />
       </motion.div>
 
@@ -32,11 +32,11 @@ const Doodles = () => {
         className="absolute right-0 bottom-1/4 lg:top-0 lg:right-20 h-[100px] w-[100px] lg:h-[180px] lg:w-[180px] rotate-45 -z-10"
       >
         <Image
-          src={spiralSvg}
-          width={200}
-          height={200}
+          src={leafSvg}
+          width={300}
+          height={300}
           alt="doodle"
-          className="opacity-20 rotate-45"
+          className="opacity-30 rotate-45"
         />
       </motion.div>
     </>
