@@ -1,4 +1,4 @@
-import productImage from "@/assets/opera.png";
+import productImage from "@/assets/product.jpg";
 import Image from "next/image";
 
 const VideoBox = () => {
