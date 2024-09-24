@@ -1,25 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileNav from "./MobileNav";
-import Image from "next/image";
 
-import menuIcon from "@/assets/menu-01.svg";
+import { Menu, X } from "lucide-react";
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
+
+  const Icon = isOpen ? X : Menu;
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <div className="lg:hidden">
-      <Image
-        src={menuIcon}
-        alt="Menu Icon"
-        width={30}
-        height={30}
-        onClick={toggle}
-      />
+      <Icon onClick={toggle} />
       {isOpen && <MobileNav />}
     </div>
   );
