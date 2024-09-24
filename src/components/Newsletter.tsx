@@ -2,16 +2,23 @@ import React from "react";
 import Image from "next/image";
 
 import arrowSvg from "@/assets/curve-arrow-left.svg";
+import { cn } from "@/lib/utils";
+import { grotesque } from "./font/grotesque";
 
 const Newsletter = () => {
   return (
     <div className="container mx-auto px-5 lg:px-0">
-      <div className="relative bg-zinc-800 px-8 py-12 rounded-3xl">
-        <h1 className="text-center text-3xl lg:text-5xl font-bold">
+      <div className="relative bg-accent px-8 py-12 rounded-3xl">
+        <h1
+          className={cn(
+            "text-center text-3xl lg:text-5xl font-bold",
+            grotesque.className,
+          )}
+        >
           Subscribe to the Newsletter
         </h1>
 
-        <h2 className="text-center lg:text-xl py-5 font-medium text-gray-400">
+        <h2 className="text-center lg:text-xl pt-3 pb-5 font-medium text-gray-400">
           For occassional updates and tech blogs.
         </h2>
 

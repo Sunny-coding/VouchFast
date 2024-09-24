@@ -5,14 +5,17 @@ import Doodles from "./Doodles";
 import heroSvg from "@/assets/hero.svg";
 import doubleArrow from "@/assets/double-arrow.svg";
 
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { RoughNotation } from "react-rough-notation";
+import { grotesque } from "@/components/font/grotesque";
 
 const Hero = () => {
   return (
     <div className="relative pb-28">
       <Doodles />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         <Image
           src={heroSvg}
           width={30}
@@ -25,9 +28,14 @@ const Hero = () => {
           One-stop platform
         </h2>
 
-        <h1 className="text-5xl lg:text-6xl mt-4 lg:mt-6 text-center max-w-5xl mx-auto font-black">
+        <h1
+          className={cn(
+            "text-5xl lg:text-8xl mt-4 lg:mt-6 text-center max-w-6xl mx-auto font-black",
+            grotesque.className,
+          )}
+        >
           Your{" "}
-          <RoughNotation type="highlight" iterations={1} color="#20e1db" show>
+          <RoughNotation type="highlight" iterations={1} color="#22c55e" show>
             <span className="text-background px-2">ultimate</span>
           </RoughNotation>{" "}
           Testimonial collecting tool.
@@ -38,10 +46,10 @@ const Hero = () => {
           clients.
         </p>
 
-        <button className="px-10 py-4 mt-10 mx-auto text-xl flex items-center gap-2 hover:gap-3 rounded-full bg-white hover:bg-primary-400 transition duration-100 text-black font-black">
+        <Button className="absolute rounded-full px-7 py-4 left-1/2 -translate-x-1/2 mt-10 text-2xl gap-2">
           Get Started
           <Image src={doubleArrow} height={20} width={20} alt="doodle" />
-        </button>
+        </Button>
       </div>
     </div>
   );

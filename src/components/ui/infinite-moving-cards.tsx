@@ -1,6 +1,6 @@
 "use client";
 
-import cn from "@/util/cn";
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 export const InfiniteMovingCards = ({
@@ -92,7 +92,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <li
-            className="w-full max-w-[21rem] lg:max-w-sm p-4 flex rounded-2xl flex-shrink-0 bg-gradient-to-tr to-primary-500 from-blue-700"
+            className="w-full max-w-[21rem] lg:max-w-sm p-4 flex rounded-2xl flex-shrink-0 bg-gradient-to-tr to-indigo-600 from-primary"
             key={item.name}
           >
             <section className="w-full flex flex-col justify-between">

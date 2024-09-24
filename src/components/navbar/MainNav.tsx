@@ -1,18 +1,14 @@
-import React from "react";
 import links from "./navlinks";
 import Link from "next/link";
 import Image from "next/image";
 
 import doubleArrow from "@/assets/double-arrow.svg";
+import { Button } from "../ui/button";
 
-interface MainNavProps {
-  className?: string;
-}
-
-const MainNav = ({ className }: MainNavProps) => {
+const MainNav = () => {
   return (
-    <div className={className}>
-      <section className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+    <>
+      <section className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <ul className="flex space-x-4">
           {links.map((link) => (
             <li key={link.url}>
@@ -23,16 +19,14 @@ const MainNav = ({ className }: MainNavProps) => {
       </section>
 
       <section className="hidden lg:flex space-x-2">
-        <button className="px-5 py-2 rounded-full border hover:border-primary-400 transition duration-200">
-          Log In
-        </button>
+        <Button variant="ghost">Login</Button>
 
-        <button className="px-5 py-2 flex items-center gap-2 rounded-full bg-white hover:bg-primary-400 transition duration-200 text-black font-black">
+        <Button className="gap-2">
           Get Started
           <Image src={doubleArrow} height={20} width={20} alt="doodle" />
-        </button>
+        </Button>
       </section>
-    </div>
+    </>
   );
 };
 

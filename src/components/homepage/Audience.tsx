@@ -3,6 +3,8 @@ import { RiLightbulbFlashLine } from "react-icons/ri";
 import { SiFreelancer } from "react-icons/si";
 
 import type { IconType } from "react-icons";
+import { cn } from "@/lib/utils";
+import { grotesque } from "../font/grotesque";
 
 interface BoxProps {
   heading: string;
@@ -13,10 +15,17 @@ interface BoxProps {
 
 const Box = ({ heading, description, Icon }: BoxProps) => {
   return (
-    <div className="bg-zinc-900 p-10 mx-5 lg:mx-0 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
-      <Icon size={50} className="text-primary-500" />
-      <h2 className="text-lg lg:text-3xl font-bold mt-10">{heading}</h2>
-      <p className="mt-5 text-gray-400 text-lg font-medium">{description}</p>
+    <div className="bg-accent p-10 mx-5 lg:mx-0 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
+      <Icon size={50} className="text-primary" />
+      <h2
+        className={cn(
+          "text-lg lg:text-3xl font-black mt-10",
+          grotesque.className,
+        )}
+      >
+        {heading}
+      </h2>
+      <p className="mt-5 text-zinc-400 text-lg font-medium">{description}</p>
     </div>
   );
 };
@@ -24,8 +33,7 @@ const Box = ({ heading, description, Icon }: BoxProps) => {
 const uses = [
   {
     heading: "Freelancers",
-    description:
-      "Collect and showcase client testimonials to build trust and attract new projects.",
+    description: "Collect more testimonials to make more money 💰",
     Icon: SiFreelancer,
   },
   {
@@ -43,8 +51,13 @@ const uses = [
 
 const Audience = () => {
   return (
-    <div className="container mx-auto pb-24 w-full">
-      <h1 className="text-center text-2xl lg:text-5xl font-bold my-16">
+    <div className="container mx-auto pt-24 pb-16 w-full">
+      <h1
+        className={cn(
+          "text-center text-4xl lg:text-9xl font-bold my-16",
+          grotesque.className,
+        )}
+      >
         Who is VouchFast for?
       </h1>
 

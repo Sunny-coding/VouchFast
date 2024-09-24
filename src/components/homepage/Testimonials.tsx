@@ -1,6 +1,8 @@
 "use client";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { cn } from "@/lib/utils";
+import { grotesque } from "../font/grotesque";
 
 const testimonials = [
   {
@@ -69,7 +71,12 @@ const InfiniteMovingCardsDemo = () => {
   return (
     <div className="py-36 rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
       <div className="py-16">
-        <h1 className="text-center text-2xl lg:text-3xl font-bold">
+        <h1
+          className={cn(
+            "text-center text-2xl md:text-4xl lg:text-6xl font-bold",
+            grotesque.className,
+          )}
+        >
           Trusted by customers all over the world
         </h1>
       </div>
@@ -77,14 +84,10 @@ const InfiniteMovingCardsDemo = () => {
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
-        speed="normal"
+        speed="slow"
       />
 
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="left"
-        speed="normal"
-      />
+      <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
     </div>
   );
 };

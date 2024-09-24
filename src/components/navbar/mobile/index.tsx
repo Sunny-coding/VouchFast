@@ -6,17 +6,13 @@ import Image from "next/image";
 
 import menuIcon from "@/assets/menu-01.svg";
 
-interface NavProps {
-  className?: string;
-}
-
-const Index = ({ className }: NavProps) => {
+const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className={className}>
+    <div className="lg:hidden">
       <Image
         src={menuIcon}
         alt="Menu Icon"

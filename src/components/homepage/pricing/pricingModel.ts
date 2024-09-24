@@ -1,57 +1,35 @@
 const pricingModel = [
   {
-    heading: "Free Tier",
-    price: "0",
-    audience: "Starters",
+    heading: "Free",
+    price: "$0",
+    description:
+      "Get unlimited access to VouchFast for free and collect upto 3 testimonials.",
     features: [
       "3 free testimonials",
       "Invite upto 3 clients",
-      "Dashboard access",
+      "Limited Dashboard access",
     ],
-    active: false,
+    paymentType: "No credit card required.",
   },
   {
-    heading: "Starter",
-    price: 10,
-    audience: "Freelancers",
+    heading: "Lifetime",
+    price: "$29.99",
+    originalPrice: "$99.99",
+    description:
+      "Everything from Free plan and more. Get unlimited access to VouchFast for lifetime and collect unlimited testimonials.",
     features: [
-      "Upto 10 testimonials",
-      "Invite 5 clients/mo",
-      "Basic API access",
-      "Full dashboard features",
-      "Custom profile page URL",
-    ],
-    active: false,
-  },
-  {
-    heading: "Professional",
-    price: 29,
-    audience: "Small Agencies",
-    features: [
-      "Unlimited testimonials",
-      "Invite 100 clients/mo",
-      "Advanced API access",
-      "Analytics",
-      "Multi-user access",
+      "Unlimited Testimonials",
+      "Invite Unlimited clients",
+      "API access",
+      "Full Dashboard access",
+      "Personalize watermark",
+      "Remove watermark",
+      "Custom Profile URL",
       "Priority Customer Support",
     ],
+    paymentType: "Pay once. Use forever.",
     active: true,
   },
-  // {
-  //   heading: "Enterprise",
-  //   price: 299,
-  //   audience: "Large Enterprises",
-  //   features: [
-  //     "White-label solutions",
-  //     "Unlimited clients",
-  //     "Custom API integrations",
-  //     "Premium Analytics",
-  //     "Dedicated Manager",
-  //     "Advanced Security",
-  //     "Unlimited team members",
-  //   ],
-  //   active: false,
-  // },
 ];
 
 export default pricingModel;
