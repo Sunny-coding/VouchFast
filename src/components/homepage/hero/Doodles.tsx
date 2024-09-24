@@ -26,10 +26,10 @@ const Doodles = () => {
       </motion.div>
 
       <motion.div
-        initial={{ x: 200, y: -100, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 1, ease: "backInOut" }}
-        className="absolute right-0 -bottom-0 lg:top-0 lg:right-20 h-[100px] w-[100px] lg:h-[180px] lg:w-[180px] rotate-45 -z-10"
+        className="absolute right-5 -bottom-0 lg:top-0 lg:right-20 h-[100px] w-[100px] lg:h-[180px] lg:w-[180px] rotate-45 -z-10"
       >
         <Image
           src={leafSvg}
