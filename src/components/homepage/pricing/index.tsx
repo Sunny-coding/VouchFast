@@ -19,7 +19,7 @@ const Pricing = () => {
         <br /> we have your back.
       </p>
 
-      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 lg:px-16">
+      <section className="mt-16 flex flex-col md:flex-row justify-between gap-8 lg:gap-10 lg:px-16">
         {pricingModel.map((pricing, index) => (
           <PricingBox key={index} {...pricing} />
         ))}

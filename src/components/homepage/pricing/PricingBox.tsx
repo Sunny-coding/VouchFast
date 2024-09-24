@@ -25,7 +25,7 @@ const PricingBox = ({
   return (
     <div
       className={cn(
-        "flex flex-col bg-accent shadow-lg rounded-lg p-10",
+        "w-full flex flex-col bg-accent shadow-lg rounded-lg p-10",
         active ? "border-2 border-primary relative" : "",
       )}
     >
