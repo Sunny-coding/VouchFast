@@ -26,7 +26,7 @@ const PricingBox = ({
     <div
       className={cn(
         "flex flex-col bg-accent shadow-lg rounded-lg p-10",
-        active ? "border-2 border-primary relative" : "border border-zinc-700",
+        active ? "border-2 border-primary relative" : "",
       )}
     >
       <div>
@@ -64,6 +64,10 @@ const PricingBox = ({
         <div className="absolute top-0 left-1/2 -translate-x-1/2 right-0 -translate-y-1/2 w-min text-nowrap px-3 rounded-full bg-primary text-black font-medium">
           Launch offer
         </div>
+      )}
+
+      {active && (
+        <div className="inset-0 h-full w-full absolute bg-primary opacity-10 rounded-lg" />
       )}
     </div>
   );

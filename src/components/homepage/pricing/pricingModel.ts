@@ -8,12 +8,13 @@ const pricingModel = [
       "3 free testimonials",
       "Invite upto 3 clients",
       "Limited Dashboard access",
+      "Lifetime access",
     ],
     paymentType: "No credit card required.",
   },
   {
     heading: "Lifetime",
-    price: "$29.99",
+    price: "$19.99",
     originalPrice: "$99.99",
     description:
       "Everything from Free plan and more. Get unlimited access to VouchFast for lifetime and collect unlimited testimonials.",
