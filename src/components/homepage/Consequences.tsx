@@ -11,8 +11,8 @@ import { Fragment } from "react";
 const TestimonialStep = ({ emoji, text }: { emoji: string; text: string }) => {
   return (
     <section className="w-full max-w-80">
-      <span className="text-5xl">{emoji}</span>
-      <p className="text-xl mt-5 text-gray-400">{text}</p>
+      <span className="text-3xl lg:text-5xl">{emoji}</span>
+      <p className="lg:text-xl mt-2 lg:mt-5 text-gray-400">{text}</p>
     </section>
   );
 };
@@ -40,7 +40,7 @@ const Consequences = () => {
         right now!
       </h1>
 
-      <p className="text-xl font-medium text-gray-400 mt-5 lg:mt-10">
+      <p className="md:text-xl font-medium text-gray-400 mt-7 lg:mt-10">
         80% of potential clients need social proof to trust your business.
       </p>
 
@@ -51,10 +51,10 @@ const Consequences = () => {
             {step.arrow && (
               <Image
                 src={step.arrow}
-                width={50}
-                height={50}
+                width={30}
+                height={30}
                 alt=""
-                className="rotate-90 my-5 md:rotate-0 md:my-0"
+                className="md:h-16 md:w-16 rotate-90 my-5 md:rotate-0 md:my-0"
               />
             )}
           </Fragment>

@@ -10,7 +10,7 @@ const CTA = () => {
         <div>
           <h1
             className={cn(
-              "text-3xl lg:text-6xl font-bold text-black",
+              "text-3xl lg:text-6xl font-black text-black",
               grotesque.className,
             )}
           >
@@ -22,7 +22,7 @@ const CTA = () => {
           </p>
         </div>
 
-        <Button className="bg-black text-white px-10 py-3 hover:bg-black hover:scale-105">
+        <Button className="bg-black text-white px-10 py-3 mt-5 lg:mt-0 hover:bg-black hover:scale-105">
           Get Started &rarr;
         </Button>
       </div>

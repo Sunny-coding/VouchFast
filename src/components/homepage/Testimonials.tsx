@@ -70,10 +70,10 @@ const testimonials = [
 const InfiniteMovingCardsDemo = () => {
   return (
     <div className="py-36 rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-      <div className="py-16">
+      <div className="py-16 px-5">
         <h1
           className={cn(
-            "text-center text-2xl md:text-4xl lg:text-6xl font-bold",
+            "text-center text-3xl md:text-4xl lg:text-6xl font-bold",
             grotesque.className,
           )}
         >

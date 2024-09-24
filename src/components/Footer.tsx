@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
           </section>
 
-          <div className="flex flex-col lg:flex-row gap-10 lg:justify-end w-full">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-36 lg:gap-10 md:justify-center lg:justify-end w-full">
             <div className="text-center sm:text-left">
               <p className="text-xl font-medium">About Us</p>
 
@@ -95,7 +95,7 @@ const Footer = () => {
                   href="https://acidop.codes"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-primary-500"
+                  className="text-primary"
                 >
                   AcidOP
                 </a>

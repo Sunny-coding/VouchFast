@@ -15,17 +15,17 @@ interface BoxProps {
 
 const Box = ({ heading, description, Icon }: BoxProps) => {
   return (
-    <div className="bg-accent p-10 mx-5 lg:mx-0 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
+    <div className="bg-accent p-10 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
       <Icon size={50} className="text-primary" />
       <h2
         className={cn(
-          "text-lg lg:text-3xl font-black mt-10",
+          "text-2xl lg:text-3xl font-black mt-5 lg:mt-10",
           grotesque.className,
         )}
       >
         {heading}
       </h2>
-      <p className="mt-5 text-zinc-400 text-lg font-medium">{description}</p>
+      <p className="mt-2 lg:mt-5 text-zinc-400 text-lg font-medium">{description}</p>
     </div>
   );
 };
@@ -51,7 +51,7 @@ const uses = [
 
 const Audience = () => {
   return (
-    <div className="container mx-auto pt-24 pb-16 w-full">
+    <div className="container mx-auto pt-24 pb-16 px-5 lg:px-0 w-full">
       <h1
         className={cn(
           "text-center text-4xl lg:text-9xl font-bold my-16",
