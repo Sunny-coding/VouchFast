@@ -25,7 +25,9 @@ const Box = ({ heading, description, Icon }: BoxProps) => {
       >
         {heading}
       </h2>
-      <p className="mt-2 lg:mt-5 text-zinc-400 text-lg font-medium">{description}</p>
+      <p className="mt-2 lg:mt-5 text-zinc-400 text-lg font-medium">
+        {description}
+      </p>
     </div>
   );
 };

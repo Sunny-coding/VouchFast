@@ -6,6 +6,7 @@ import Newsletter from "@/components/Newsletter";
 import CTA from "@/components/homepage/CTA";
 import Pricing from "@/components/homepage/pricing";
 import Consequences from "@/components/homepage/Consequences";
+import Compare from "@/components/homepage/Compare";
 
 const Homepage = () => {
   return (
@@ -13,6 +14,7 @@ const Homepage = () => {
       <Hero />
       <ProductBox />
       <Consequences />
+      <Compare />
       <Audience />
       <Newsletter />
       <Testimonials />

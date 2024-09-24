@@ -26,7 +26,7 @@ const Consequences = () => {
   ];
 
   return (
-    <div className="container mx-auto mt-36 mb-16 text-center px-5 lg:px-0">
+    <div className="container mx-auto my-36 text-center px-5 lg:px-0">
       <h1
         className={cn(
           "text-4xl lg:text-6xl font-bold mx-auto max-w-5xl",
@@ -51,8 +51,8 @@ const Consequences = () => {
             {step.arrow && (
               <Image
                 src={step.arrow}
-                width={30}
-                height={30}
+                width={50}
+                height={50}
                 alt=""
                 className="md:h-16 md:w-16 rotate-90 my-5 md:rotate-0 md:my-0"
               />
