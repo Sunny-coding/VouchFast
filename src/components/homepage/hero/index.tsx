@@ -15,7 +15,7 @@ const Hero = () => {
     <div className="relative pb-28">
       <Doodles />
 
-      <div className="container mx-auto relative">
+      <div className="container mx-auto relative px-5 lg:px-0">
         <Image
           src={heroSvg}
           width={30}
