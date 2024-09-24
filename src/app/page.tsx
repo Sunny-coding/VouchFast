@@ -5,12 +5,14 @@ import ProductBox from "@/components/homepage/ProductBox";
 import Newsletter from "@/components/Newsletter";
 import CTA from "@/components/homepage/CTA";
 import Pricing from "@/components/homepage/pricing";
+import Consequences from "@/components/homepage/Consequences";
 
 const Homepage = () => {
   return (
     <>
       <Hero />
       <ProductBox />
+      <Consequences />
       <Audience />
       <Newsletter />
       <Testimonials />
