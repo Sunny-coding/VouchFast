@@ -1,10 +1,12 @@
-import { MdAddBusiness } from "react-icons/md";
-import { RiLightbulbFlashLine } from "react-icons/ri";
-import { SiFreelancer } from "react-icons/si";
+import { grotesque } from '../font/grotesque';
 
-import type { IconType } from "react-icons";
-import { cn } from "@/lib/utils";
-import { grotesque } from "../font/grotesque";
+import { cn } from '@/lib/utils';
+
+import { MdAddBusiness } from 'react-icons/md';
+import { RiLightbulbFlashLine } from 'react-icons/ri';
+import { SiFreelancer } from 'react-icons/si';
+
+import type { IconType } from 'react-icons';
 
 interface BoxProps {
   heading: string;
@@ -15,17 +17,17 @@ interface BoxProps {
 
 const Box = ({ heading, description, Icon }: BoxProps) => {
   return (
-    <div className="bg-accent p-10 rounded-2xl transition duration-200 lg:hover:scale-105 hover:rotate-1">
-      <Icon size={50} className="text-primary" />
+    <div className='rounded-2xl bg-accent p-10 transition duration-200 hover:rotate-1 lg:hover:scale-105'>
+      <Icon size={50} className='text-primary' />
       <h2
         className={cn(
-          "text-2xl lg:text-3xl font-black mt-5 lg:mt-10",
+          'mt-5 text-2xl font-black lg:mt-10 lg:text-3xl',
           grotesque.className,
         )}
       >
         {heading}
       </h2>
-      <p className="mt-2 lg:mt-5 text-zinc-400 text-lg font-medium">
+      <p className='mt-2 text-lg font-medium text-zinc-400 lg:mt-5'>
         {description}
       </p>
     </div>
@@ -34,37 +36,38 @@ const Box = ({ heading, description, Icon }: BoxProps) => {
 
 const uses = [
   {
-    heading: "Freelancers",
-    description: "Collect more testimonials to make more money 💰",
+    heading: 'Freelancers',
+    description: 'Collect more testimonials to make more money 💰',
     Icon: SiFreelancer,
   },
   {
-    heading: "Agencies",
-    description: "Streamline testimonial collection and approval across teams.",
+    heading: 'Agencies',
+    description:
+      'Streamline testimonial collection and approval across teams.',
     Icon: MdAddBusiness,
   },
   {
-    heading: "SaaS Founders",
+    heading: 'SaaS Founders',
     description:
-      "Automate gathering customer feedback and build trust with potential users.",
+      'Automate gathering customer feedback and build trust with potential users.',
     Icon: RiLightbulbFlashLine,
   },
 ];
 
 const Audience = () => {
   return (
-    <div className="container mx-auto pt-24 pb-16 px-5 lg:px-0 w-full">
+    <div className='container mx-auto w-full px-5 pb-16 pt-24 lg:px-0'>
       <h1
         className={cn(
-          "text-center text-4xl lg:text-9xl font-bold my-16",
+          'my-16 text-center text-4xl font-bold lg:text-9xl',
           grotesque.className,
         )}
       >
         Who is VouchFast for?
       </h1>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {uses.map((use) => {
+      <section className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
+        {uses.map(use => {
           return <Box key={use.heading} {...use} />;
         })}
       </section>

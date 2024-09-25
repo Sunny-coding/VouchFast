@@ -1,20 +1,20 @@
-import Link from "next/link";
+import { grotesque } from '../font/grotesque';
+import MainNav from './MainNav';
+import MobileNav from './mobile';
 
-import MainNav from "./MainNav";
-import MobileNav from "./mobile";
+import { cn } from '@/lib/utils';
 
-import { cn } from "@/lib/utils";
-import { grotesque } from "../font/grotesque";
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 bg-background z-50">
-      <div className="relative container mx-auto px-5 lg:px-0 py-4 flex justify-between items-center text-lg">
-        <h1 className="text-xl">
+    <nav className='sticky top-0 z-50 bg-background'>
+      <div className='container relative mx-auto flex items-center justify-between px-5 py-4 text-lg lg:px-0'>
+        <h1 className='text-xl'>
           <Link
-            href={"/"}
+            href={'/'}
             className={cn(
-              "text-xl lg:text-3xl font-black",
+              'text-xl font-black lg:text-3xl',
               grotesque.className,
             )}
           >

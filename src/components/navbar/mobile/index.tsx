@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import MobileNav from "./MobileNav";
+import { useEffect, useState } from 'react';
 
-import { Menu, X } from "lucide-react";
+import MobileNav from './MobileNav';
+
+import { Menu, X } from 'lucide-react';
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,14 +14,14 @@ const Index = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden">
+    <div className='lg:hidden'>
       <Icon onClick={toggle} />
       {isOpen && <MobileNav />}
     </div>

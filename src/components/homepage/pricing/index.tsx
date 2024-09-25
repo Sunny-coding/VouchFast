@@ -1,25 +1,26 @@
-import { grotesque } from "@/components/font/grotesque";
-import PricingBox from "./PricingBox";
-import pricingModel from "./pricingModel";
-import { cn } from "@/lib/utils";
+import PricingBox from './PricingBox';
+import pricingModel from './pricingModel';
+
+import { grotesque } from '@/components/font/grotesque';
+import { cn } from '@/lib/utils';
 
 const Pricing = () => {
   return (
-    <div className="container mx-auto px-5 lg:px-0 lg:my-36 mb-24">
+    <div className='container mx-auto mb-24 px-5 lg:my-36 lg:px-0'>
       <h1
         className={cn(
-          "text-7xl md:text-9xl font-black text-center",
+          'text-center text-7xl font-black md:text-9xl',
           grotesque.className,
         )}
       >
         Pricing
       </h1>
-      <p className="text-sm md:text-xl font-medium text-center mt-3 text-gray-400">
+      <p className='mt-3 text-center text-sm font-medium text-gray-400 md:text-xl'>
         Whether you are a freelancer, or an agency owner or a Founder,
-        <br className="hidden sm:block" /> we have your back.
+        <br className='hidden sm:block' /> we have your back.
       </p>
 
-      <section className="mt-16 flex flex-col md:flex-row justify-between gap-8 lg:gap-10 lg:px-16">
+      <section className='mt-16 flex flex-col justify-between gap-8 md:flex-row lg:gap-10 lg:px-16'>
         {pricingModel.map((pricing, index) => (
           <PricingBox key={index} {...pricing} />
         ))}

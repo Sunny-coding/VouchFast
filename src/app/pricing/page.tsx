@@ -3,9 +3,9 @@
 
 const Pricing = () => {
   return (
-    <div className="container mx-auto px-5 lg:px-0 my-36">
-      <h1 className="text-7xl font-black text-center">Pricing</h1>
-      <p className="text-xl font-medium text-center mt-3 text-gray-400">
+    <div className='container mx-auto my-36 px-5 lg:px-0'>
+      <h1 className='text-center text-7xl font-black'>Pricing</h1>
+      <p className='mt-3 text-center text-xl font-medium text-gray-400'>
         Whether you are a freelancer, or an agency owner or a Founder,
         <br /> we have your back.
       </p>

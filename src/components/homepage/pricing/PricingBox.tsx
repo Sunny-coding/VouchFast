@@ -1,7 +1,8 @@
-import { grotesque } from "@/components/font/grotesque";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
+import { grotesque } from '@/components/font/grotesque';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+import { Check } from 'lucide-react';
 
 interface PricingBoxProps {
   heading: string;
@@ -25,49 +26,51 @@ const PricingBox = ({
   return (
     <div
       className={cn(
-        "w-full flex flex-col bg-accent shadow-lg rounded-lg p-10",
-        active ? "border-2 border-primary relative" : "",
+        'flex w-full flex-col rounded-lg bg-accent p-10 shadow-lg',
+        active ? 'relative border-2 border-primary' : '',
       )}
     >
       <div>
-        <h3 className={cn("text-5xl font-black", grotesque.className)}>
+        <h3 className={cn('text-5xl font-black', grotesque.className)}>
           {heading}
         </h3>
 
-        <p className="text-gray-300 mt-5">{description}</p>
+        <p className='mt-5 text-gray-300'>{description}</p>
       </div>
 
-      <div className="flex items-center mt-7 pb-5 space-x-3 border-b border-zinc-700">
+      <div className='mt-7 flex items-center space-x-3 border-b border-zinc-700 pb-5'>
         {originalPrice && (
-          <p className="text-xl text-gray-400 line-through">{originalPrice}</p>
+          <p className='text-xl text-gray-400 line-through'>
+            {originalPrice}
+          </p>
         )}
-        <p className={cn("text-5xl font-black", grotesque.className)}>
+        <p className={cn('text-5xl font-black', grotesque.className)}>
           {price}
         </p>
       </div>
 
-      <div className="flex flex-col justify-between h-full">
-        <ul className="mt-5">
+      <div className='flex h-full flex-col justify-between'>
+        <ul className='mt-5'>
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              <Check className="text-primary" size={25} />
-              <p className="ml-2 my-1 text-lg text-gray-300">{feature}</p>
+            <li key={index} className='flex items-center'>
+              <Check className='text-primary' size={25} />
+              <p className='my-1 ml-2 text-lg text-gray-300'>{feature}</p>
             </li>
           ))}
         </ul>
 
-        <Button className="mt-10 z-10">Get Started</Button>
+        <Button className='z-10 mt-10'>Get Started</Button>
       </div>
-      <p className="text-gray-400 mt-2 text-center">{paymentType}</p>
+      <p className='mt-2 text-center text-gray-400'>{paymentType}</p>
 
       {active && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 right-0 -translate-y-1/2 w-min text-nowrap px-3 rounded-full bg-primary text-black font-medium">
+        <div className='absolute left-1/2 right-0 top-0 w-min -translate-x-1/2 -translate-y-1/2 text-nowrap rounded-full bg-primary px-3 font-medium text-black'>
           Launch offer
         </div>
       )}
 
       {active && (
-        <div className="inset-0 h-full w-full absolute bg-primary opacity-10 rounded-lg" />
+        <div className='absolute inset-0 h-full w-full rounded-lg bg-primary opacity-10' />
       )}
     </div>
   );

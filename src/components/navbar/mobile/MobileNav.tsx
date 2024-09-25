@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const MobileNav = () => {
   return (
-    <div className="fixed top-[4rem] left-0 h-screen w-screen bg-black z-50">
+    <div className='fixed left-0 top-[4rem] z-50 h-screen w-screen bg-black'>
       Hi
     </div>
   );

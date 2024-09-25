@@ -1,50 +1,52 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
 
-import arrowSvg from "@/assets/curve-arrow-left.svg";
-import { cn } from "@/lib/utils";
-import { grotesque } from "./font/grotesque";
+import { grotesque } from './font/grotesque';
+
+import arrowSvg from '@/assets/curve-arrow-left.svg';
+import { cn } from '@/lib/utils';
+
+import Image from 'next/image';
 
 const Newsletter = () => {
   return (
-    <div className="container mx-auto px-5 lg:px-0">
-      <div className="relative bg-accent px-8 py-12 rounded-3xl">
+    <div className='container mx-auto px-5 lg:px-0'>
+      <div className='relative rounded-3xl bg-accent px-8 py-12'>
         <h1
           className={cn(
-            "text-center text-3xl lg:text-5xl font-bold",
+            'text-center text-3xl font-bold lg:text-5xl',
             grotesque.className,
           )}
         >
           Subscribe to the Newsletter
         </h1>
 
-        <h2 className="text-center lg:text-xl pt-3 pb-5 font-medium text-gray-400">
+        <h2 className='pb-5 pt-3 text-center font-medium text-gray-400 lg:text-xl'>
           For occassional updates and tech blogs.
         </h2>
 
-        <form className="flex items-center h-14 lg:h-16 max-w-2xl mx-auto bg-zinc-700 p-2 rounded-full">
+        <form className='mx-auto flex h-14 max-w-2xl items-center rounded-full bg-zinc-700 p-2 lg:h-16'>
           <input
-            type="email"
-            className="hidden lg:block w-full h-full pl-5 bg-transparent rounded-lg text-white outline-none lg:placeholder:text-lg"
-            placeholder="Enter your email address"
+            type='email'
+            className='hidden h-full w-full rounded-lg bg-transparent pl-5 text-white outline-none lg:block lg:placeholder:text-lg'
+            placeholder='Enter your email address'
           />
 
           <input
-            type="email"
-            className="lg:hidden w-full h-full pl-5 bg-transparent rounded-lg text-white outline-none lg:placeholder:text-xs"
-            placeholder="Email address"
+            type='email'
+            className='h-full w-full rounded-lg bg-transparent pl-5 text-white outline-none lg:hidden lg:placeholder:text-xs'
+            placeholder='Email address'
           />
 
-          <button className="bg-white flex items-center h-full px-10 text-black text-sm lg:text-lg transition duration-200 hover:bg-primary-500 font-bold rounded-full">
+          <button className='hover:bg-primary-500 flex h-full items-center rounded-full bg-white px-10 text-sm font-bold text-black transition duration-200 lg:text-lg'>
             Subscribe
           </button>
 
           <Image
             src={arrowSvg}
-            alt="doodle"
+            alt='doodle'
             height={200}
             width={200}
-            className="hidden lg:block absolute top-10 right-32"
+            className='absolute right-32 top-10 hidden lg:block'
           />
         </form>
       </div>

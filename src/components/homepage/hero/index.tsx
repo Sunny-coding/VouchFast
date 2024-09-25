@@ -1,55 +1,62 @@
-import Image from "next/image";
+import Doodles from './Doodles';
 
-import Doodles from "./Doodles";
+import doubleArrow from '@/assets/double-arrow.svg';
+import heroSvg from '@/assets/hero.svg';
+import { grotesque } from '@/components/font/grotesque';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-import heroSvg from "@/assets/hero.svg";
-import doubleArrow from "@/assets/double-arrow.svg";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { RoughNotation } from "react-rough-notation";
-import { grotesque } from "@/components/font/grotesque";
+import Image from 'next/image';
+import Link from 'next/link';
+import { RoughNotation } from 'react-rough-notation';
 
 const Hero = () => {
   return (
-    <div className="relative pb-28">
+    <div className='relative pb-28'>
       <Doodles />
 
-      <div className="container mx-auto relative px-5 lg:px-0">
+      <div className='container relative mx-auto px-5 lg:px-0'>
         <Image
           src={heroSvg}
           width={30}
           height={30}
-          alt="doodle"
-          className="mt-16 mx-auto"
+          alt='doodle'
+          className='mx-auto mt-16'
         />
 
-        <h2 className="text-center text-lg lg:text-2xl mb-5 text-gray-400">
+        <h2 className='mb-5 text-center text-lg text-gray-400 lg:text-2xl'>
           One-stop platform
         </h2>
 
         <h1
           className={cn(
-            "text-5xl lg:text-8xl mt-4 lg:mt-6 text-center max-w-6xl mx-auto font-black",
+            'mx-auto mt-4 max-w-6xl text-center text-5xl font-black lg:mt-6 lg:text-8xl',
             grotesque.className,
           )}
         >
-          Your{" "}
-          <RoughNotation type="highlight" iterations={1} color="#22c55e" show>
-            <span className="text-background px-2">ultimate</span>
-          </RoughNotation>{" "}
+          Your{' '}
+          <RoughNotation
+            type='highlight'
+            iterations={1}
+            color='#22c55e'
+            show
+          >
+            <span className='px-2 text-background'>ultimate</span>
+          </RoughNotation>{' '}
           Testimonial collecting tool.
         </h1>
 
-        <p className="text-lg lg:text-xl max-w-4xl mt-10 text-center mx-auto text-gray-300">
-          VouchFast offers everything you need to fetch testimonials from your
-          clients.
+        <p className='mx-auto mt-10 max-w-4xl text-center text-lg text-gray-300 lg:text-xl'>
+          VouchFast offers everything you need to fetch testimonials from
+          your clients.
         </p>
 
-        <Button className="absolute rounded-full px-7 py-4 left-1/2 -translate-x-1/2 mt-10 text-2xl gap-2">
-          Get Started
-          <Image src={doubleArrow} height={20} width={20} alt="doodle" />
-        </Button>
+        <Link href='/auth'>
+          <Button className='absolute left-1/2 mt-10 -translate-x-1/2 gap-2 rounded-full px-7 py-4 text-2xl'>
+            Get Started
+            <Image src={doubleArrow} height={20} width={20} alt='doodle' />
+          </Button>
+        </Link>
       </div>
     </div>
   );
