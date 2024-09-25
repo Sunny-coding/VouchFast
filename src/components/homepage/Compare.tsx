@@ -35,27 +35,29 @@ const Compare = () => {
   const without = [
     "Chase clients for testimonials",
     "Manage testimonials manually",
-    "Manually approve testimonials",
     "Update testimonials regularly",
   ];
 
-  const withd = [
-    "No Chase",
-    "No manual management",
-    "No manual approvals",
-    "No manual updates",
-  ];
+  const withd = ["No Chase", "No manual management", "No manual updates"];
 
   return (
     <div className="bg-accent">
       <div className="container mx-auto px-5 lg:px-0 p-36">
-        <h2
+        {/* <h2
           className={cn(
             "text-center text-3xl md:text-5xl font-black max-w-4xl mx-auto",
             grotesque.className,
           )}
         >
           Fed up with chasing and managing client testimonials?
+        </h2> */}
+        <h2
+          className={cn(
+            "text-center text-4xl md:text-5xl lg:text-6xl font-black max-w-4xl mx-auto",
+            grotesque.className,
+          )}
+        >
+          VouchFast is here to change the game.
         </h2>
 
         <div className="flex flex-col lg:flex-row mx-auto justify-around gap-5 max-w-4xl mt-20">
@@ -71,7 +73,7 @@ const Compare = () => {
             <List list={without} className="text-red-300" icon={X} />
           </div>
 
-          <div className="bg-green-800 p-10 rounded-lg shadow-lg w-full lg:max-w-sm">
+          <div className="bg-green-800 p-10 rounded-lg shadow-lg w-full lg:max-w-sm border-2 border-primary">
             <h3
               className={cn(
                 "text-xl font-bold text-green-100",

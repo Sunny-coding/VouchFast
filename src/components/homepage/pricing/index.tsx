@@ -14,9 +14,9 @@ const Pricing = () => {
       >
         Pricing
       </h1>
-      <p className="text-xl font-medium text-center mt-3 text-gray-400">
+      <p className="text-sm md:text-xl font-medium text-center mt-3 text-gray-400">
         Whether you are a freelancer, or an agency owner or a Founder,
-        <br /> we have your back.
+        <br className="hidden sm:block" /> we have your back.
       </p>
 
       <section className="mt-16 flex flex-col md:flex-row justify-between gap-8 lg:gap-10 lg:px-16">

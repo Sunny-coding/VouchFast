@@ -9,6 +9,7 @@ const pricingModel = [
       "Invite upto 3 clients",
       "Limited Dashboard access",
       "Lifetime access",
+      "Dedicated Landing Page",
     ],
     paymentType: "No credit card required.",
   },
