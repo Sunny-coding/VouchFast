@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 const CTA = () => {
   return (
-    <div className='container mx-auto mb-16 px-5 lg:px-0'>
+    <div className='container mx-auto px-5 lg:px-0'>
       <div className='flex w-full flex-col justify-between rounded-2xl bg-primary px-8 py-5 lg:flex-row lg:items-center lg:px-16 lg:py-12'>
         <div>
           <h1

@@ -26,9 +26,9 @@ const TestimonialStep = ({
 
 const Consequences = () => {
   const steps = [
-    { emoji: '🧑✍️', text: 'Endless testimonials', arrow: arrowSvg },
-    { emoji: '🔄', text: 'Approval loops', arrow: invertArrowSvg },
-    { emoji: '📉', text: 'Brand image weakens', arrow: arrowSvg },
+    { emoji: '🧑✍️', text: 'Endless testimonials' },
+    { emoji: '🔄', text: 'Approval loops' },
+    { emoji: '📉', text: 'Brand image weakens' },
     { emoji: '😕', text: 'Reputation fades' },
   ];
 
@@ -52,18 +52,26 @@ const Consequences = () => {
       </p>
 
       <div className='mx-auto mt-16 flex max-w-5xl flex-col items-center justify-between gap-5 md:flex-row lg:mt-24'>
-        {steps.map(step => (
+        {steps.map((step, index) => (
           <Fragment key={step.text}>
             <TestimonialStep emoji={step.emoji} text={step.text} />
-            {step.arrow && (
+            {index % 2 === 0 && index !== steps.length - 1 ? (
               <Image
-                src={step.arrow}
+                src={arrowSvg}
                 width={50}
                 height={50}
                 alt=''
-                className='my-5 rotate-90 md:my-0 md:h-16 md:w-16 md:rotate-0'
+                className='md:my-0 md:h-16 md:w-16 lg:-rotate-90'
               />
-            )}
+            ) : index % 2 !== 0 && index !== steps.length - 1 ? (
+              <Image
+                src={invertArrowSvg}
+                width={50}
+                height={50}
+                alt=''
+                className='md:my-0 md:h-16 md:w-16 lg:-rotate-90'
+              />
+            ) : null}
           </Fragment>
         ))}
       </div>
