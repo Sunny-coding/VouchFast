@@ -1,15 +1,19 @@
-import { grotesque } from '../font/grotesque';
+import AuthMenu from './AuthMenu';
 import MainNav from './MainNav';
 import MobileNav from './mobile';
 
+import { auth } from '@/auth';
+import { grotesque } from '@/components/font/grotesque';
 import { cn } from '@/lib/utils';
 
 import Link from 'next/link';
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
+
   return (
     <nav className='sticky top-0 z-50 bg-background'>
-      <div className='container relative mx-auto flex items-center justify-between px-5 py-4 text-lg lg:px-0'>
+      <div className='container relative mx-auto flex h-16 items-center justify-between px-5 text-lg lg:px-0'>
         <h1 className='text-xl'>
           <Link
             href={'/'}
@@ -23,7 +27,16 @@ const Navbar = () => {
         </h1>
 
         <MainNav />
-        <MobileNav />
+
+        <div
+          className={cn(
+            'flex items-center gap-2',
+            !session && 'lg:hidden',
+          )}
+        >
+          <AuthMenu />
+          <MobileNav />
+        </div>
       </div>
     </nav>
   );

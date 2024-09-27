@@ -16,10 +16,10 @@ const Homepage = () => {
       <Consequences />
       <Compare />
       <Audience />
-      <Newsletter />
-      <Testimonials />
       <Pricing />
       <CTA />
+      <Testimonials />
+      <Newsletter />
     </>
   );
 };

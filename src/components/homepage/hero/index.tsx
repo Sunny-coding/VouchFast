@@ -52,7 +52,7 @@ const Hero = () => {
         </p>
 
         <Link href='/auth'>
-          <Button className='absolute left-1/2 mt-10 -translate-x-1/2 gap-2 rounded-full px-7 py-4 text-2xl'>
+          <Button className='absolute left-1/2 mt-10 -translate-x-1/2 gap-2 rounded-full px-7 py-4 text-2xl md:mt-5'>
             Get Started
             <Image src={doubleArrow} height={20} width={20} alt='doodle' />
           </Button>

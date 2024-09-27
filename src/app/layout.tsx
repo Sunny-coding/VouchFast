@@ -2,8 +2,10 @@ import './globals.css';
 
 import { jakarta } from '@/components/font/jakarta';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/navbar/Navbar';
+import Navbar from '@/components/navbar';
 import { ThemeProvider } from '@/providers/theme-provider';
+
+import { SessionProvider } from 'next-auth/react';
 
 import type { Metadata } from 'next';
 
@@ -27,9 +29,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
-          <Footer />
+          <SessionProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

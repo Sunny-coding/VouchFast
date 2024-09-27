@@ -22,7 +22,7 @@ const Index = () => {
 
   return (
     <div className='lg:hidden'>
-      <Icon onClick={toggle} />
+      <Icon onClick={toggle} size={35} />
       {isOpen && <MobileNav />}
     </div>
   );
