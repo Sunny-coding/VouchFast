@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const Pricing = () => {
   return (
-    <div className='container mx-auto mb-24 px-5 lg:my-36 lg:px-0'>
+    <div className='layout mb-24 lg:my-36'>
       <h1
         className={cn(
           'text-center text-7xl font-black md:text-9xl',

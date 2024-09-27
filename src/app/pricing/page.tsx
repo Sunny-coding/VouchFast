@@ -3,7 +3,7 @@
 
 const Pricing = () => {
   return (
-    <div className='container mx-auto my-36 px-5 lg:px-0'>
+    <div className='layout my-36'>
       <h1 className='text-center text-7xl font-black'>Pricing</h1>
       <p className='mt-3 text-center text-xl font-medium text-gray-400'>
         Whether you are a freelancer, or an agency owner or a Founder,

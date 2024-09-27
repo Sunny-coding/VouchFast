@@ -7,7 +7,7 @@ const sansita = Sansita({ subsets: ['latin'], weight: '700' });
 const Footer = () => {
   return (
     <footer>
-      <div className='mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-0 lg:pt-24'>
+      <div className='layout pb-6 pt-16 lg:pt-24'>
         <div className='flex flex-col gap-8 lg:flex-row'>
           <section className='w-full text-center lg:text-start'>
             <h3 className={cn('text-7xl font-black', sansita.className)}>

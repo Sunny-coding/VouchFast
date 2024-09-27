@@ -13,7 +13,7 @@ const Navbar = async () => {
 
   return (
     <nav className='sticky top-0 z-50 bg-background'>
-      <div className='container relative mx-auto flex h-16 items-center justify-between px-5 text-lg lg:px-0'>
+      <div className='layout relative flex h-16 items-center justify-between text-lg'>
         <h1 className='text-xl'>
           <Link
             href={'/'}

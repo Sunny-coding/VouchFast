@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Newsletter = () => {
   return (
-    <div className='container mx-auto px-5 lg:px-0'>
+    <div className='layout'>
       <div className='relative rounded-3xl bg-accent px-8 py-12'>
         <h1
           className={cn(

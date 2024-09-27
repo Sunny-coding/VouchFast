@@ -33,7 +33,7 @@ const Consequences = () => {
   ];
 
   return (
-    <div className='container mx-auto my-36 px-5 text-center lg:px-0'>
+    <div className='layout my-36 text-center'>
       <h1
         className={cn(
           'mx-auto max-w-5xl text-4xl font-bold lg:text-6xl',
@@ -61,7 +61,7 @@ const Consequences = () => {
                 width={50}
                 height={50}
                 alt=''
-                className='md:my-0 md:h-16 md:w-16 lg:-rotate-90'
+                className='md:my-0 md:h-16 md:w-16 md:-rotate-90'
               />
             ) : index % 2 !== 0 && index !== steps.length - 1 ? (
               <Image
@@ -69,7 +69,7 @@ const Consequences = () => {
                 width={50}
                 height={50}
                 alt=''
-                className='md:my-0 md:h-16 md:w-16 lg:-rotate-90'
+                className='md:my-0 md:h-16 md:w-16 md:-rotate-90'
               />
             ) : null}
           </Fragment>

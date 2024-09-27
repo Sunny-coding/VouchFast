@@ -56,7 +56,7 @@ const uses = [
 
 const Audience = () => {
   return (
-    <div className='container mx-auto w-full px-5 pb-16 pt-24 lg:px-0'>
+    <div className='layout w-full pb-16 pt-24'>
       <h1
         className={cn(
           'my-16 text-center text-4xl font-bold lg:text-9xl',
