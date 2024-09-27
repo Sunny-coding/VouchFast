@@ -1,7 +1,7 @@
 import { Button } from '../ui/button';
 
 import logout from '@/actions/logout';
-import { auth } from '@/auth';
+import { auth } from '@/lib/session';
 import {
   Avatar,
   AvatarFallback,
@@ -23,11 +23,11 @@ import Link from 'next/link';
 const AuthMenu = async () => {
   const session = await auth();
 
-  console.log({ session });
-
   if (!session) {
     return;
   }
+
+  const user = session.user;
 
   return (
     <DropdownMenu>
@@ -38,10 +38,17 @@ const AuthMenu = async () => {
         </Avatar>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className='mt-1 w-48' align='end'>
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
+      <DropdownMenuContent className='mt-1 rounded' align='end'>
+        <div className="flex items-center justify-start gap-2 p-2">
+          <div className="flex flex-col space-y-1 leading-none">
+            {user!.name && <p className="font-medium">{user!.name}</p>}
+            {user!.email && (
+              <p className="w-[200px] truncate text-sm text-muted-foreground">
+                {user!.email}
+              </p>
+            )}
+          </div>
+        </div>
 
         <DropdownMenuSeparator />
 
@@ -65,7 +72,7 @@ const AuthMenu = async () => {
         </DropdownMenuGroup>
 
         <form action={logout}>
-          <Button variant='destructive' className='mt-4 w-full text-sm'>
+          <Button variant='destructive' className='mt-4 w-full text-sm rounded'>
             <LogOut size={15} className='mr-2' />
             Logout
           </Button>

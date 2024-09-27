@@ -8,7 +8,6 @@ import {
   AvatarFallback,
   AvatarImage,
 } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 import { useSession } from 'next-auth/react';
@@ -21,6 +20,8 @@ const ProfilePage = () => {
     return null;
   }
 
+  const initials = session.user?.name?.split(' ').map((n) => n[0]);
+
   return (
     <div className='mx-auto min-h-screen max-w-2xl px-5 lg:px-0'>
       <div>
@@ -29,8 +30,8 @@ const ProfilePage = () => {
         </h2>
 
         <Avatar className='mx-auto h-32 w-32 border-2'>
-          <AvatarImage src={session.user?.image as string | undefined} />
-          <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
+          <AvatarImage src={session.user?.image ?? ''} />
+          <AvatarFallback>{initials}</AvatarFallback>
         </Avatar>
 
         <AccountForm session={session} />
