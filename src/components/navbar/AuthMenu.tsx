@@ -1,7 +1,6 @@
 import { Button } from '../ui/button';
 
 import logout from '@/actions/logout';
-import { auth } from '@/lib/session';
 import {
   Avatar,
   AvatarFallback,
@@ -16,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { auth } from '@/lib/session';
 
 import { Landmark, LogOut, Settings, User } from 'lucide-react';
 import Link from 'next/link';
@@ -39,11 +39,11 @@ const AuthMenu = async () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className='mt-1 rounded' align='end'>
-        <div className="flex items-center justify-start gap-2 p-2">
-          <div className="flex flex-col space-y-1 leading-none">
-            {user!.name && <p className="font-medium">{user!.name}</p>}
+        <div className='flex items-center justify-start gap-2 p-2'>
+          <div className='flex flex-col space-y-1 leading-none'>
+            {user!.name && <p className='font-medium'>{user!.name}</p>}
             {user!.email && (
-              <p className="w-[200px] truncate text-sm text-muted-foreground">
+              <p className='w-[200px] truncate text-sm text-muted-foreground'>
                 {user!.email}
               </p>
             )}
@@ -55,7 +55,7 @@ const AuthMenu = async () => {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
 
         <DropdownMenuGroup className='mt-2'>
-          <Link href='/account'>
+          <Link href='/dashboard'>
             <DropdownMenuItem>
               <User className='ml-1 mr-2 text-primary' />
               Profile
@@ -72,7 +72,10 @@ const AuthMenu = async () => {
         </DropdownMenuGroup>
 
         <form action={logout}>
-          <Button variant='destructive' className='mt-4 w-full text-sm rounded'>
+          <Button
+            variant='destructive'
+            className='mt-4 w-full rounded text-sm'
+          >
             <LogOut size={15} className='mr-2' />
             Logout
           </Button>

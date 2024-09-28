@@ -11,7 +11,9 @@ import { Label } from '@/components/ui/label';
 
 import { Session } from 'next-auth';
 
-interface AddressProps { session: Session }
+interface AddressProps {
+  session: Session;
+}
 
 const Address = ({ session }: AddressProps) => {
   return (

@@ -20,7 +20,7 @@ const ProfilePage = () => {
     return null;
   }
 
-  const initials = session.user?.name?.split(' ').map((n) => n[0]);
+  const initials = session.user?.name?.split(' ').map(n => n[0]);
 
   return (
     <div className='mx-auto min-h-screen max-w-2xl px-5 lg:px-0'>

@@ -2,8 +2,8 @@ import AuthMenu from './AuthMenu';
 import MainNav from './MainNav';
 import MobileNav from './mobile';
 
-import { auth } from '@/lib/session';
 import { grotesque } from '@/components/font/grotesque';
+import { auth } from '@/lib/session';
 import { cn } from '@/lib/utils';
 
 import Link from 'next/link';
