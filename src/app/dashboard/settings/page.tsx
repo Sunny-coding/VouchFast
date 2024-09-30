@@ -1,7 +1,11 @@
-import React from 'react';
+import Heading from '@/components/DashboardHeading';
 
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <div>
+      <Heading text='Settings' />
+    </div>
+  );
 };
 
 export default Settings;

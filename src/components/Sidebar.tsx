@@ -34,7 +34,7 @@ const Tab = ({ name, icon, url }: TabType) => {
 
 const Sidebar = ({ className }: SidebarProps) => {
   return (
-    <div className={cn('sticky top-32 h-min', className)}>
+    <div className={cn('sticky top-24 h-min', className)}>
       <ul className='flex flex-col gap-2 text-xl font-medium text-white'>
         {authMenu.map(tab => (
           <div key={tab.url}>

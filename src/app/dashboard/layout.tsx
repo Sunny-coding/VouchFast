@@ -13,7 +13,7 @@ export default async function RootLayout({
   if (!session) redirect('/login');
 
   return (
-    <div className='layout mt-16 flex'>
+    <div className='layout mt-8 flex'>
       <Sidebar className='w-1/4' />
       <div className='w-3/4'>{children}</div>
     </div>

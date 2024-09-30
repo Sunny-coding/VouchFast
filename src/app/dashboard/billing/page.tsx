@@ -1,7 +1,11 @@
-import React from 'react';
+import Heading from '@/components/DashboardHeading';
 
 const Billing = () => {
-  return <div>Billing</div>;
+  return (
+    <div>
+      <Heading text='Billing' />
+    </div>
+  );
 };
 
 export default Billing;
