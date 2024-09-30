@@ -1,44 +1,20 @@
-'use client';
-
 import { grotesque } from '@/components/font/grotesque';
-import AccountForm from '@/components/forms/dashboard/Account';
-import AddressForm from '@/components/forms/dashboard/Address';
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar';
+import ViewTestimonials from '@/components/ViewTestimonials';
+import { auth } from '@/lib/session';
 import { cn } from '@/lib/utils';
 
-import { useSession } from 'next-auth/react';
-
-const ProfilePage = () => {
-  const { data: session } = useSession();
-
-  if (!session) {
-    // redirect('/login');
-    return null;
-  }
-
-  const initials = session.user?.name?.split(' ').map(n => n[0]);
+const DashboardPage = async () => {
+  const session = await auth();
 
   return (
-    <div className='mx-auto min-h-screen max-w-2xl px-5 lg:px-0'>
-      <div>
-        <h2 className={cn('text-4xl font-bold', grotesque.className)}>
-          My Profile
-        </h2>
+    <main className='min-h-screen'>
+      <h2 className={cn('text-4xl font-bold', grotesque.className)}>
+        Dashboard
+      </h2>
 
-        <Avatar className='mx-auto h-32 w-32 border-2'>
-          <AvatarImage src={session.user?.image ?? ''} />
-          <AvatarFallback>{initials}</AvatarFallback>
-        </Avatar>
-
-        <AccountForm session={session} />
-        <AddressForm session={session} />
-      </div>
-    </div>
+      <ViewTestimonials session={session!} />
+    </main>
   );
 };
 
-export default ProfilePage;
+export default DashboardPage;
