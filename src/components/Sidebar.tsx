@@ -22,7 +22,7 @@ const Tab = ({ name, icon, url }: TabType) => {
     <Link
       href={url}
       className={cn(
-        'flex max-w-48 items-center gap-3 rounded px-4 py-2 text-base text-gray-400',
+        'flex max-w-48 items-center gap-5 rounded px-4 py-2 text-base text-gray-400',
         isActive && 'bg-accent text-white',
       )}
     >
