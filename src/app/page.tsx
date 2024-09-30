@@ -1,6 +1,6 @@
 import Audience from '@/components/homepage/Audience';
 import Compare from '@/components/homepage/Compare';
-import Consequences from '@/components/homepage/Consequences';
+import Problem from '@/components/homepage/Problem';
 import CTA from '@/components/homepage/CTA';
 import Hero from '@/components/homepage/hero';
 import Pricing from '@/components/homepage/pricing';
@@ -13,7 +13,7 @@ const Homepage = () => {
     <>
       <Hero />
       <ProductBox />
-      <Consequences />
+      <Problem />
       <Compare />
       <Audience />
       <Pricing />
