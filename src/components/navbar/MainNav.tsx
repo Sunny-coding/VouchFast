@@ -1,7 +1,7 @@
 import { Button } from '../ui/button';
-import links from './navlinks';
 
 import doubleArrow from '@/assets/double-arrow.svg';
+import links from '@/config/navlinks';
 import { auth } from '@/lib/session';
 
 import Image from 'next/image';

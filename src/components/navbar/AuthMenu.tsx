@@ -1,11 +1,10 @@
-import { Button } from '../ui/button';
-
 import logout from '@/actions/logout';
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,17 +14,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import authMenu from '@/config/authMenuLinks';
 import { auth } from '@/lib/session';
 
-import { Landmark, LogOut, Settings, User } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
 const AuthMenu = async () => {
   const session = await auth();
 
-  if (!session) {
-    return;
-  }
+  if (!session) return;
 
   const user = session.user;
 
@@ -33,8 +31,8 @@ const AuthMenu = async () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className='border-2'>
-          <AvatarImage src={session.user?.image as string | undefined} />
-          <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
+          <AvatarImage src={user!.image as string | undefined} />
+          <AvatarFallback>{user!.name?.[0]}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
 
@@ -55,20 +53,17 @@ const AuthMenu = async () => {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
 
         <DropdownMenuGroup className='mt-2'>
-          <Link href='/dashboard'>
-            <DropdownMenuItem>
-              <User className='ml-1 mr-2 text-primary' />
-              Profile
-            </DropdownMenuItem>
-          </Link>
-          <DropdownMenuItem>
-            <Landmark className='ml-1 mr-2 text-primary' />
-            Billing
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Settings className='ml-1 mr-2 text-primary' />
-            Settings
-          </DropdownMenuItem>
+          {authMenu.map(tab => {
+            const Icon = tab.icon;
+            return (
+              <Link href={tab.url} key={tab.url}>
+                <DropdownMenuItem>
+                  <Icon className='ml-1 mr-2 text-primary' />
+                  {tab.name}
+                </DropdownMenuItem>
+              </Link>
+            );
+          })}
         </DropdownMenuGroup>
 
         <form action={logout}>
