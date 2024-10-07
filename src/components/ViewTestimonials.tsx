@@ -18,7 +18,7 @@ const ViewTestimonials = ({ session }: ViewTestimonialsProps) => {
         No testimonials yet?
       </h4>
 
-      <Link href='/dashboard/create-invite' className='mx-auto mt-1'>
+      <Link href='/dashboard/invites' className='mx-auto mt-1'>
         <Button
           className='mx-auto mt-1 w-min rounded border-2 border-black bg-black hover:bg-zinc-900'
           size='sm'

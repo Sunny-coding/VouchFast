@@ -32,8 +32,8 @@ const ProfilePage = () => {
         <Heading text='My Profile' />
 
         <Avatar className='mx-auto h-32 w-32 border-2 border-primary'>
-          <AvatarImage src={session.user?.image ?? ''} />
-          <AvatarFallback>{initials}</AvatarFallback>
+          <AvatarImage src={session.user?.image!} />
+          <AvatarFallback className='text-4xl'>{initials}</AvatarFallback>
         </Avatar>
 
         <AccountForm session={session} />
