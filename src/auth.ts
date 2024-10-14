@@ -10,6 +10,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   session: { strategy: 'jwt' },
   adapter: PrismaAdapter(db),
   secret: process.env.AUTH_SECRET,
-  providers: [GitHub, Google],
-  debug: process.env.NODE_ENV === 'development',
+  providers: [
+    GitHub({ allowDangerousEmailAccountLinking: true }),
+    Google({ allowDangerousEmailAccountLinking: true }),
+  ],
+  // debug: process.env.NODE_ENV === 'development',
 });

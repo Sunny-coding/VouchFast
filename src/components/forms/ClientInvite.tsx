@@ -1,76 +1,131 @@
+'use client';
+
+import createInvite from '@/actions/createInvite';
+import { toast } from '@/components/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  inviteSchema,
+  InviteSchemaType,
+} from '@/schema/invite-form-schema';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
 const CreateInvite = () => {
+  const form = useForm<InviteSchemaType>({
+    resolver: zodResolver(inviteSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+    },
+  });
+
+  async function onSubmit(data: InviteSchemaType) {
+    // server actions need FormData type
+    const formData = new FormData();
+
+    // turns data.name -> { name: 'Zeeshan Ali' }
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    const res = await createInvite(formData);
+
+    if (res.success) {
+      toast({
+        title: 'Invite created successfully!',
+        description: 'The invite has been sent to the recipient.',
+      });
+    } else {
+      toast({
+        title: 'Failed to create invite!',
+        description: 'An error occurred while creating the invite.',
+        variant: 'destructive',
+      });
+    }
+  }
+
   return (
-    <Card className='max-w-2xl'>
-      <CardHeader>
-        <CardTitle>Create an proposal</CardTitle>
-        <CardDescription>
-          Fill out the form below to create a testimonial invite.
-        </CardDescription>
-      </CardHeader>
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='max-w-2xl space-y-6'
+      >
+        <section className='flex w-full gap-6'>
+          <FormField
+            control={form.control}
+            name='name'
+            render={({ field }) => (
+              <FormItem className='w-full'>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder='Zeeshan Ali' {...field} />
+                </FormControl>
+                <FormDescription>
+                  The name of the recipient.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-      <CardContent>
-        <form className='grid w-full items-center gap-4'>
-          <div className='flex flex-col space-y-1.5'>
-            <Label htmlFor='name'>Name</Label>
-            <Input id='name' name='name' placeholder='Zeeshan Ali' />
-          </div>
+          <FormField
+            control={form.control}
+            name='email'
+            render={({ field }) => (
+              <FormItem className='w-full'>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type='email'
+                    placeholder='acid@acidop.codes'
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  The email of the receiver.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </section>
 
-          <div className='flex flex-col space-y-1.5'>
-            <Label htmlFor='email'>Email</Label>
-            <Input
-              id='email'
-              name='email'
-              type='email'
-              placeholder='acid@acidop.codes'
-            />
-          </div>
+        <FormField
+          control={form.control}
+          name='message'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Message <span className='text-gray-500'>(Optional)</span>
+              </FormLabel>
+              <FormControl>
+                <Textarea placeholder='Hello!' {...field} />
+              </FormControl>
+              <FormDescription>
+                A default message will be sent if left blank.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className='grid w-full gap-1.5 py-5'>
-            <Label htmlFor='message'>Your Message (Optional)</Label>
-            <Textarea
-              placeholder='Type your message here. Markdown is also supported.'
-              rows={4}
-              name='email'
-            />
-            <p className='text-sm text-muted-foreground'>
-              If left empty, a default message will be sent.
-            </p>
-          </div>
-
-          <div className='flex items-center space-x-2'>
-            <Switch checked />
-            <Label htmlFor='airplane-mode'>
-              Auto send invitation over email
-            </Label>
-          </div>
-        </form>
-      </CardContent>
-
-      <CardFooter>
-        <div className='ml-auto space-x-3'>
-          <Button variant='ghost' className='rounded' size='sm'>
-            Cancel
-          </Button>
-          <Button className='rounded' size='sm'>
-            Create
-          </Button>
-        </div>
-      </CardFooter>
-    </Card>
+        <Button type='submit' className='rounded' size='sm'>
+          Submit
+        </Button>
+      </form>
+    </Form>
   );
 };
 

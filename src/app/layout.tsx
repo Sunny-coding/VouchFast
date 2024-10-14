@@ -3,6 +3,7 @@ import './globals.css';
 import { jakarta } from '@/components/font/jakarta';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/navbar';
+import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/theme-provider';
 
 import { SessionProvider } from 'next-auth/react';
@@ -21,8 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body className={`overflow-x-hidden ${jakarta.className}`}>
+    <html lang='en'>
+      <body
+        className={`overflow-x-hidden ${jakarta.className}`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
@@ -33,6 +37,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <Toaster />
           </SessionProvider>
         </ThemeProvider>
       </body>
