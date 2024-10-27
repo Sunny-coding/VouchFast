@@ -46,36 +46,32 @@ const CreateList = ({
     const isValidated = listSchema.safeParse(listData);
 
     if (!isValidated.success) {
-      const errorsArray = isValidated.error.errors.map(error => ({
-        name: error.path[0] + '', // Convert to string
+      // Show errors
+      return setErrors(isValidated.error.errors.map(error => ({
+        name: String(error.path[0]),
         message: error.message,
-      }));
-      return setErrors(errorsArray);
-    } else {
-      setErrors([]);
+      })));
     }
 
-    const data = isValidated.data!;
+    // No errors
+    setErrors([]);
+
     const formData = new FormData();
 
-    formData.append('name', data.name);
-    formData.append('headerTitle', data.headerTitle);
-    formData.append('headerDesc', data.headerDesc);
-    formData.append('questions', JSON.stringify(data.questions));
+    const { name, headerTitle, headerDesc, questions } = isValidated.data;
+
+    formData.append('name', name);
+    formData.append('headerTitle', headerTitle);
+    formData.append('headerDesc', headerDesc);
+    formData.append('questions', JSON.stringify(questions));
 
     const result = await createList(formData);
 
-    if (result.success) {
-      toast({
-        description: result.message,
-      });
-    } else {
-      toast({
-        title: 'An error occurred!',
-        description: result.message,
-        variant: 'destructive',
-      });
-    }
+    toast({
+      title: result.success ? '' : 'An error occurred!',
+      description: result.message,
+      variant: result.success ? 'default' : 'destructive',
+    });
   };
 
   return (
