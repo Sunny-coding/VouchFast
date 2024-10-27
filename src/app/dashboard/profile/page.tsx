@@ -16,15 +16,11 @@ import { redirect } from 'next/navigation';
 const ProfilePage = () => {
   const { data: session, status } = useSession();
 
-  if (status === 'loading') {
-    return <LoadingSkeleton />;
-  }
+  // Redirect if no session and loading screen if session is loading
+  if (status === 'loading') return <LoadingSkeleton />;
+  if (!session) redirect('/login');
 
-  if (!session) {
-    redirect('/login');
-  }
-
-  const initials = session.user?.name?.split(' ').map(n => n[0]);
+  const initials = session.user?.name?.split(' ').map((n: string) => n[0]);
 
   return (
     <div className='mx-auto min-h-screen max-w-2xl px-5 lg:px-0'>

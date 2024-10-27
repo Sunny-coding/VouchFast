@@ -17,6 +17,7 @@ import type { ListFormType } from '@/schema/list-schema';
 
 interface IProps {
   listData: ListFormType;
+  reset: () => void;
   handleInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
@@ -32,6 +33,7 @@ type ErrorType = {
 
 const CreateList = ({
   listData,
+  reset,
   handleInputChange,
   addQuestion,
   handleQuestionChange,
@@ -47,10 +49,12 @@ const CreateList = ({
 
     if (!isValidated.success) {
       // Show errors
-      return setErrors(isValidated.error.errors.map(error => ({
-        name: String(error.path[0]),
-        message: error.message,
-      })));
+      return setErrors(
+        isValidated.error.errors.map(error => ({
+          name: String(error.path[0]),
+          message: error.message,
+        })),
+      );
     }
 
     // No errors
@@ -66,6 +70,8 @@ const CreateList = ({
     formData.append('questions', JSON.stringify(questions));
 
     const result = await createList(formData);
+
+    result.success && reset();
 
     toast({
       title: result.success ? '' : 'An error occurred!',

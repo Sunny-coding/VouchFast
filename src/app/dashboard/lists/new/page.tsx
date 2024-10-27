@@ -12,13 +12,17 @@ import {
 } from '@/components/ui/card';
 import { defaultQuestions, ListFormType } from '@/schema/list-schema';
 
+const INITIAL_STATE: ListFormType = {
+  name: '',
+  headerTitle: '',
+  headerDesc: '',
+  questions: defaultQuestions.slice(0, 2),
+};
+
 export default function TestimonialListCreator() {
-  const [listData, setListData] = useState<ListFormType>({
-    name: '',
-    headerTitle: '',
-    headerDesc: '',
-    questions: defaultQuestions.slice(0, 2),
-  });
+  const [listData, setListData] = useState<ListFormType>(INITIAL_STATE);
+
+  const reset = () => setListData(INITIAL_STATE);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -52,6 +56,7 @@ export default function TestimonialListCreator() {
   };
 
   const handleFunctions = {
+    reset,
     handleInputChange,
     handleQuestionChange,
     addQuestion,
