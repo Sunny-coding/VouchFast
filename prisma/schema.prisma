@@ -22,9 +22,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  plan         Plan          @default(FREE)
-  proposals    Proposal[]
-  testimonials Testimonial[]
+  plan  Plan   @default(FREE)
+  lists List[]
 }
 
 // ! ------------------- AUTHENTICATION ------------------- ! //
@@ -80,46 +79,31 @@ enum Plan {
   PAID
 }
 
-enum Status {
-  PENDING
-  ACCEPTED
-  REJECTED
-}
+model List {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  headerTitle String
+  headerDesc  String
+  questions   String[] @default([])
+  buttonText  String?
 
-enum TestimonialSource {
-  TEXT
-  VIDEO
-  TWITTER
-}
+  testimonials Testimonial[]
 
-model Proposal {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  name    String
-  email   String
-  message String?
-  url     String
-
-  status    Status   @default(PENDING)
-  createdAt DateTime @default(now())
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String @db.ObjectId
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId
 }
 
 model Testimonial {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  message String
+  name    String
+  email   String
+  list    List?   @relation(fields: [listId], references: [id])
+  listId  String? @db.ObjectId
 
-  name        String
-  source      TestimonialSource @default(TEXT)
-  message     String?
-  videoUrl    String?
-  twitterLink String?
+  titleAndCompany String?
+  socialLink      String?
+  address         String?
 
-  approved  Boolean  @default(false)
   createdAt DateTime @default(now())
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String @db.ObjectId
 }
-

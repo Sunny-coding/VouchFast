@@ -1,6 +1,6 @@
 'use client';
 
-import createInvite from '@/actions/createInvite';
+// import createInvite from '@/actions/createInvite';
 import { toast } from '@/components/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import {
@@ -40,20 +40,22 @@ const CreateInvite = () => {
       formData.append(key, value);
     });
 
-    const res = await createInvite(formData);
+    // const res = await createInvite(formData);
 
-    if (res.success) {
-      toast({
-        title: 'Invite created successfully!',
-        description: 'The invite has been sent to the recipient.',
-      });
-    } else {
-      toast({
-        title: 'Failed to create invite!',
-        description: 'An error occurred while creating the invite.',
-        variant: 'destructive',
-      });
-    }
+    // if (res.success) {
+    //   toast({
+    //     title: 'Invite created successfully!',
+    //     description: 'The invite has been sent to the recipient.',
+    //   });
+
+    //   // form.reset();
+    // } else {
+    //   toast({
+    //     title: 'Failed to create invite!',
+    //     description: 'An error occurred while creating the invite.',
+    //     variant: 'destructive',
+    //   });
+    // }
   }
 
   return (
@@ -68,13 +70,10 @@ const CreateInvite = () => {
             name='name'
             render={({ field }) => (
               <FormItem className='w-full'>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Recipient Name</FormLabel>
                 <FormControl>
                   <Input placeholder='Zeeshan Ali' {...field} />
                 </FormControl>
-                <FormDescription>
-                  The name of the recipient.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -93,14 +92,32 @@ const CreateInvite = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
-                  The email of the receiver.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
         </section>
+
+        <FormField
+          control={form.control}
+          name='subject'
+          render={({ field }) => (
+            <FormItem className='w-full'>
+              <FormLabel>
+                Subject <span className='text-gray-500'>(Optional)</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  type='text'
+                  placeholder='You have been invited to leave a testimonial.'
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>The subject of the email.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <FormField
           control={form.control}
@@ -111,7 +128,7 @@ const CreateInvite = () => {
                 Message <span className='text-gray-500'>(Optional)</span>
               </FormLabel>
               <FormControl>
-                <Textarea placeholder='Hello!' {...field} />
+                <Textarea placeholder='Hello!' {...field} rows={7} />
               </FormControl>
               <FormDescription>
                 A default message will be sent if left blank.
