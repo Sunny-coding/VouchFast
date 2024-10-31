@@ -1,15 +1,13 @@
-import OverviewCard from '@/components/cards/overview-card';
 import Heading from '@/components/DashboardHeading';
+import RenderLists from '@/components/render-lists';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { getUser } from '@/server/db/user';
+import { getListsFromUser, getUser } from '@/server/db/user';
 
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 
 interface IProps {
   userId: string;
-  className?: string;
 }
 
 const CreateListButton = () => {
@@ -22,10 +20,10 @@ const CreateListButton = () => {
   );
 };
 
-const UserLists = async ({ userId, className }: IProps) => {
+const UserLists = async ({ userId }: IProps) => {
   const user = await getUser(userId);
+  const userLists = await getListsFromUser(user!.id);
 
-  const userLists = user?.lists || [];
   const noLists = userLists.length === 0;
 
   return (
@@ -42,17 +40,7 @@ const UserLists = async ({ userId, className }: IProps) => {
         </div>
       )}
 
-      <div className={cn('mt-16 grid gap-6 lg:grid-cols-3', className)}>
-        {userLists.map(list => (
-          <OverviewCard
-            key={list.id}
-            title={list.name}
-            link={`/dashboard/lists/${list.id}`}
-          >
-            Items: {(list.testimonials && list.testimonials.length) || 0}
-          </OverviewCard>
-        ))}
-      </div>
+      {!noLists && <RenderLists lists={userLists} />}
     </>
   );
 };

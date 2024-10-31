@@ -1,15 +1,14 @@
 import UserLists from '@/components/dashboard/lists';
 import DashboardOverview from '@/components/dashboard/overview';
-import { auth } from '@/lib/session';
+import { getUserId } from '@/server/session';
 
 const DashboardPage = async () => {
-  const session = await auth();
-  const user = session?.user;
+  const userId = await getUserId();
 
   return (
     <main className='min-h-screen space-y-16'>
       <DashboardOverview />
-      <UserLists userId={user.id} />
+      <UserLists userId={userId} />
     </main>
   );
 };

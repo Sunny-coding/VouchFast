@@ -17,6 +17,7 @@ import {
 import authMenu from '@/config/authMenuLinks';
 import { auth } from '@/lib/session';
 
+import { User } from '@prisma/client';
 import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
@@ -25,24 +26,24 @@ const AuthMenu = async () => {
 
   if (!session) return;
 
-  const user = session.user;
+  const user = session.user as User;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className='border-2'>
-          <AvatarImage src={user!.image as string | undefined} />
-          <AvatarFallback>{user!.name?.[0]}</AvatarFallback>
+          <AvatarImage src={user.image || undefined} />
+          <AvatarFallback>{user.name?.[0]}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className='mt-1 rounded' align='end'>
         <div className='flex items-center justify-start gap-2 p-2'>
           <div className='flex flex-col space-y-1 leading-none'>
-            {user!.name && <p className='font-medium'>{user!.name}</p>}
-            {user!.email && (
+            {user.name && <p className='font-medium'>{user.name}</p>}
+            {user.email && (
               <p className='w-[200px] truncate text-sm text-muted-foreground'>
-                {user!.email}
+                {user.email}
               </p>
             )}
           </div>
