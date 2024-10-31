@@ -9,7 +9,7 @@ const DashboardPage = async () => {
   return (
     <main className='min-h-screen space-y-16'>
       <DashboardOverview />
-      <UserLists userId={user?.id!} />
+      <UserLists userId={user.id} />
     </main>
   );
 };

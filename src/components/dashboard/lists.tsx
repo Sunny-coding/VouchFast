@@ -1,8 +1,8 @@
 import OverviewCard from '@/components/cards/overview-card';
 import Heading from '@/components/DashboardHeading';
 import { Button } from '@/components/ui/button';
-import { getUserLists } from '@/lib/db';
 import { cn } from '@/lib/utils';
+import { getUser } from '@/server/db/user';
 
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
@@ -23,7 +23,9 @@ const CreateListButton = () => {
 };
 
 const UserLists = async ({ userId, className }: IProps) => {
-  const userLists = await getUserLists(userId);
+  const user = await getUser(userId);
+
+  const userLists = user?.lists || [];
   const noLists = userLists.length === 0;
 
   return (
@@ -47,8 +49,7 @@ const UserLists = async ({ userId, className }: IProps) => {
             title={list.name}
             link={`/dashboard/lists/${list.id}`}
           >
-            {/* @ts-ignore */}
-            Items: {list.testimonials!.length || 0}
+            Items: {(list.testimonials && list.testimonials.length) || 0}
           </OverviewCard>
         ))}
       </div>
