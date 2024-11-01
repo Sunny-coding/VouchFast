@@ -9,13 +9,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-import { Session } from 'next-auth';
+import type { User } from 'next-auth';
 
 interface AddressProps {
-  session: Session;
+  user: User;
 }
 
-const Address = ({ session }: AddressProps) => {
+const Address = ({ user }: AddressProps) => {
   return (
     <Card className='mt-5 w-full border-none bg-background'>
       <CardHeader>

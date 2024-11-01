@@ -3,13 +3,13 @@ import MainNav from './MainNav';
 import MobileNav from './mobile';
 
 import { grotesque } from '@/components/font/grotesque';
-import { auth } from '@/lib/session';
 import { cn } from '@/lib/utils';
+import { getServerSession } from '@/server/session';
 
 import Link from 'next/link';
 
 const Navbar = async () => {
-  const session = await auth();
+  const session = await getServerSession();
 
   return (
     <nav className='sticky top-0 z-50 bg-background'>

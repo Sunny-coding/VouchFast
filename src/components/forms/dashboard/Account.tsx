@@ -9,13 +9,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-import type { Session } from 'next-auth';
+import type { User } from 'next-auth';
 
 interface AccountProps {
-  session: Session;
+  user: User;
 }
 
-export const Account = ({ session }: AccountProps) => {
+export const Account = ({ user }: AccountProps) => {
   return (
     <form action={updateProfile}>
       <Card className='mt-5 w-full border-none bg-background shadow-none'>
@@ -30,8 +30,8 @@ export const Account = ({ session }: AccountProps) => {
               <Input
                 type='name'
                 name='name'
-                placeholder={session.user?.name || 'Name'}
-                defaultValue={session.user?.name || ''}
+                placeholder={user.name || 'Name'}
+                defaultValue={user.name || ''}
                 className='mt-2 rounded'
               />
             </div>
@@ -41,8 +41,8 @@ export const Account = ({ session }: AccountProps) => {
               <Input
                 type='email'
                 name='email'
-                placeholder={session.user?.email || 'Email'}
-                defaultValue={session.user?.email || ''}
+                placeholder={user.email || 'Email'}
+                defaultValue={user.email || ''}
                 className='mt-2 rounded'
               />
             </div>

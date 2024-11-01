@@ -16,13 +16,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 import authMenu from '@/config/authMenuLinks';
 import { auth } from '@/lib/session';
+import { getServerSession } from '@/server/session';
 
 import { User } from '@prisma/client';
 import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
 const AuthMenu = async () => {
-  const session = await auth();
+  const session = await getServerSession();
 
   if (!session) return;
 

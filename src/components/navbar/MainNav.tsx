@@ -2,13 +2,13 @@ import { Button } from '../ui/button';
 
 import doubleArrow from '@/assets/double-arrow.svg';
 import links from '@/config/navlinks';
-import { auth } from '@/lib/session';
+import { getServerSession } from '@/server/session';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 const MainNav = async () => {
-  const session = await auth();
+  const session = await getServerSession();
 
   return (
     <div className='flex items-center'>

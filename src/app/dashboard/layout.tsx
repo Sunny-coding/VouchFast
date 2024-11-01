@@ -1,5 +1,5 @@
 import Sidebar from '@/components/Sidebar';
-import { auth } from '@/lib/session';
+import { getServerSession } from '@/server/session';
 
 import { redirect } from 'next/navigation';
 
@@ -8,7 +8,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  const session = await getServerSession();
   if (!session) redirect('/login');
 
   return (
