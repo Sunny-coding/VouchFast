@@ -11,6 +11,7 @@
     "no-empty-function": "warn",
     "dot-notation": "error",
     "react/react-in-jsx-scope": "off",
-    "semi-style": "warn"
+    "semi-style": "warn",
+    "react/prop-types": "off"
   }
 }

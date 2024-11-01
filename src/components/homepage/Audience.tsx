@@ -11,7 +11,6 @@ import type { IconType } from 'react-icons';
 interface BoxProps {
   heading: string;
   description: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon: IconType;
 }
 

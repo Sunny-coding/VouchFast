@@ -35,7 +35,7 @@ const UserLists = async ({ userId }: IProps) => {
 
       {noLists && (
         <div className='flex w-full flex-col items-center justify-center'>
-          You don't have any lists yet.
+          You don&apost have any lists yet.
           <CreateListButton />
         </div>
       )}
