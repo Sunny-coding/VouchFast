@@ -1,10 +1,12 @@
-import Heading from '@/components/DashboardHeading';
-import RenderLists from '@/components/render-lists';
-import { Button } from '@/components/ui/button';
-import { getListsFromUser, getUser } from '@/server/db/user';
-
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
+
+import { getListsFromUser, getUser } from '@/server/db/user';
+
+import Heading from '@/components/DashboardHeading';
+import RenderLists from '@/components/render-lists';
+
+import { Button } from '@/components/ui/button';
 
 interface IProps {
   userId: string;

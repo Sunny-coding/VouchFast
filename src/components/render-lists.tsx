@@ -1,8 +1,10 @@
-import OverviewCard from '@/components/cards/overview-card';
-import { cn } from '@/lib/utils';
+import { List } from '@prisma/client';
+
 import { getTestimonialCount } from '@/server/db/user';
 
-import { List } from '@prisma/client';
+import { cn } from '@/lib/utils';
+
+import OverviewCard from '@/components/cards/overview-card';
 
 interface IProps {
   lists: List[];

@@ -1,11 +1,13 @@
 'use server';
 
-import db from '@/lib/prisma';
-import { PrettyZodErrors } from '@/lib/utils';
+import { Plan } from '@prisma/client';
+
 import { testimonialSchema } from '@/schema/testimonial-schema';
+
 import { getTestimonialCount, getUserFromList } from '@/server/db/user';
 
-import { Plan } from '@prisma/client';
+import db from '@/lib/prisma';
+import { PrettyZodErrors } from '@/lib/utils';
 
 const MAX_FREE_TESTIMONIALS = 3;
 

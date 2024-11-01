@@ -1,10 +1,11 @@
 'use client';
 
-import authMenu from '@/config/authMenuLinks';
-import { cn } from '@/lib/utils';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+import authMenu from '@/config/authMenuLinks';
+
+import { cn } from '@/lib/utils';
 
 import type TabType from '@/types/TabType';
 

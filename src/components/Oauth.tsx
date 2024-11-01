@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 
-import { authenticateWithProvider } from '@/actions/auth';
-import { useToast } from '@/components/hooks/use-toast';
-import { Button } from '@/components/ui/button';
-
 import { CgSpinnerTwo } from 'react-icons/cg';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+
+import { authenticateWithProvider } from '@/actions/auth';
+
+import { useToast } from '@/components/hooks/use-toast';
+
+import { Button } from '@/components/ui/button';
 
 interface OauthProps {
   type: 'signup' | 'login';

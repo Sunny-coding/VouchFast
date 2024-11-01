@@ -1,12 +1,14 @@
+import Link from 'next/link';
+
 import AuthMenu from './AuthMenu';
 import MainNav from './MainNav';
 import MobileNav from './mobile';
 
-import { grotesque } from '@/components/font/grotesque';
-import { cn } from '@/lib/utils';
 import { getServerSession } from '@/server/session';
 
-import Link from 'next/link';
+import { cn } from '@/lib/utils';
+
+import { grotesque } from '@/components/font/grotesque';
 
 const Navbar = async () => {
   const session = await getServerSession();

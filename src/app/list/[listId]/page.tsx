@@ -1,7 +1,8 @@
-import SubmitTestimonialDialog from '@/components/submit-testimonial-dialog';
+import { notFound } from 'next/navigation';
+
 import { getList, getUserFromList } from '@/server/db/user';
 
-import { notFound } from 'next/navigation';
+import SubmitTestimonialDialog from '@/components/submit-testimonial-dialog';
 
 interface SubmitTestimonialProps {
   params: { listId: string };

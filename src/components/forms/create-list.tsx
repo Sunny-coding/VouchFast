@@ -3,18 +3,45 @@
 
 import { useState } from 'react';
 
+import { Minus, Plus } from 'lucide-react';
+
 import createList from '@/actions/create-list';
+
+import { defaultQuestions, listSchema } from '@/schema/list-schema';
+
 import FormError from '@/components/form-error';
 import { useToast } from '@/components/hooks/use-toast';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { defaultQuestions, listSchema } from '@/schema/list-schema';
-
-import { Minus, Plus } from 'lucide-react';
 
 import type { ListFormType } from '@/schema/list-schema';
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-disable no-unused-vars */
 
 interface IProps {
   listData: ListFormType;

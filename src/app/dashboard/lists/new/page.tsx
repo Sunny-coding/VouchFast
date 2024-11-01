@@ -2,15 +2,17 @@
 
 import { useState } from 'react';
 
+import { defaultQuestions, ListFormType } from '@/schema/list-schema';
+
 import ListPreview from '@/components/cards/list-preview';
 import CreateList from '@/components/forms/create-list';
+
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { defaultQuestions, ListFormType } from '@/schema/list-schema';
 
 const INITIAL_STATE: ListFormType = {
   name: '',

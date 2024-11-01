@@ -2,8 +2,9 @@
 
 import { grotesque } from '../font/grotesque';
 
-import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 import { cn } from '@/lib/utils';
+
+import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 
 const testimonials = [
   {

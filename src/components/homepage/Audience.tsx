@@ -1,10 +1,10 @@
-import { grotesque } from '../font/grotesque';
-
-import { cn } from '@/lib/utils';
-
 import { MdAddBusiness } from 'react-icons/md';
 import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { SiFreelancer } from 'react-icons/si';
+
+import { cn } from '@/lib/utils';
+
+import { grotesque } from '@/components/font/grotesque';
 
 import type { IconType } from 'react-icons';
 

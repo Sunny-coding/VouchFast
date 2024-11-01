@@ -1,12 +1,14 @@
 'use server';
 
-import db from '@/lib/prisma';
-import { formDataToObject } from '@/lib/utils';
+import { Plan } from '@prisma/client';
+
 import { listSchema } from '@/schema/list-schema';
+
 import { getListCount, getUser } from '@/server/db/user';
 import { getUserId } from '@/server/session';
 
-import { Plan } from '@prisma/client';
+import db from '@/lib/prisma';
+import { formDataToObject } from '@/lib/utils';
 
 const MAX_FREE_LISTS = 1;
 const MAX_PAID_LISTS = 15;

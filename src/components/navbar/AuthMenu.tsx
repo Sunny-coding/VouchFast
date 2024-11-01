@@ -1,4 +1,12 @@
+import { LogOut } from 'lucide-react';
+import Link from 'next/link';
+
+import authMenu from '@/config/authMenuLinks';
+
 import logout from '@/actions/logout';
+
+import { getServerSession } from '@/server/session';
+
 import {
   Avatar,
   AvatarFallback,
@@ -14,12 +22,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import authMenu from '@/config/authMenuLinks';
-import { getServerSession } from '@/server/session';
 
-import { User } from '@prisma/client';
-import { LogOut } from 'lucide-react';
-import Link from 'next/link';
+import type { User } from '@prisma/client';
 
 const AuthMenu = async () => {
   const session = await getServerSession();

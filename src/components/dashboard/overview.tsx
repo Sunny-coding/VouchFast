@@ -1,6 +1,5 @@
-import OverviewCard from '@/components/cards/overview-card';
-import Heading from '@/components/DashboardHeading';
-import { cn } from '@/lib/utils';
+import { Plan } from '@prisma/client';
+
 import {
   getListCount,
   getTestimonialCount,
@@ -8,7 +7,10 @@ import {
 } from '@/server/db/user';
 import { getUserId } from '@/server/session';
 
-import { Plan } from '@prisma/client';
+import { cn } from '@/lib/utils';
+
+import OverviewCard from '@/components/cards/overview-card';
+import Heading from '@/components/DashboardHeading';
 
 interface IProps {
   className?: string;

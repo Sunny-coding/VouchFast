@@ -1,6 +1,7 @@
+import { getUserId } from '@/server/session';
+
 import UserLists from '@/components/dashboard/lists';
 import DashboardOverview from '@/components/dashboard/overview';
-import { getUserId } from '@/server/session';
 
 const DashboardPage = async () => {
   const userId = await getUserId();

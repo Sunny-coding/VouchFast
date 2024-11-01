@@ -1,12 +1,14 @@
 import './globals.css';
 
+import { SessionProvider } from 'next-auth/react';
+
+import { ThemeProvider } from '@/providers/theme-provider';
+
 import { jakarta } from '@/components/font/jakarta';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/navbar';
-import { Toaster } from '@/components/ui/toaster';
-import { ThemeProvider } from '@/providers/theme-provider';
 
-import { SessionProvider } from 'next-auth/react';
+import { Toaster } from '@/components/ui/toaster';
 
 import type { Metadata } from 'next';
 

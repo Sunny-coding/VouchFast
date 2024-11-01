@@ -1,11 +1,13 @@
-import { Button } from '../ui/button';
-
-import doubleArrow from '@/assets/double-arrow.svg';
-import links from '@/config/navlinks';
-import { getServerSession } from '@/server/session';
-
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Button } from '../ui/button';
+
+import links from '@/config/navlinks';
+
+import { getServerSession } from '@/server/session';
+
+import doubleArrow from '@/assets/double-arrow.svg';
 
 const MainNav = async () => {
   const session = await getServerSession();

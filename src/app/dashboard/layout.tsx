@@ -1,7 +1,8 @@
-import Sidebar from '@/components/Sidebar';
+import { redirect } from 'next/navigation';
+
 import { getServerSession } from '@/server/session';
 
-import { redirect } from 'next/navigation';
+import Sidebar from '@/components/Sidebar';
 
 export default async function RootLayout({
   children,

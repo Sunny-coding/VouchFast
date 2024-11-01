@@ -1,13 +1,14 @@
 import { Fragment } from 'react';
 
+import Image from 'next/image';
+import { RoughNotation } from 'react-rough-notation';
+
 import { grotesque } from '../font/grotesque';
+
+import { cn } from '@/lib/utils';
 
 import invertArrowSvg from '@/assets/arrow-invert.svg';
 import arrowSvg from '@/assets/arrow.svg';
-import { cn } from '@/lib/utils';
-
-import Image from 'next/image';
-import { RoughNotation } from 'react-rough-notation';
 
 const TestimonialStep = ({
   emoji,

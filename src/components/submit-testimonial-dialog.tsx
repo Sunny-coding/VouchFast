@@ -1,3 +1,5 @@
+import { List, User } from '@prisma/client';
+
 import SubmitTestimonialForm from './forms/submit-testimonial';
 
 import { Button } from '@/components/ui/button';
@@ -9,8 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-
-import { List, User } from '@prisma/client';
 
 interface IProps {
   list: List;

@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-
 import { Sansita } from 'next/font/google';
+
+import { cn } from '@/lib/utils';
 
 const sansita = Sansita({ subsets: ['latin'], weight: '700' });
 

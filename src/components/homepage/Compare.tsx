@@ -1,8 +1,8 @@
+import { Check, LucideProps, X } from 'lucide-react';
+
 import { grotesque } from '../font/grotesque';
 
 import { cn } from '@/lib/utils';
-
-import { Check, LucideProps, X } from 'lucide-react';
 
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 

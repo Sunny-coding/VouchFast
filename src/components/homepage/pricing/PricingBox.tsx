@@ -1,8 +1,10 @@
-import { grotesque } from '@/components/font/grotesque';
-import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
+
 import { cn } from '@/lib/utils';
 
-import { Check } from 'lucide-react';
+import { grotesque } from '@/components/font/grotesque';
+
+import { Button } from '@/components/ui/button';
 
 interface PricingBoxProps {
   heading: string;

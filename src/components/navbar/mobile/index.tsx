@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import MobileNav from './MobileNav';
-
 import { Menu, X } from 'lucide-react';
+
+import MobileNav from './MobileNav';
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);

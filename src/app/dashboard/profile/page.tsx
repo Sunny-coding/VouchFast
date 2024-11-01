@@ -1,14 +1,16 @@
+import { redirect } from 'next/navigation';
+
+import { getServerSession } from '@/server/session';
+
 import Heading from '@/components/DashboardHeading';
 import AccountForm from '@/components/forms/dashboard/Account';
 import AddressForm from '@/components/forms/dashboard/Address';
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/components/ui/avatar';
-import { getServerSession } from '@/server/session';
-
-import { redirect } from 'next/navigation';
 
 import type { User } from 'next-auth';
 

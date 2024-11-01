@@ -1,10 +1,10 @@
 'use client';
 
-import leafSvg from '@/assets/leaf.svg';
-import starSvg from '@/assets/star.svg';
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
+import leafSvg from '@/assets/leaf.svg';
+import starSvg from '@/assets/star.svg';
 
 const Doodles = () => {
   return (

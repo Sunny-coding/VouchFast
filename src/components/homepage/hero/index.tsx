@@ -1,14 +1,17 @@
-import Doodles from './Doodles';
-
-import doubleArrow from '@/assets/double-arrow.svg';
-import heroSvg from '@/assets/hero.svg';
-import { grotesque } from '@/components/font/grotesque';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { RoughNotation } from 'react-rough-notation';
+
+import Doodles from './Doodles';
+
+import { cn } from '@/lib/utils';
+
+import doubleArrow from '@/assets/double-arrow.svg';
+import heroSvg from '@/assets/hero.svg';
+
+import { grotesque } from '@/components/font/grotesque';
+
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (

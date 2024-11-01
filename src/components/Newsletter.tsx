@@ -1,11 +1,12 @@
 import React from 'react';
 
+import Image from 'next/image';
+
 import { grotesque } from './font/grotesque';
 
-import arrowSvg from '@/assets/curve-arrow-left.svg';
 import { cn } from '@/lib/utils';
 
-import Image from 'next/image';
+import arrowSvg from '@/assets/curve-arrow-left.svg';
 
 const Newsletter = () => {
   return (

@@ -1,6 +1,6 @@
-import productImage from '@/assets/product.jpg';
-
 import Image from 'next/image';
+
+import productImage from '@/assets/product.jpg';
 
 const VideoBox = () => {
   return (

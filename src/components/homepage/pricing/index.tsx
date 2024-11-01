@@ -1,8 +1,9 @@
 import PricingBox from './PricingBox';
 import pricingModel from './pricingModel';
 
-import { grotesque } from '@/components/font/grotesque';
 import { cn } from '@/lib/utils';
+
+import { grotesque } from '@/components/font/grotesque';
 
 const Pricing = () => {
   return (
