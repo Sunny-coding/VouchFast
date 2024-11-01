@@ -1,83 +1,51 @@
 import db from '@/lib/prisma';
 
-export const getUser = async (userId: string) => {
-  const user = await db.user.findUnique({
-    where: { id: userId },
-  });
+import type { List, Testimonial, User } from '@prisma/client';
 
-  return user;
-};
+// * User-related functions
+export async function getUser(userId: string): Promise<User | null> {
+  return db.user.findUnique({ where: { id: userId } });
+}
 
-export const getUserFromList = async (listId: string) => {
+export async function getUserFromList(
+  listId: string,
+): Promise<Partial<User> | null> {
   const list = await db.list.findUnique({
     where: { id: listId },
-    include: { User: { select: { id: true, name: true, plan: true } } },
+    select: { User: { select: { id: true, name: true, plan: true } } },
   });
 
-  if (!list || !list.User) return null;
+  return list?.User ?? null;
+}
 
-  return {
-    id: list.User.id,
-    name: list.User.name,
-    plan: list.User.plan,
-  };
-};
+// * List-related functions
+export async function getList(listId: string): Promise<List | null> {
+  return db.list.findUnique({ where: { id: listId } });
+}
 
-export const getList = async (listId: string) => {
-  const list = await db.list.findUnique({
-    where: { id: listId },
-  });
+export async function getListsFromUser(userId: string): Promise<List[]> {
+  return db.list.findMany({ where: { userId } });
+}
 
-  return list;
-};
+export async function getListCount(userId: string): Promise<number> {
+  return db.list.count({ where: { userId } });
+}
 
-export const getListsFromUser = async (userId: string) => {
-  const lists = await db.list.findMany({
-    where: {
-      userId,
-    },
-  });
+// * Testimonial-related functions
+type CountType = 'lists' | 'user';
 
-  return lists;
-};
-
-export const getListCount = async (userId: string) => {
-  const count = await db.list.count({
-    where: { userId },
-  });
-
-  return count || 0;
-};
-
-type countType = 'lists' | 'user';
-
-export const getTestimonialCount = async (
+export async function getTestimonialCount(
   id: string,
-  counter: countType = 'lists',
-) => {
-  let count: number;
+  countType: CountType = 'lists',
+): Promise<number> {
+  const whereClause =
+    countType === 'lists' ? { listId: id } : { list: { userId: id } };
 
-  if (counter === 'lists') {
-    count = await db.testimonial.count({
-      where: { listId: id },
-    });
-  } else {
-    count = await db.testimonial.count({
-      where: {
-        list: {
-          userId: id,
-        },
-      },
-    });
-  }
+  return db.testimonial.count({ where: whereClause });
+}
 
-  return count;
-};
-
-export const getTestimonialsFromList = async (listId: string) => {
-  const testimonials = await db.testimonial.findMany({
-    where: { listId },
-  });
-
-  return testimonials;
-};
+export async function getTestimonialsFromList(
+  listId: string,
+): Promise<Testimonial[]> {
+  return db.testimonial.findMany({ where: { listId } });
+}
