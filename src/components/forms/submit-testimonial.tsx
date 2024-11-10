@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-import { StringMap } from '@/types/zod-error-format';
+import type { StringMap } from '@/types/zod-error-format';
 
 interface IProps {
   listId: string;
