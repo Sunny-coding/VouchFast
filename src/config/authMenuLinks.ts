@@ -1,10 +1,4 @@
-import {
-  FilePlus2,
-  LayoutGrid,
-  ReceiptText,
-  Settings,
-  User,
-} from 'lucide-react';
+import { FilePlus2, LayoutGrid, ReceiptText, Settings, User } from 'lucide-react';
 
 import type TabType from '@/types/TabType';
 

@@ -19,10 +19,7 @@ const Navbar = async () => {
         <h1 className='text-xl'>
           <Link
             href={'/'}
-            className={cn(
-              'text-xl font-black lg:text-3xl',
-              grotesque.className,
-            )}
+            className={cn('text-xl font-black lg:text-3xl', grotesque.className)}
           >
             VouchFast
           </Link>
@@ -30,12 +27,7 @@ const Navbar = async () => {
 
         <MainNav />
 
-        <div
-          className={cn(
-            'flex items-center gap-2',
-            !session && 'lg:hidden',
-          )}
-        >
+        <div className={cn('flex items-center gap-2', !session && 'lg:hidden')}>
           <AuthMenu />
           <MobileNav />
         </div>

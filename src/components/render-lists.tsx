@@ -1,5 +1,7 @@
 import { List } from '@prisma/client';
 
+import { Button } from './ui/button';
+
 import { getTestimonialCount } from '@/server/db/user';
 
 import { cn } from '@/lib/utils';
@@ -23,7 +25,12 @@ const RenderLists = ({ lists, className }: IProps) => {
             title={list.name}
             link={`/dashboard/lists/${list.id}`}
           >
-            Items: {count}
+            <div className='flex h-min items-center justify-between'>
+              Items: {count}
+              <Button size='sm' className='z-50'>
+                View
+              </Button>
+            </div>
           </OverviewCard>
         );
       })}

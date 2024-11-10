@@ -7,11 +7,7 @@ import logout from '@/actions/logout';
 
 import { getServerSession } from '@/server/session';
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -72,10 +68,7 @@ const AuthMenu = async () => {
         </DropdownMenuGroup>
 
         <form action={logout}>
-          <Button
-            variant='destructive'
-            className='mt-4 w-full rounded text-sm'
-          >
+          <Button variant='destructive' className='mt-4 w-full rounded text-sm'>
             <LogOut size={15} className='mr-2' />
             Logout
           </Button>

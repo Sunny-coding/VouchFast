@@ -57,10 +57,7 @@ const Compare = () => {
         <div className='mt-20 flex flex-col justify-around gap-5 md:flex-row xl:px-16'>
           <div className='w-full rounded-lg bg-red-800 p-10 shadow-lg lg:max-w-xl'>
             <h3
-              className={cn(
-                'text-xl font-bold text-red-100',
-                grotesque.className,
-              )}
+              className={cn('text-xl font-bold text-red-100', grotesque.className)}
             >
               Without VouchFast
             </h3>
@@ -69,10 +66,7 @@ const Compare = () => {
 
           <div className='w-full rounded-lg border-2 border-primary bg-green-800 p-10 shadow-lg lg:max-w-xl'>
             <h3
-              className={cn(
-                'text-xl font-bold text-green-100',
-                grotesque.className,
-              )}
+              className={cn('text-xl font-bold text-green-100', grotesque.className)}
             >
               With VouchFast
             </h3>

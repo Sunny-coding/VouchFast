@@ -32,10 +32,7 @@ const createListAction = async (formData: FormData) => {
   // FREE Users -> 1
   // PAID Users -> 15
 
-  if (
-    (!isPremium && listCount >= MAX_FREE_LISTS) ||
-    listCount >= MAX_PAID_LISTS
-  ) {
+  if ((!isPremium && listCount >= MAX_FREE_LISTS) || listCount >= MAX_PAID_LISTS) {
     const message = isPremium
       ? 'You have reached the maximum number of lists'
       : 'Upgrade to premium to create more lists';

@@ -83,17 +83,9 @@ const InfiniteMovingCardsDemo = () => {
         </h1>
       </div>
 
-      <InfiniteMovingCards
-        items={testimonials}
-        direction='right'
-        speed='slow'
-      />
+      <InfiniteMovingCards items={testimonials} direction='right' speed='slow' />
 
-      <InfiniteMovingCards
-        items={testimonials}
-        direction='left'
-        speed='slow'
-      />
+      <InfiniteMovingCards items={testimonials} direction='left' speed='slow' />
     </div>
   );
 };

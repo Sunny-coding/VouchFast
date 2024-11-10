@@ -7,12 +7,7 @@ import { defaultQuestions, ListFormType } from '@/schema/list-schema';
 import ListPreview from '@/components/cards/list-preview';
 import CreateList from '@/components/forms/create-list';
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const INITIAL_STATE: ListFormType = {
   name: '',
@@ -69,9 +64,7 @@ export default function TestimonialListCreator() {
     <div className='min-h-screen bg-background p-4 text-foreground'>
       <Card className='mx-auto w-full max-w-4xl'>
         <CardHeader className='pb-5'>
-          <CardTitle className='text-2xl font-bold'>
-            Create new List
-          </CardTitle>
+          <CardTitle className='text-2xl font-bold'>Create new List</CardTitle>
         </CardHeader>
 
         <CardContent>

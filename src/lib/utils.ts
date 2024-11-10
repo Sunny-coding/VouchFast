@@ -7,9 +7,23 @@ import type { ZodError } from 'zod';
 
 type StringRecord = Record<string, string>;
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+
+export const formatDate = (date: Date): string => {
+  // Format: Nov 2, 2024, 8:40:46 AM
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  };
+
+  // Format the date according to the specified format
+  return date.toLocaleString('en-US', options);
+};
 
 // Helper function to convert FormData to a string-based object
 export const formDataToObject = (formData: FormData): StringRecord => {

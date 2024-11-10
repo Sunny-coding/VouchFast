@@ -142,9 +142,7 @@ const CreateList = ({
           rows={3}
           onChange={handleInputChange}
         />
-        <p className='text-xs text-muted-foreground'>
-          Markdown is supported
-        </p>
+        <p className='text-xs text-muted-foreground'>Markdown is supported</p>
         <FormError name='headerDesc' errors={errors} />
       </div>
       <div className='space-y-2'>

@@ -8,9 +8,7 @@ interface SubmitTestimonialProps {
   params: { listId: string };
 }
 
-const SubmitTestimonial = async ({
-  params: { listId },
-}: SubmitTestimonialProps) => {
+const SubmitTestimonial = async ({ params: { listId } }: SubmitTestimonialProps) => {
   const list = await getList(listId);
   const user = await getUserFromList(listId);
 

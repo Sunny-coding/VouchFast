@@ -9,9 +9,7 @@ interface DashboardHeadingProps {
 
 const DashboardHeading = ({ className, text }: DashboardHeadingProps) => {
   return (
-    <h2
-      className={cn('text-4xl font-bold', className, grotesque.className)}
-    >
+    <h2 className={cn('text-4xl font-bold', className, grotesque.className)}>
       {text}
     </h2>
   );

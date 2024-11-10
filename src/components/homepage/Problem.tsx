@@ -10,13 +10,7 @@ import { cn } from '@/lib/utils';
 import invertArrowSvg from '@/assets/arrow-invert.svg';
 import arrowSvg from '@/assets/arrow.svg';
 
-const TestimonialStep = ({
-  emoji,
-  text,
-}: {
-  emoji: string;
-  text: string;
-}) => {
+const TestimonialStep = ({ emoji, text }: { emoji: string; text: string }) => {
   return (
     <section className='w-full max-w-80'>
       <span className='text-3xl lg:text-5xl'>{emoji}</span>

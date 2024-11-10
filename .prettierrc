@@ -1,6 +1,6 @@
 {
   "endOfLine": "lf",
-  "printWidth": 75,
+  "printWidth": 85,
   "tabWidth": 2,
   "arrowParens": "avoid",
   "bracketSameLine": false,
@@ -16,10 +16,7 @@
   "proseWrap": "preserve",
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",
-  "plugins": [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss"
-  ],
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   "importOrder": [
     "^react$",
     "",

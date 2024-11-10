@@ -21,9 +21,7 @@ export default function AuthCard({ type }: AuthCardProps) {
   const isLogin = type === 'login';
   const title = isLogin ? 'Login' : 'Signup';
   const buttonText = isLogin ? 'Login' : 'Signup';
-  const alternateAuthText = isLogin
-    ? "Don't have an account?"
-    : 'Have an account?';
+  const alternateAuthText = isLogin ? "Don't have an account?" : 'Have an account?';
   const alternateAuthLink = isLogin ? '/auth' : '/login';
   const alternateAuthLinkText = isLogin ? 'Signup' : 'Login';
 
@@ -66,10 +64,7 @@ export default function AuthCard({ type }: AuthCardProps) {
       <CardFooter className='justify-center'>
         <p className='text-sm text-muted-foreground'>
           {alternateAuthText}{' '}
-          <Link
-            href={alternateAuthLink}
-            className='ml-1 font-medium text-primary'
-          >
+          <Link href={alternateAuthLink} className='ml-1 font-medium text-primary'>
             {alternateAuthLinkText}
           </Link>
         </p>

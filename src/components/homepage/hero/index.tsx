@@ -38,20 +38,15 @@ const Hero = () => {
           )}
         >
           Your{' '}
-          <RoughNotation
-            type='highlight'
-            iterations={1}
-            color='#22c55e'
-            show
-          >
+          <RoughNotation type='highlight' iterations={1} color='#22c55e' show>
             <span className='px-2 text-background'>ultimate</span>
           </RoughNotation>{' '}
           Testimonial collecting tool.
         </h1>
 
         <p className='mx-auto mt-10 max-w-4xl text-center text-lg text-gray-300 lg:text-xl'>
-          VouchFast offers everything you need to fetch testimonials from
-          your clients.
+          VouchFast offers everything you need to fetch testimonials from your
+          clients.
         </p>
 
         <Link href='/auth'>

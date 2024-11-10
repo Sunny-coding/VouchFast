@@ -26,9 +26,7 @@ const Box = ({ heading, description, Icon }: BoxProps) => {
       >
         {heading}
       </h2>
-      <p className='mt-2 text-lg font-medium text-zinc-400 lg:mt-5'>
-        {description}
-      </p>
+      <p className='mt-2 text-lg font-medium text-zinc-400 lg:mt-5'>{description}</p>
     </div>
   );
 };
@@ -41,8 +39,7 @@ const uses = [
   },
   {
     heading: 'Agencies',
-    description:
-      'Streamline testimonial collection and approval across teams.',
+    description: 'Streamline testimonial collection and approval across teams.',
     Icon: MdAddBusiness,
   },
   {

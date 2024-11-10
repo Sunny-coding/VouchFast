@@ -21,8 +21,9 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  plan  Plan   @default(FREE)
-  lists List[]
+  plan         Plan          @default(FREE)
+  lists        List[]
+  testimonials Testimonial[]
 }
 
 // ! ------------------- AUTHENTICATION ------------------- ! //
@@ -71,7 +72,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// ! ------------------- PROPOSALS & TESTIMONIALS ------------------- ! //
+// ! -------------------  TESTIMONIALS ------------------- ! //
 
 enum Plan {
   FREE
@@ -98,8 +99,13 @@ model Testimonial {
   name    String
   email   String
   rating  String?
-  list    List?   @relation(fields: [listId], references: [id])
-  listId  String? @db.ObjectId
+
+  list   List?   @relation(fields: [listId], references: [id])
+  listId String? @db.ObjectId
+
+  userId String? @db.ObjectId
+  user   User?   @relation(fields: [userId], references: [id])
 
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

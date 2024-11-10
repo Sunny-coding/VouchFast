@@ -33,12 +33,7 @@ const MainNav = async () => {
           <Link href='/auth'>
             <Button className='gap-2'>
               Get Started
-              <Image
-                src={doubleArrow}
-                height={20}
-                width={20}
-                alt='doodle'
-              />
+              <Image src={doubleArrow} height={20} width={20} alt='doodle' />
             </Button>
           </Link>
         </section>

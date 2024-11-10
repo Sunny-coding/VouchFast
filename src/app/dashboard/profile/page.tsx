@@ -6,11 +6,7 @@ import Heading from '@/components/DashboardHeading';
 import AccountForm from '@/components/forms/dashboard/Account';
 import AddressForm from '@/components/forms/dashboard/Address';
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import type { User } from 'next-auth';
 

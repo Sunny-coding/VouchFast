@@ -1,11 +1,6 @@
 import Link from 'next/link';
 
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import type { ReactNode } from 'react';
 
@@ -15,23 +10,23 @@ interface OverviewCardProps {
   link?: string;
 }
 
-const OverviewCard = ({ title, children, link }: OverviewCardProps) => {
-  const CardContent = (
-    <Card>
-      <CardHeader className='space-y-5'>
+export default function OverviewCard({ title, children, link }: OverviewCardProps) {
+  const CardComponent = (
+    <Card className={link ? 'transition-shadow hover:shadow-md' : ''}>
+      <CardHeader>
         <CardTitle className='text-lg'>{title}</CardTitle>
-        <CardDescription className='text-xl font-bold'>
-          {children}
-        </CardDescription>
       </CardHeader>
+      <CardContent>{children}</CardContent>
     </Card>
   );
 
-  return link ? (
-    <Link href={link}>{CardContent}</Link>
-  ) : (
-    <>{CardContent}</>
-  );
-};
+  if (link) {
+    return (
+      <Link href={link} className='block'>
+        {CardComponent}
+      </Link>
+    );
+  }
 
-export default OverviewCard;
+  return CardComponent;
+}

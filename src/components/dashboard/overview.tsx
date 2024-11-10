@@ -1,34 +1,27 @@
 import { Plan } from '@prisma/client';
 
-import {
-  getListCount,
-  getTestimonialCount,
-  getUser,
-} from '@/server/db/user';
-import { getUserId } from '@/server/session';
+import { getListCount, getTestimonialCount } from '@/server/db/user';
 
 import { cn } from '@/lib/utils';
 
 import OverviewCard from '@/components/cards/overview-card';
 import Heading from '@/components/DashboardHeading';
 
+import type { User } from '@prisma/client';
+
 interface IProps {
+  user: User;
   className?: string;
 }
 
-const DashboardOverview = async ({ className }: IProps) => {
-  const userId = await getUserId();
-  const user = await getUser(userId);
+const DashboardOverview = async ({ user, className }: IProps) => {
+  const userId = user.id;
+  const isPremimum = user.plan === Plan.PAID;
 
-  const isPremimum = user!.plan === Plan.PAID;
   const listCount = await getListCount(userId);
   const testimonialCount = await getTestimonialCount(userId, 'user');
 
-  if (!user) return null;
-
-  const testQuota = isPremimum
-    ? `${testimonialCount}/∞`
-    : `${testimonialCount}/3`;
+  const testQuota = isPremimum ? `${testimonialCount}/∞` : `${testimonialCount}/3`;
   const listQuota = isPremimum ? `${listCount}/15` : `${listCount}/1`;
 
   return (

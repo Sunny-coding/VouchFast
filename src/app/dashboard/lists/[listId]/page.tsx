@@ -1,6 +1,9 @@
-import React from 'react';
+import { notFound } from 'next/navigation';
 
-import { getList } from '@/server/db/user';
+import { getList, getTestimonialsFromList } from '@/server/db/user';
+
+import TestimonialCard from '@/components/cards/testimonial';
+import DashboardHeading from '@/components/DashboardHeading';
 
 interface ListPageProps {
   params: {
@@ -11,7 +14,22 @@ interface ListPageProps {
 const ListPage = async ({ params: { listId } }: ListPageProps) => {
   const list = await getList(listId);
 
-  return <div>{JSON.stringify(list)}</div>;
+  if (!list) return notFound();
+
+  const testimonials = await getTestimonialsFromList(listId);
+
+  return (
+    <div>
+      <DashboardHeading text={list.name} />
+      <div className='mt-8 grid gap-6'>
+        {testimonials.map(testimonial => (
+          <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+        ))}
+      </div>
+
+      {testimonials.length === 0 && <p>No testimonials found!</p>}
+    </div>
+  );
 };
 
 export default ListPage;

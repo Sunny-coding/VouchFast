@@ -33,22 +33,16 @@ const PricingBox = ({
       )}
     >
       <div>
-        <h3 className={cn('text-5xl font-black', grotesque.className)}>
-          {heading}
-        </h3>
+        <h3 className={cn('text-5xl font-black', grotesque.className)}>{heading}</h3>
 
         <p className='mt-5 text-gray-300'>{description}</p>
       </div>
 
       <div className='mt-7 flex items-center space-x-3 border-b border-zinc-700 pb-5'>
         {originalPrice && (
-          <p className='text-xl text-gray-400 line-through'>
-            {originalPrice}
-          </p>
+          <p className='text-xl text-gray-400 line-through'>{originalPrice}</p>
         )}
-        <p className={cn('text-5xl font-black', grotesque.className)}>
-          {price}
-        </p>
+        <p className={cn('text-5xl font-black', grotesque.className)}>{price}</p>
       </div>
 
       <div className='flex h-full flex-col justify-between'>
