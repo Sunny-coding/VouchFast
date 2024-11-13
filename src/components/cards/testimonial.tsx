@@ -1,4 +1,10 @@
+'use client';
+
 import { Download, Edit, Share2, Trash2 } from 'lucide-react';
+
+import { useToast } from '../hooks/use-toast';
+
+import deleteTestimonialAction from '@/actions/delete-testimonial';
 
 import { formatDate } from '@/lib/utils';
 
@@ -52,11 +58,27 @@ const FooterButton = ({ icon, children }: BtnProps) => {
 };
 
 export default function Component({ testimonial }: IProps) {
+  const { toast } = useToast();
+  const deleteTestimonial = async (testimonialId: string) => {
+    const result = await deleteTestimonialAction(testimonialId);
+
+    toast({
+      title: result.success ? '' : 'An error occurred!',
+      description: result.message,
+      variant: result.success ? 'default' : 'destructive',
+    });
+  };
+
   return (
     <Card className='w-full max-w-2xl bg-zinc-950 text-zinc-100'>
       <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
         <h3 className='text-xl font-semibold text-zinc-100'>{testimonial.name}</h3>
-        <Button variant='ghost' size='icon' className='text-red-600'>
+        <Button
+          onClick={() => deleteTestimonial(testimonial.id)}
+          variant='ghost'
+          size='icon'
+          className='text-red-600'
+        >
           <Trash2 className='h-5 w-5' />
           <span className='sr-only'>Delete testimonial</span>
         </Button>
