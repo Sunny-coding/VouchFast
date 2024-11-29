@@ -1,12 +1,12 @@
 'use client';
 
-import { Download, Edit, Share2, Trash2 } from 'lucide-react';
+import { Download } from 'lucide-react';
 
-import { useToast } from '../hooks/use-toast';
-
-import deleteTestimonialAction from '@/actions/delete-testimonial';
+import EditTestimonialButton from '../edit-testimonial-btn';
 
 import { formatDate } from '@/lib/utils';
+
+import DeleteTestimonialButton from '@/components/delete-testimonial-btn';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -24,13 +24,12 @@ interface BtnProps extends HTMLProps<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const ContentField = ({
-  heading,
-  field,
-}: {
+interface ContentFieldProps {
   heading: string;
   field: string | Date;
-}) => {
+}
+
+const ContentField = ({ heading, field }: ContentFieldProps) => {
   if (field instanceof Date) {
     field = formatDate(field);
   }
@@ -58,30 +57,11 @@ const FooterButton = ({ icon, children }: BtnProps) => {
 };
 
 export default function Component({ testimonial }: IProps) {
-  const { toast } = useToast();
-  const deleteTestimonial = async (testimonialId: string) => {
-    const result = await deleteTestimonialAction(testimonialId);
-
-    toast({
-      title: result.success ? '' : 'An error occurred!',
-      description: result.message,
-      variant: result.success ? 'default' : 'destructive',
-    });
-  };
-
   return (
     <Card className='w-full max-w-2xl bg-zinc-950 text-zinc-100'>
       <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
         <h3 className='text-xl font-semibold text-zinc-100'>{testimonial.name}</h3>
-        <Button
-          onClick={() => deleteTestimonial(testimonial.id)}
-          variant='ghost'
-          size='icon'
-          className='text-red-600'
-        >
-          <Trash2 className='h-5 w-5' />
-          <span className='sr-only'>Delete testimonial</span>
-        </Button>
+        <DeleteTestimonialButton id={testimonial.id} />
       </CardHeader>
 
       <CardContent className='mt-5 space-y-5'>
@@ -95,9 +75,8 @@ export default function Component({ testimonial }: IProps) {
       </CardContent>
 
       <CardFooter className='flex justify-end gap-4 border-t border-zinc-800 pt-4'>
-        <FooterButton icon={Share2}>Share</FooterButton>
         <FooterButton icon={Download}>Download</FooterButton>
-        <FooterButton icon={Edit}>Edit</FooterButton>
+        <EditTestimonialButton {...testimonial} />
       </CardFooter>
     </Card>
   );

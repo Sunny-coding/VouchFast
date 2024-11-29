@@ -6,7 +6,7 @@ import { getUserSession } from '@/server/session';
 
 import db from '@/lib/prisma';
 
-const deleteTestimonialAction = async (testimonialId: string) => {
+const editTestimonialAction = async (testimonialId: string, newText: string) => {
   try {
     // * Authenticate the user
     const user = await getUserSession();
@@ -28,19 +28,20 @@ const deleteTestimonialAction = async (testimonialId: string) => {
     if (testimonial.user?.email !== user.email) {
       return {
         success: false,
-        message: "You don't have permission to delete this testimonial.",
+        message: "You don't have permission to update this testimonial.",
       };
     }
 
-    await db.testimonial.delete({
+    await db.testimonial.update({
       where: { id: testimonialId },
+      data: { message: newText },
     });
 
     revalidatePath('/dashboard/lists/[listId]');
-    return { success: true, message: 'Testimonial deleted successfully.' };
+    return { success: true, message: 'Testimonial updated successfully.' };
   } catch (error) {
     return { success: false, message: 'An error occurred.' };
   }
 };
 
-export default deleteTestimonialAction;
+export default editTestimonialAction;
