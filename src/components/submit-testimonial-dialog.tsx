@@ -23,7 +23,7 @@ const SubmitTestimonialDialog = ({ list, user }: IProps) => {
       <DialogTrigger asChild>
         <Button className='mt-16 w-full max-w-2xl'>Write a Testimonial</Button>
       </DialogTrigger>
-      <DialogContent className=''>
+      <DialogContent>
         <DialogHeader>
           <DialogTitle className='text-xl font-semibold'>
             Testimonial to {user.name}
