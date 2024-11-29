@@ -1,7 +1,10 @@
 'use client';
 
-const Error = () => {
-  return <div>Error</div>;
+type Props = {
+  error: Error & { digest?: string };
+  reset: VoidFunction;
 };
 
-export default Error;
+export default function HomePageError({ error, reset }: Props): JSX.Element {
+  return <>{error.message && error.message}</>;
+}

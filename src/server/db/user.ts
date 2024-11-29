@@ -32,6 +32,13 @@ export async function getListCount(userId: string): Promise<number> {
 }
 
 // * Testimonial-related functions
+
+export const getTestimonialFromId = async (
+  id: string,
+): Promise<Testimonial | null> => {
+  return db.testimonial.findUnique({ where: { id } });
+};
+
 type CountType = 'lists' | 'user';
 
 export async function getTestimonialCount(

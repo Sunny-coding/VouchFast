@@ -1,26 +1,17 @@
 'use client';
 
-import { Download } from 'lucide-react';
-
 import { formatDate } from '@/lib/utils';
 
 import DeleteTestimonialButton from '@/components/delete-testimonial-btn';
+import DownloadTestimonialButton from '@/components/download-testimonial-btn';
 import EditTestimonialButton from '@/components/edit-testimonial-btn';
 
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 
 import type { Testimonial } from '@prisma/client';
-import type { LucideIcon } from 'lucide-react';
-import type { HTMLProps, ReactNode } from 'react';
 
 interface IProps {
   testimonial: Testimonial;
-}
-
-interface BtnProps extends HTMLProps<HTMLButtonElement> {
-  icon: LucideIcon;
-  children: ReactNode;
 }
 
 interface ContentFieldProps {
@@ -38,20 +29,6 @@ const ContentField = ({ heading, field }: ContentFieldProps) => {
       <div className='text-sm text-zinc-400'>{heading}</div>
       <p className='text-zinc-200'>{field}</p>
     </div>
-  );
-};
-
-const FooterButton = ({ icon, children }: BtnProps) => {
-  const Icon = icon;
-  return (
-    <Button
-      variant='secondary'
-      size='sm'
-      className='text-zinc-400 hover:text-zinc-300'
-    >
-      <Icon className='mr-2 h-4 w-4' />
-      {children}
-    </Button>
   );
 };
 
@@ -74,7 +51,7 @@ export default function Component({ testimonial }: IProps) {
       </CardContent>
 
       <CardFooter className='flex justify-end gap-4 border-t border-zinc-800 pt-4'>
-        <FooterButton icon={Download}>Download</FooterButton>
+        <DownloadTestimonialButton testimonial={testimonial} />
         <EditTestimonialButton {...testimonial} />
       </CardFooter>
     </Card>
