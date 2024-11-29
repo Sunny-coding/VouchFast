@@ -2,11 +2,10 @@
 
 import { Download } from 'lucide-react';
 
-import EditTestimonialButton from '../edit-testimonial-btn';
-
 import { formatDate } from '@/lib/utils';
 
 import DeleteTestimonialButton from '@/components/delete-testimonial-btn';
+import EditTestimonialButton from '@/components/edit-testimonial-btn';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
