@@ -4,20 +4,16 @@ import { auth } from '@/lib/session';
 
 import type { Session, User } from 'next-auth';
 
-type OptionalSession = Session | null;
-type OptionalUser = User | null;
-type OptionalUserId = string | null;
-
-export const getServerSession = cache(async (): Promise<OptionalSession> => {
+export const getServerSession = cache(async (): Promise<Session | null> => {
   return await auth();
 });
 
-export const getUserSession = cache(async (): Promise<OptionalUser> => {
+export const getUserSession = cache(async (): Promise<User | null> => {
   const session = await getServerSession();
   return session?.user ?? null;
 });
 
-export const getUserId = cache(async (): Promise<OptionalUserId> => {
+export const getUserId = cache(async (): Promise<string | null> => {
   const session = await getServerSession();
   return session?.user?.id ?? null;
 });

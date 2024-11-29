@@ -1,58 +1,104 @@
-import updateProfile from '@/actions/updateProfile';
+'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+
+import updateProfileAction from '@/actions/updateProfile';
+
+import { profileSchema } from '@/schema/profile-schema';
+
+import { useToast } from '@/components/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
+import type { ProfileType } from '@/schema/profile-schema';
 import type { User } from 'next-auth';
 
-interface AccountProps {
+interface IProps {
   user: User;
 }
 
-export const Account = ({ user }: AccountProps) => {
+export const Account = ({ user }: IProps) => {
+  const { toast } = useToast();
+
+  const form = useForm<ProfileType>({
+    resolver: zodResolver(profileSchema),
+    defaultValues: {
+      name: user.name || '',
+      email: user.email || '',
+    },
+  });
+
+  const handleSubmit = async (values: ProfileType) => {
+    const formData = new FormData();
+
+    formData.append('name', values.name);
+    formData.append('email', values.email);
+
+    const res = await updateProfileAction(formData);
+
+    toast({
+      title: res.success ? '' : 'Error',
+      description: res.message,
+      variant: res.success ? 'default' : 'destructive',
+      duration: 3000,
+    });
+  };
+
   return (
-    <form action={updateProfile}>
-      <Card className='mt-5 w-full border-none bg-background shadow-none'>
-        <CardHeader>
-          <CardTitle>Profile Information</CardTitle>
-        </CardHeader>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
+        <Card className='mt-5 w-full border-none bg-background shadow-none'>
+          <CardHeader>
+            <CardTitle>Profile Information</CardTitle>
+          </CardHeader>
 
-        <CardContent className='mt-5'>
-          <div className='grid w-full items-center gap-4'>
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='Name'>Name</Label>
-              <Input
-                type='name'
-                name='name'
-                placeholder={user.name || 'Name'}
-                defaultValue={user.name || ''}
-                className='mt-2 rounded'
-              />
-            </div>
+          <CardContent className='mt-5 grid gap-4'>
+            <FormField
+              control={form.control}
+              name='name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder='Elon Mask' {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='Name'>Email</Label>
-              <Input
-                type='email'
-                name='email'
-                placeholder={user.email || 'Email'}
-                defaultValue={user.email || ''}
-                className='mt-2 rounded'
-              />
-            </div>
-            <Button
-              type='submit'
-              className='ml-auto mt-5 w-min rounded text-sm'
-              variant='secondary'
-            >
+            <FormField
+              control={form.control}
+              name='email'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder='acid@acidop.codes' {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type='submit' className='ml-auto mt-5'>
               Update Profile
             </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </form>
+          </CardContent>
+        </Card>
+      </form>
+    </Form>
   );
 };
 

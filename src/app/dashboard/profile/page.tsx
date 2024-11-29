@@ -3,8 +3,7 @@ import { redirect } from 'next/navigation';
 import { getServerSession } from '@/server/session';
 
 import Heading from '@/components/DashboardHeading';
-import AccountForm from '@/components/forms/dashboard/Account';
-import AddressForm from '@/components/forms/dashboard/Address';
+import AccountForm from '@/components/forms/dashboard/account';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -30,7 +29,6 @@ const ProfilePage = async () => {
         </Avatar>
 
         <AccountForm user={user} />
-        <AddressForm user={user} />
       </div>
     </div>
   );
