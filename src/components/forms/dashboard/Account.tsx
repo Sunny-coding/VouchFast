@@ -28,7 +28,7 @@ interface IProps {
   user: User;
 }
 
-export const Account = ({ user }: IProps) => {
+const Account = ({ user }: IProps) => {
   const { toast } = useToast();
 
   const form = useForm<ProfileType>({

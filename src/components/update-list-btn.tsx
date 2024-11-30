@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 
 import { useState } from 'react';
@@ -52,10 +53,10 @@ const DialogDemo = ({ list }: IProps) => {
     mode: 'onChange',
   });
 
-  const { fields, append, remove } = useFieldArray({
-    name: 'questions',
-    control: form.control,
-  });
+  // const { fields, append, remove } = useFieldArray({
+  //   name: 'questions',
+  //   control: form.control,
+  // });
 
   const handleSubmit = async (data: ListFormType) => {
     toast({
