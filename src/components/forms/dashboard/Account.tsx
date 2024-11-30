@@ -28,7 +28,7 @@ interface IProps {
   user: User;
 }
 
-const Account = ({ user }: IProps) => {
+const AccountForm = ({ user }: IProps) => {
   const { toast } = useToast();
 
   const form = useForm<ProfileType>({
@@ -102,4 +102,4 @@ const Account = ({ user }: IProps) => {
   );
 };
 
-export default Account;
+export default AccountForm;
