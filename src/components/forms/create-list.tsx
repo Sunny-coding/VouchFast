@@ -121,6 +121,7 @@ const CreateList = ({
         />
         <FormError name='name' errors={errors} />
       </div>
+
       <div className='space-y-2'>
         <Label htmlFor='headerTitle'>Header title</Label>
         <Input
@@ -132,6 +133,7 @@ const CreateList = ({
         />
         <FormError name='headerTitle' errors={errors} />
       </div>
+
       <div className='space-y-2'>
         <Label htmlFor='headerDesc'>Your custom message</Label>
         <Textarea
@@ -145,6 +147,7 @@ const CreateList = ({
         <p className='text-xs text-muted-foreground'>Markdown is supported</p>
         <FormError name='headerDesc' errors={errors} />
       </div>
+
       <div className='space-y-2'>
         <Label>Questions</Label>
         {listData.questions.map((question, index) => (
@@ -166,6 +169,7 @@ const CreateList = ({
             </Button>
           </div>
         ))}
+
         {listData.questions.length < 5 && (
           <Button
             variant='ghost'
