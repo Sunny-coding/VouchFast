@@ -4,6 +4,7 @@
 import { useState } from 'react';
 
 import { Minus, Plus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 import createList from '@/actions/create-list';
 
@@ -18,30 +19,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
 import type { ListFormType } from '@/schema/list-schema';
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable no-unused-vars */
 
 interface IProps {
   listData: ListFormType;
@@ -69,6 +46,7 @@ const CreateList = ({
 }: IProps) => {
   const [errors, setErrors] = useState<ErrorType[]>([]);
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -106,6 +84,8 @@ const CreateList = ({
       description: result.message,
       variant: result.success ? 'default' : 'destructive',
     });
+
+    result.success && router.push('/dashboard/lists');
   };
 
   return (

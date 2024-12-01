@@ -68,6 +68,7 @@ const createListAction = async (formData: FormData) => {
       : { success: false, message: 'Failed to create list' };
   } catch (error) {
     console.error('Error creating list:', error);
+    return { success: false, message: 'Failed to create list' };
   }
 };
 
