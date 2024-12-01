@@ -1,11 +1,12 @@
 import { Edit } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
-import { ShareListLink } from './share-list-btn';
+import DeleteList from './delete-list-btn';
 
 import { getList } from '@/server/db/user';
 
 import DashboardHeading from '@/components/DashboardHeading';
+import { ShareListLink } from '@/components/share-list-btn';
 
 import { Button } from '@/components/ui/button';
 
@@ -30,6 +31,8 @@ const ListHeader = async ({ listId }: IProps) => {
             <Edit className='mr-2 h-4 w-4' />
             Edit List
           </Button>
+
+          <DeleteList id={list.id} />
         </div>
       </div>
     </div>

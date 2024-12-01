@@ -1,6 +1,9 @@
-import { Trash2 } from 'lucide-react';
+'use client';
 
-import deleteTestimonialAction from '@/actions/delete-testimonial';
+import { Trash2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+
+import deleteListAction from '@/actions/delete-list';
 
 import { useToast } from '@/components/hooks/use-toast';
 
@@ -20,29 +23,32 @@ interface IProps {
   id: string;
 }
 
-const DeleteTestimonial = ({ id }: IProps) => {
+const DeleteList = ({ id }: IProps) => {
   const { toast } = useToast();
+  const router = useRouter();
 
-  const deleteTestimonial = async (testimonialId: string) => {
-    const result = await deleteTestimonialAction(testimonialId);
+  const deleteList = async (testimonialId: string) => {
+    const result = await deleteListAction(testimonialId);
 
     toast({
       title: result.success ? '' : 'An error occurred!',
       description: result.message,
       variant: result.success ? 'default' : 'destructive',
     });
+
+    result.success && router.push('/dashboard/lists');
   };
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button
-          variant='ghost'
-          size='icon'
-          className='text-destructive hover:bg-destructive'
+          variant='outline'
+          className='text-destructive hover:bg-destructive hover:text-zinc-200'
+          size='sm'
         >
-          <Trash2 className='h-5 w-5' />
-          <span className='sr-only'>Delete testimonial</span>
+          <Trash2 className='mr-2 h-4 w-4' />
+          Delete List
         </Button>
       </AlertDialogTrigger>
 
@@ -51,19 +57,16 @@ const DeleteTestimonial = ({ id }: IProps) => {
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
 
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete the
-            testimonial from our database.
+            This action *<span className='font-bold'>cannot</span>* be undone. This
+            will permanently delete the List and corresponding testimonials from our
+            database.
           </AlertDialogDescription>
         </AlertDialogHeader>
 
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
 
-          <Button
-            size='sm'
-            variant='destructive'
-            onClick={() => deleteTestimonial(id)}
-          >
+          <Button size='sm' variant='destructive' onClick={() => deleteList(id)}>
             Delete
           </Button>
         </AlertDialogFooter>
@@ -72,4 +75,4 @@ const DeleteTestimonial = ({ id }: IProps) => {
   );
 };
 
-export default DeleteTestimonial;
+export default DeleteList;

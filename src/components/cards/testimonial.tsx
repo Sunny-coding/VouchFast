@@ -34,7 +34,7 @@ const ContentField = ({ heading, field }: ContentFieldProps) => {
 
 export default function Component({ testimonial }: IProps) {
   return (
-    <Card className='w-full max-w-2xl bg-zinc-950 text-zinc-100'>
+    <Card className='w-full max-w-3xl bg-zinc-950 text-zinc-100'>
       <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
         <h3 className='text-xl font-semibold text-zinc-100'>{testimonial.name}</h3>
         <DeleteTestimonialButton id={testimonial.id} />
