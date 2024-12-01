@@ -12,10 +12,10 @@ export async function getUserFromList(
 ): Promise<Partial<User> | null> {
   const list = await db.list.findUnique({
     where: { id: listId },
-    select: { User: { select: { id: true, name: true, plan: true } } },
+    select: { user: { select: { id: true, name: true, plan: true } } },
   });
 
-  return list?.User ?? null;
+  return list!.user ?? null;
 }
 
 // * List-related functions
