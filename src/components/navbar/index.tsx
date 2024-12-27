@@ -14,7 +14,7 @@ const Navbar = async () => {
   const session = await getServerSession();
 
   return (
-    <nav className='sticky top-0 z-50 bg-background'>
+    <nav className='sticky top-0 z-[100] bg-background'>
       <div className='layout relative flex h-16 items-center justify-between text-lg'>
         <h1 className='text-xl'>
           <Link
