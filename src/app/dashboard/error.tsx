@@ -1,10 +1,9 @@
 'use client';
 
-type Props = {
+type IProps = {
   error: Error & { digest?: string };
-  reset: VoidFunction;
 };
 
-export default function HomePageError({ error, reset }: Props): JSX.Element {
+export default function HomePageError({ error }: IProps): JSX.Element {
   return <>{error.message && error.message}</>;
 }
