@@ -1,4 +1,5 @@
 import { Edit } from 'lucide-react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import DeleteList from './delete-list-btn';
@@ -27,10 +28,12 @@ const ListHeader = async ({ listId }: IProps) => {
         <div className='flex gap-3'>
           <ShareListLink link={`${process.env.BASE_URL}/submit/${list.id}`} />
 
-          <Button variant='outline' className='text-zinc-400 hover:text-zinc-300'>
-            <Edit className='mr-2 h-4 w-4' />
-            Edit List
-          </Button>
+          <Link href={`/dashboard/lists/${list.id}/edit`}>
+            <Button variant='outline' className='text-zinc-400 hover:text-zinc-300'>
+              <Edit className='mr-2 h-4 w-4' />
+              Edit List
+            </Button>
+          </Link>
 
           <DeleteList id={list.id} />
         </div>

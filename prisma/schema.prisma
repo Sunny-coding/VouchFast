@@ -85,7 +85,6 @@ model List {
   headerTitle String
   headerDesc  String
   questions   String[] @default([])
-  buttonText  String?
 
   testimonials Testimonial[]
 

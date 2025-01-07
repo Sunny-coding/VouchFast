@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 import type { ListFormType } from '@/schema/list-schema';
+import type { List } from '@prisma/client';
 
 interface ListPreviewProps {
-  listData: ListFormType;
+  listData: Partial<List> | ListFormType;
   className?: string;
 }
 
