@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import Link from 'next/link';
 
 import AuthMenu from './AuthMenu';
@@ -11,6 +12,9 @@ import { cn } from '@/lib/utils';
 import { grotesque } from '@/components/font/grotesque';
 
 const Navbar = async () => {
+  const headersList = headers();
+  const pathname = headersList.get('x-invoke-path') || '';
+
   const session = await getServerSession();
 
   return (
@@ -25,7 +29,7 @@ const Navbar = async () => {
           </Link>
         </h1>
 
-        <MainNav />
+        {pathname === '/' && <MainNav />}
 
         <div className={cn('flex items-center gap-2', !session && 'lg:hidden')}>
           <AuthMenu />
