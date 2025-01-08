@@ -3,7 +3,6 @@
 import { Copy, Share2 } from 'lucide-react';
 
 import { useCopyToClipboard } from '@/components/hooks/use-clipboard';
-import { useToast } from '@/components/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
 import {
