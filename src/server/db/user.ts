@@ -1,6 +1,6 @@
 import db from '@/lib/prisma';
 
-import type { List, Testimonial, User } from '@prisma/client';
+import type { ApiKey, List, Testimonial, User } from '@prisma/client';
 
 // * User-related functions
 export async function getUser(userId: string): Promise<User | null> {
@@ -56,3 +56,14 @@ export async function getTestimonialsFromList(
 ): Promise<Testimonial[]> {
   return db.testimonial.findMany({ where: { listId } });
 }
+
+// * API key related functions
+
+export const getApiKeys = async (userId: string): Promise<Array<ApiKey> | null> => {
+  const user = await db.user.findUnique({
+    where: { id: userId },
+    select: { apikeys: true },
+  });
+
+  return user?.apikeys ?? null;
+};

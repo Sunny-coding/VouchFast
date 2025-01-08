@@ -2,6 +2,7 @@
 
 import { Copy, Share2 } from 'lucide-react';
 
+import { useCopyToClipboard } from '@/components/hooks/use-clipboard';
 import { useToast } from '@/components/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
@@ -23,15 +24,7 @@ interface IProps {
 }
 
 export function ShareListLink({ link }: IProps) {
-  const { toast } = useToast();
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(link);
-    toast({
-      title: 'Link copied!',
-      description: 'The link has been copied to your clipboard.',
-    });
-  };
+  const handleCopy = useCopyToClipboard();
 
   return (
     <Dialog>
@@ -60,7 +53,7 @@ export function ShareListLink({ link }: IProps) {
           </div>
 
           <Button
-            onClick={copyToClipboard}
+            onClick={() => handleCopy(link)}
             type='submit'
             variant='ghost'
             className='hover:bg-transparent'

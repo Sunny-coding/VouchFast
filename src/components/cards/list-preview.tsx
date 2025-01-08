@@ -30,7 +30,7 @@ const ListPreview = ({ listData, className }: ListPreviewProps) => {
           <div className='mt-10 space-y-2'>
             <h3 className='font-semibold'>QUESTIONS</h3>
             <ul className='list-inside list-disc space-y-1 text-muted-foreground'>
-              {listData.questions.map((question, index) => (
+              {listData.questions!.map((question, index) => (
                 <li key={index}>{question || defaultQuestions[index]}</li>
               ))}
             </ul>
