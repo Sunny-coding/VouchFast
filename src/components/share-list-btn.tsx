@@ -1,8 +1,6 @@
-'use client';
+import { Share2 } from 'lucide-react';
 
-import { Copy, Share2 } from 'lucide-react';
-
-import { useCopyToClipboard } from '@/components/hooks/use-clipboard';
+import CopyButton from '@/components/copy-btn';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -23,8 +21,6 @@ interface IProps {
 }
 
 export function ShareListLink({ link }: IProps) {
-  const handleCopy = useCopyToClipboard();
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -51,15 +47,7 @@ export function ShareListLink({ link }: IProps) {
             <Input id='link' defaultValue={link} readOnly className='text-xs' />
           </div>
 
-          <Button
-            onClick={() => handleCopy(link)}
-            type='submit'
-            variant='ghost'
-            className='hover:bg-transparent'
-          >
-            <span className='sr-only'>Copy</span>
-            <Copy />
-          </Button>
+          <CopyButton text={link} />
         </div>
 
         <DialogFooter className='sm:justify-start'>

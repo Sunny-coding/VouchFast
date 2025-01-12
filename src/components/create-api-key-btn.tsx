@@ -1,15 +1,10 @@
-'use client';
-
 import { memo } from 'react';
 
 import { Plus } from 'lucide-react';
 
-import ApiKeyDisplay from './api-key-display';
-
 import { cn } from '@/lib/utils';
 
 import ApiKeyForm from '@/components/forms/api-key';
-import { useApiKeyForm } from '@/components/hooks/use-api-form';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -25,8 +20,6 @@ interface CreateApiKeyProps {
 }
 
 const CreateApiKey: React.FC<CreateApiKeyProps> = ({ className }) => {
-  const { apiKey } = useApiKeyForm();
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -37,11 +30,10 @@ const CreateApiKey: React.FC<CreateApiKeyProps> = ({ className }) => {
 
       <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
-          <DialogTitle>{apiKey ? 'API Key' : 'Add API Key'}</DialogTitle>
+          <DialogTitle>Add API Key</DialogTitle>
         </DialogHeader>
 
-        {!apiKey && <ApiKeyForm />}
-        {apiKey && <ApiKeyDisplay apiKey={apiKey} />}
+        <ApiKeyForm />
       </DialogContent>
     </Dialog>
   );

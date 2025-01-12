@@ -7,11 +7,18 @@ import authMenu from '@/config/authMenuLinks';
 
 import { cn } from '@/lib/utils';
 
-import type TabType from '@/types/TabType';
+import type { LucideIcon } from 'lucide-react';
+import type { IconType } from 'react-icons';
 
 interface SidebarProps {
   className?: string;
 }
+
+type TabType = {
+  name: string;
+  icon: IconType | LucideIcon;
+  url: string;
+};
 
 const Tab = ({ name, icon, url }: TabType) => {
   const pathname = usePathname();

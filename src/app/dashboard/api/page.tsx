@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { getApiKeys } from '@/server/db/user';
 import { getServerSession } from '@/server/session';
 
+import ApiKeyTable from '@/components/api-key-table';
 import CreateApiKey from '@/components/create-api-key-btn';
 import DashboardHeading from '@/components/DashboardHeading';
 
@@ -25,12 +26,14 @@ const APIKeys = async () => {
         {!noApiKeys && <CreateApiKey />}
       </div>
 
-      {!noApiKeys && (
-        <div className=''>
+      {noApiKeys && (
+        <div className='mt-5'>
           You don&apos;t have any API keys yet.
-          <CreateApiKey />
+          <CreateApiKey className='mt-2' />
         </div>
       )}
+
+      {!noApiKeys && <ApiKeyTable apiKeys={apiKeys} />}
     </>
   );
 };

@@ -8,10 +8,9 @@ import { getUser } from '@/server/db/user';
 import { getUserId } from '@/server/session';
 
 import db from '@/lib/prisma';
-import { generateApiToken } from '@/lib/token';
 import { formDataToObject } from '@/lib/utils';
 
-const createApiKeyAction = async (formData: FormData) => {
+const updateApiKeyAction = async (id: string, formData: FormData) => {
   try {
     // * Authentication stuff
     const userId = await getUserId();
@@ -30,26 +29,22 @@ const createApiKeyAction = async (formData: FormData) => {
       return { success: false, message: 'Invalid form data' };
     }
 
-    // * Create API Key
-    const token = generateApiToken();
-
-    const apiKey = await db.apiKey.create({
+    const apiKey = await db.apiKey.update({
+      where: { id: id },
       data: {
-        userId,
-        token,
-        ...isValid.data,
+        name: isValid.data.name,
       },
     });
 
     revalidatePath('/dashboard/api');
 
     return apiKey
-      ? { success: true, message: 'API Key created successfully!', token }
-      : { success: false, message: 'Failed to create API key', key: null };
+      ? { success: true, message: 'API Key updated successfully' }
+      : { success: false, message: 'Failed to update API key' };
   } catch (error) {
     console.error('Error creating API key:', error);
-    return { success: false, message: 'Failed to create API key', key: null };
+    return { success: false, message: 'Failed to update API key' };
   }
 };
 
-export default createApiKeyAction;
+export default updateApiKeyAction;

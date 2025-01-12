@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
@@ -14,7 +12,6 @@ import { useToast } from '@/components/hooks/use-toast';
 import type { ApiKeyType } from '@/schema/api-key-schema';
 
 export const useApiKeyForm = () => {
-  const [apiKey, setApiKey] = useState<string>();
   const { toast } = useToast();
 
   const form = useForm<ApiKeyType>({
@@ -28,13 +25,11 @@ export const useApiKeyForm = () => {
 
     const res = await createApiKeyAction(formData);
 
-    if (res.key) setApiKey(res.key);
-
     toast({
-      title: res.success ? 'API Key' : 'Error',
+      title: res.success ? 'API Key Created' : 'Error',
       description: res.message,
     });
   };
 
-  return { form, handleSubmit, apiKey };
+  return { form, handleSubmit };
 };

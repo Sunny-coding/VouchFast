@@ -7,9 +7,7 @@ import {
   User,
 } from 'lucide-react';
 
-import type TabType from '@/types/TabType';
-
-const authMenu: TabType[] = [
+const authMenu = [
   { name: 'Dashboard', url: '/dashboard', icon: LayoutGrid },
   { name: 'Lists', url: '/dashboard/lists', icon: FilePlus2 },
   { name: 'API', url: '/dashboard/api', icon: LockKeyholeOpen },
