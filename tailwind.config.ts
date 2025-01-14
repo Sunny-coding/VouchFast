@@ -82,7 +82,6 @@ const config: Config = {
   plugins: [addVariablesForColors, require('tailwindcss-animate')],
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme('colors'));
   const newVars = Object.fromEntries(

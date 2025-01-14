@@ -64,7 +64,7 @@ const EditApiKey = ({ id, name }: IProps) => {
 
       <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
-          <DialogTitle>Add API Key</DialogTitle>
+          <DialogTitle>Edit API Key</DialogTitle>
         </DialogHeader>
 
         <Form {...form}>
