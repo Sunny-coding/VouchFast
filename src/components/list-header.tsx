@@ -6,7 +6,7 @@ import DeleteList from './delete-list-btn';
 
 import { getList } from '@/server/db/user';
 
-import DashboardHeading from '@/components/DashboardHeading';
+import DashboardHeading from '@/components/dashboard-heading';
 import { ShareListLink } from '@/components/share-list-btn';
 
 import { Button } from '@/components/ui/button';

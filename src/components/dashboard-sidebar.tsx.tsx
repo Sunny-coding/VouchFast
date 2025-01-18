@@ -1,10 +1,12 @@
 'use client';
 
+import { ChevronDownIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import authMenu from '@/config/authMenuLinks';
 
+import { getDropdownMenus } from '@/lib/dropdown-menu';
 import { cn } from '@/lib/utils';
 
 import type { LucideIcon } from 'lucide-react';
@@ -41,14 +43,37 @@ const Tab = ({ name, icon, url }: TabType) => {
 };
 
 const Sidebar = ({ className }: SidebarProps) => {
+  const groupedDropdowns = getDropdownMenus(authMenu);
+
+  groupedDropdowns.map(dropdown => {
+    dropdown.items.map(item => {
+      console.log(item);
+    });
+  });
+
   return (
     <div className={cn('sticky top-24 h-min', className)}>
       <ul className='flex flex-col gap-2 text-xl font-medium text-white'>
-        {authMenu.map(tab => (
-          <div key={tab.url}>
-            <Tab {...tab} />
-          </div>
-        ))}
+        {authMenu.map(tab => {
+          return tab.dropdown ? null : <Tab key={tab.name} {...tab} />;
+        })}
+      </ul>
+      <hr className='my-4 max-w-48 border-gray-600' />
+      <ul>
+        {groupedDropdowns.map(dropdown => {
+          return (
+            <details key={dropdown.name} className='custom-details max-w-48 rounded'>
+              <summary className='flex items-center justify-between rounded py-2 pl-4 pr-2 text-base text-gray-400 hover:bg-accent'>
+                {dropdown.name}
+                <ChevronDownIcon className='text-xl text-primary' />
+              </summary>
+
+              {dropdown.items.map(item => {
+                return <Tab key={item.url} {...item} />;
+              })}
+            </details>
+          );
+        })}
       </ul>
     </div>
   );

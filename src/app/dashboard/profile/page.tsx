@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { getServerSession } from '@/server/session';
 
-import Heading from '@/components/DashboardHeading';
+import Heading from '@/components/dashboard-heading';
 import AccountForm from '@/components/forms/dashboard/account';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';

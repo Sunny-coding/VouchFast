@@ -1,4 +1,4 @@
-import Heading from '@/components/DashboardHeading';
+import Heading from '@/components/dashboard-heading';
 
 const Settings = () => {
   return (

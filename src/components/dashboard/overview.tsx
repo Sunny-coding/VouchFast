@@ -5,7 +5,7 @@ import { getListCount, getTestimonialCount } from '@/server/db/user';
 import { cn } from '@/lib/utils';
 
 import OverviewCard from '@/components/cards/overview-card';
-import Heading from '@/components/DashboardHeading';
+import Heading from '@/components/dashboard-heading';
 
 import type { User } from '@prisma/client';
 

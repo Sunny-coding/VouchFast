@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getUserId, getUserPlanFromUserId } from '@/server/session';
 
-import Heading from '@/components/DashboardHeading';
+import Heading from '@/components/dashboard-heading';
 
 import { Button } from '@/components/ui/button';
 

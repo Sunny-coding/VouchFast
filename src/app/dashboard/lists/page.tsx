@@ -2,7 +2,7 @@ import { getListCount, getListsFromUser } from '@/server/db/user';
 import { getUserId } from '@/server/session';
 
 import CreateListButton from '@/components/create-list-btn';
-import Heading from '@/components/DashboardHeading';
+import Heading from '@/components/dashboard-heading';
 import RenderLists from '@/components/render-lists';
 
 const InvitePage = async () => {

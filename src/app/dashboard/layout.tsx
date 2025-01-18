@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { getServerSession } from '@/server/session';
 
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/dashboard-sidebar.tsx';
 
 export default async function RootLayout({
   children,

@@ -5,7 +5,7 @@ import { getServerSession } from '@/server/session';
 
 import ApiKeyTable from '@/components/api-key-table';
 import CreateApiKey from '@/components/create-api-key-btn';
-import DashboardHeading from '@/components/DashboardHeading';
+import DashboardHeading from '@/components/dashboard-heading';
 
 import type { User } from '@prisma/client';
 
