@@ -45,12 +45,6 @@ const Tab = ({ name, icon, url }: TabType) => {
 const Sidebar = ({ className }: SidebarProps) => {
   const groupedDropdowns = getDropdownMenus(authMenu);
 
-  groupedDropdowns.map(dropdown => {
-    dropdown.items.map(item => {
-      console.log(item);
-    });
-  });
-
   return (
     <div className={cn('sticky top-24 h-min', className)}>
       <ul className='flex flex-col gap-2 text-xl font-medium text-white'>
