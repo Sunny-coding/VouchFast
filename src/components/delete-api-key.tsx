@@ -38,7 +38,7 @@ const DeleteApiKey = ({ apiKeyId }: IProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2 text-destructive'>
           <Trash2 size={20} />
           <span>Delete API Key</span>
         </div>
