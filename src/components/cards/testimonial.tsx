@@ -11,7 +11,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import type { Testimonial } from '@prisma/client';
 
 interface IProps {
-  testimonial: Testimonial;
+  testimonial: Omit<Testimonial, 'userId'>;
 }
 
 interface ContentFieldProps {

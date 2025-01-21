@@ -10,12 +10,12 @@ import { Button } from '@/components/ui/button';
 import type { Testimonial } from '@prisma/client';
 
 interface IProps {
-  testimonial: Testimonial;
+  testimonial: Omit<Testimonial, 'userId'>;
 }
 
 const DownloadTestimonialButton = ({ testimonial }: IProps) => {
-  // ! Workaround to remove userId and listId from the downloaded JSON
-  const { userId, listId, ...cleanedData } = testimonial;
+  // ! Remove listId from the downloaded JSON
+  const { listId, ...cleanedData } = testimonial;
 
   return (
     <Button
