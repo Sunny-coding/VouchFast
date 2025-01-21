@@ -51,10 +51,12 @@ export async function getTestimonialCount(
   return db.testimonial.count({ where: whereClause });
 }
 
+type TestimonialWithoutUserId = Omit<Testimonial, 'userId'>;
+
 export async function getTestimonialsFromList(
   listId: string,
-): Promise<Testimonial[]> {
-  return db.testimonial.findMany({ where: { listId } });
+): Promise<TestimonialWithoutUserId[]> {
+  return db.testimonial.findMany({ where: { listId }, omit: { userId: true } });
 }
 
 // * API key related functions
