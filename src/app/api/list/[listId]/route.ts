@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 import { getTestimonialsFromList } from '@/server/db/user';
@@ -9,7 +10,14 @@ export async function GET(
   { params }: { params: { listId: string } },
 ) {
   try {
-    // await rateLimit(req)
+    // TODO: Rate Limit this endpoint
+
+    // Authentication
+    const headersList = headers();
+    const authHeader = headersList.get('token');
+
+    // console.log(headers)
+    console.log(authHeader);
 
     // Get testimonials from list
     const testimonials = await getTestimonialsFromList(params.listId);

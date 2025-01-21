@@ -74,9 +74,9 @@ model VerificationToken {
 }
 
 model ApiKey {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  token String @unique
-  name  String
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  key  String @unique
+  name String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

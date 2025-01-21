@@ -31,12 +31,12 @@ const createApiKeyAction = async (formData: FormData) => {
     }
 
     // * Create API Key
-    const token = generateApiToken();
+    const apiKeyToken = generateApiToken();
 
     const apiKey = await db.apiKey.create({
       data: {
         userId,
-        token,
+        key: apiKeyToken,
         ...isValid.data,
       },
     });
@@ -44,10 +44,9 @@ const createApiKeyAction = async (formData: FormData) => {
     revalidatePath('/dashboard/api');
 
     return apiKey
-      ? { success: true, message: 'API Key created successfully!', token }
+      ? { success: true, message: 'API Key created successfully!', apiKeyToken }
       : { success: false, message: 'Failed to create API key', key: null };
   } catch (error) {
-    console.error('Error creating API key:', error);
     return { success: false, message: 'Failed to create API key', key: null };
   }
 };

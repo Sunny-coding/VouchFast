@@ -36,8 +36,8 @@ const ApiKeyTable = ({ apiKeys, className }: IProps) => {
             <TableCell>{apiKey.name}</TableCell>
 
             <TableCell className='flex items-center'>
-              {apiKey.token}
-              <CopyButton text={apiKey.token} className='ml-2' />
+              {apiKey.key}
+              <CopyButton text={apiKey.key} className='ml-2' />
             </TableCell>
 
             <TableCell>{formatDate(apiKey.createdAt)}</TableCell>

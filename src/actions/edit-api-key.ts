@@ -30,7 +30,7 @@ const updateApiKeyAction = async (id: string, formData: FormData) => {
     }
 
     const apiKey = await db.apiKey.update({
-      where: { id: id },
+      where: { id },
       data: {
         name: isValid.data.name,
       },

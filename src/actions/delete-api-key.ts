@@ -24,11 +24,11 @@ const deleteApiKeyAction = async (apiKeyID: string) => {
       return { success: false, message: 'API Key not found.' };
     }
 
-    // Check if the user is the owner of the List
+    // Check if the user is the owner of the Key
     if (apiKey.user!.email !== user.email) {
       return {
         success: false,
-        message: "You don't have permission to delete this List.",
+        message: "You don't have permission to delete this Key.",
       };
     }
 
