@@ -10,7 +10,7 @@ interface VerifyApiKeyResponse {
 
 export const verifyApiKey = async (token: string): Promise<VerifyApiKeyResponse> => {
   if (!API_KEY_REGEX.test(token))
-    return { success: false, error: 'Regex Failed', status: 401 };
+    return { success: false, error: 'API Key not valid', status: 401 };
 
   try {
     const result = await db.apiKey.findFirst({
