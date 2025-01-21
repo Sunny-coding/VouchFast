@@ -21,15 +21,17 @@ const DashboardOverview = async ({ user, className }: IProps) => {
   const listCount = await getListCount(userId);
   const testimonialCount = await getTestimonialCount(userId, 'user');
 
-  const testQuota = isPremimum ? `${testimonialCount}/∞` : `${testimonialCount}/3`;
   const listQuota = isPremimum ? `${listCount}/15` : `${listCount}/1`;
+  const testimonialQuota = isPremimum
+    ? `${testimonialCount}/∞`
+    : `${testimonialCount}/3`;
 
   return (
     <>
       <Heading text='Overview' />
 
       <div className={cn('mt-16 grid gap-6 lg:grid-cols-3', className)}>
-        <OverviewCard title='Testimonials'>{testQuota}</OverviewCard>
+        <OverviewCard title='Testimonials'>{testimonialQuota}</OverviewCard>
         <OverviewCard title='Plan' link='/pricing'>
           {user.plan}
         </OverviewCard>
