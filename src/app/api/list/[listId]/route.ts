@@ -7,6 +7,9 @@ import { verifyApiKey } from '@/lib/api-utils';
 
 import type { NextRequest } from 'next/server';
 
+//  * This route returns all testimonials stored inside a list
+//  * The `listId` is required to fetch the testimonials
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: { listId: string } },
@@ -37,7 +40,7 @@ export async function GET(
     // Get testimonials from list
     const testimonials = await getTestimonialsFromList(params.listId);
 
-    return NextResponse.json({ success: true, data: testimonials });
+    return NextResponse.json({ success: true, data: testimonials }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch testimonials from list' },
