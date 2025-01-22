@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation';
-
 import { getApiKeys } from '@/server/db/user';
 import { getServerSession } from '@/server/session';
 
@@ -7,33 +5,27 @@ import ApiKeyTable from '@/components/api-key-table';
 import CreateApiKey from '@/components/create-api-key-btn';
 import DashboardHeading from '@/components/dashboard-heading';
 
-import type { User } from '@prisma/client';
-
 const APIKeys = async () => {
   const session = await getServerSession();
-  if (!session) redirect('/login');
 
-  const user: User = session.user;
-
-  const apiKeys = await getApiKeys(user.id);
-
-  const noApiKeys = !apiKeys || apiKeys.length === 0;
+  const apiKeys = await getApiKeys(session?.user.id);
+  const hasApiKeys = apiKeys && apiKeys.length > 0;
 
   return (
     <>
       <div className='flex items-center justify-between'>
         <DashboardHeading text='API Keys' />
-        {!noApiKeys && <CreateApiKey />}
+        {hasApiKeys && <CreateApiKey />}
       </div>
 
-      {noApiKeys && (
+      {hasApiKeys ? (
+        <ApiKeyTable apiKeys={apiKeys} />
+      ) : (
         <div className='mt-5'>
-          You don&apos;t have any API keys yet.
+          <p>You don&apos;t have any API keys yet.</p>
           <CreateApiKey className='mt-2' />
         </div>
       )}
-
-      {!noApiKeys && <ApiKeyTable apiKeys={apiKeys} />}
     </>
   );
 };
