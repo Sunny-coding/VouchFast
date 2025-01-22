@@ -1,15 +1,16 @@
-import { List } from '@prisma/client';
-
-import { Button } from './ui/button';
-
 import { getTestimonialCount } from '@/server/db/user';
 
 import { cn } from '@/lib/utils';
 
+import { Button } from '@/components//ui/button';
 import OverviewCard from '@/components/cards/overview-card';
 
+import type { List } from '@prisma/client';
+
+type ListWithoutUserId = Omit<List, 'userId'>;
+
 interface IProps {
-  lists: List[];
+  lists: ListWithoutUserId[];
   className?: string;
 }
 

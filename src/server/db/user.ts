@@ -19,12 +19,17 @@ export async function getUserFromList(
 }
 
 // * List-related functions
+
 export async function getList(listId: string): Promise<List | null> {
   return db.list.findUnique({ where: { id: listId } });
 }
 
-export async function getListsFromUser(userId: string): Promise<List[]> {
-  return db.list.findMany({ where: { userId } });
+type ListWithoutUserId = Omit<List, 'userId'>;
+
+export async function getListsFromUser(
+  userId: string,
+): Promise<ListWithoutUserId[]> {
+  return db.list.findMany({ where: { userId }, omit: { userId: true } });
 }
 
 export async function getListCount(userId: string): Promise<number> {
@@ -32,6 +37,12 @@ export async function getListCount(userId: string): Promise<number> {
 }
 
 // * Testimonial-related functions
+
+export async function getTestimonialsFromUser(
+  userId: string,
+): Promise<TestimonialWithoutUserId[]> {
+  return db.testimonial.findMany({ where: { userId }, omit: { userId: true } });
+}
 
 export const getTestimonialFromId = async (
   id: string,
