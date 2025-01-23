@@ -1,37 +1,29 @@
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 import { getListsFromUser } from '@/server/db/user';
 
-import { verifyApiKey } from '@/lib/api-utils';
+import { checkApiAuthorization } from '@/lib/api-utils';
+import { rateLimit } from '@/lib/ratelimit';
+
+import type { NextRequest } from 'next/server';
 
 // * This route returns all the `lists` owned by an user
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // TODO: Rate Limit this endpoint
-
-    // Authentication
-    const headersList = headers();
-    const authHeader = headersList.get('Api-Key');
-
-    if (!authHeader) {
+    // ! Rate limiting
+    const limitReached = await rateLimit(request);
+    if (!limitReached) {
       return NextResponse.json(
-        { success: false, error: 'API Key is required' },
-        { status: 401 },
+        { success: false, error: 'Rate limit exceeded. Try again later' },
+        { status: 429 },
       );
     }
 
-    const isValid = await verifyApiKey(authHeader);
+    const response = await checkApiAuthorization();
+    if (response instanceof NextResponse) return response;
 
-    if (!isValid.success || !isValid.user) {
-      return NextResponse.json(
-        { success: isValid.success, error: isValid.error },
-        { status: isValid.status },
-      );
-    }
-
-    const lists = await getListsFromUser(isValid.user.id);
+    const lists = await getListsFromUser(response.user?.id!);
 
     return NextResponse.json({ success: true, data: lists }, { status: 200 });
   } catch (error) {

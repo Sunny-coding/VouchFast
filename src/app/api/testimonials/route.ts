@@ -3,12 +3,22 @@ import { NextResponse } from 'next/server';
 import { getTestimonialsFromUser } from '@/server/db/user';
 
 import { checkApiAuthorization } from '@/lib/api-utils';
+import { rateLimit } from '@/lib/ratelimit';
+
+import type { NextRequest } from 'next/server';
 
 // * This route returns all the `testimonials` owned by an user
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // TODO: Rate Limit this endpoint
+    // ! Rate limiting
+    const limitReached = await rateLimit(request);
+    if (!limitReached) {
+      return NextResponse.json(
+        { success: false, error: 'Rate limit exceeded. Try again later' },
+        { status: 429 },
+      );
+    }
 
     // * Authentication
     const response = await checkApiAuthorization();

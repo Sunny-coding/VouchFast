@@ -1,9 +1,9 @@
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 import { getTestimonialsFromList } from '@/server/db/user';
 
-import { verifyApiKey } from '@/lib/api-utils';
+import { checkApiAuthorization } from '@/lib/api-utils';
+import { rateLimit } from '@/lib/ratelimit';
 
 import type { NextRequest } from 'next/server';
 
@@ -11,31 +11,22 @@ import type { NextRequest } from 'next/server';
 //  * The `listId` is required to fetch the testimonials
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: { listId: string } },
 ) {
   try {
-    // TODO: Rate Limit this endpoint
+    // ! Rate limiting
+    const limitReached = await rateLimit(request);
+    if (!limitReached) {
+      return NextResponse.json(
+        { success: false, error: 'Rate limit exceeded. Try again later' },
+        { status: 429 },
+      );
+    }
 
     // Authentication
-    const headersList = headers();
-    const authHeader = headersList.get('Api-Key');
-
-    if (!authHeader) {
-      return NextResponse.json(
-        { success: false, error: 'API Key is required' },
-        { status: 401 },
-      );
-    }
-
-    const isValid = await verifyApiKey(authHeader);
-
-    if (!isValid.success) {
-      return NextResponse.json(
-        { success: isValid.success, error: isValid.error },
-        { status: isValid.status },
-      );
-    }
+    const response = await checkApiAuthorization();
+    if (response instanceof NextResponse) return response;
 
     // Get testimonials from list
     const testimonials = await getTestimonialsFromList(params.listId);
