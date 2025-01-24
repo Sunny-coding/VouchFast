@@ -3,34 +3,33 @@ import { NextResponse } from 'next/server';
 import { getTestimonialsFromUser } from '@/server/db/user';
 
 import { checkApiAuthorization } from '@/lib/api-utils';
-import { rateLimit } from '@/lib/ratelimit';
+import { withRateLimitAndAuth } from '@/lib/api-wrapper';
 
-import type { NextRequest } from 'next/server';
+import type { VerifyApiKeyResponse } from '@/types/api-response';
 
-// * This route returns all the `testimonials` owned by an user
-
-export async function GET(request: NextRequest) {
+const handleGet = async () => {
   try {
-    // ! Rate limiting
-    const limitReached = await rateLimit(request);
-    if (!limitReached) {
+    const authResponse = (await checkApiAuthorization()) as VerifyApiKeyResponse;
+    const testimonials = await getTestimonialsFromUser(authResponse.user?.id!);
+
+    if (testimonials) {
       return NextResponse.json(
-        { success: false, error: 'Rate limit exceeded. Try again later' },
-        { status: 429 },
+        { success: true, data: testimonials },
+        { status: 200 },
       );
     }
 
-    // * Authentication
-    const response = await checkApiAuthorization();
-    if (response instanceof NextResponse) return response;
-
-    const testimonials = await getTestimonialsFromUser(response.user?.id!);
-
-    return NextResponse.json({ success: true, data: testimonials }, { status: 200 });
+    // Handle case when testimonial is not found
+    return NextResponse.json(
+      { success: false, error: 'Testimonial not found' },
+      { status: 404 },
+    );
   } catch (error) {
     return NextResponse.json(
-      { success: false, error: 'Failed to fetch testimonials' },
+      { success: false, error: 'Failed to fetch testimonials from list' },
       { status: 500 },
     );
   }
-}
+};
+
+export const GET = withRateLimitAndAuth(handleGet);

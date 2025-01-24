@@ -1,4 +1,3 @@
-import { User } from '@prisma/client';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
@@ -6,14 +5,9 @@ import { config } from '@/config/config';
 
 import db from '@/lib/prisma';
 
-const API_KEY_REGEX = /^vf_[a-zA-Z0-9]{30}$/;
+import type { VerifyApiKeyResponse } from '@/types/api-response';
 
-interface VerifyApiKeyResponse {
-  success: boolean;
-  error?: string;
-  status: number;
-  user?: User;
-}
+const { API_KEY_REGEX, API_KEY_TOKEN_NAME } = config;
 
 export const verifyApiKey = async (token: string): Promise<VerifyApiKeyResponse> => {
   if (!API_KEY_REGEX.test(token))
@@ -39,9 +33,13 @@ export const verifyApiKey = async (token: string): Promise<VerifyApiKeyResponse>
   }
 };
 
-export const checkApiAuthorization = async () => {
+export const getApiKey = () => {
   const headersList = headers();
-  const authHeader = headersList.get(config.apiKeyTokenName);
+  return headersList.get(API_KEY_TOKEN_NAME);
+};
+
+export const checkApiAuthorization = async () => {
+  const authHeader = getApiKey();
 
   if (!authHeader) {
     return NextResponse.json(
@@ -62,5 +60,5 @@ export const checkApiAuthorization = async () => {
   // ? Response (VerifyApiKeyResponse)  -> Authorized
   // ? Response (NextResponse)          -> Unauthorized
 
-  return isValid;
+  return isValid as VerifyApiKeyResponse;
 };
