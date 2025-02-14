@@ -1,3 +1,4 @@
+import typography from '@tailwindcss/typography';
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 
 import type { Config } from 'tailwindcss';
@@ -89,7 +90,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors, require('tailwindcss-animate')],
+  plugins: [addVariablesForColors, typography, require('tailwindcss-animate')],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
