@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button } from '../ui/button';
-
 import links from '@/config/navlinks';
 
 import { getServerSession } from '@/server/session';
 
 import doubleArrow from '@/assets/double-arrow.svg';
 
-const MainNav = async () => {
+import { Button } from '@/components/ui/button';
+
+const HomepageLinks = async () => {
   const session = await getServerSession();
 
   return (
@@ -42,4 +42,4 @@ const MainNav = async () => {
   );
 };
 
-export default MainNav;
+export default HomepageLinks;
