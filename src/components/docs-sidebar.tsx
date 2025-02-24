@@ -11,38 +11,39 @@ interface IProps {
 }
 
 type TabType = {
-  name: string;
-  url: string;
+  title: string;
+  slug: string;
 };
 
-const Tab = ({ name, url }: TabType) => {
+const Tab = ({ title, slug }: TabType) => {
   const pathname = usePathname();
-  const isActive = pathname === url;
+  const href = slug === '/docs/get-started' ? '/docs' : slug;
+  const isActive =
+    pathname === slug || (slug === '/docs/get-started' && pathname === '/docs');
 
   return (
     <Link
-      href={url}
+      href={href}
       className={cn(
         'flex max-w-48 items-center gap-5 rounded px-2 py-1 text-base text-gray-400',
         isActive && 'bg-accent text-primary',
       )}
     >
-      {name}
+      {title}
     </Link>
   );
 };
 
 const DocsSidebar = ({ className }: IProps) => {
-  const sidebarContents: TabType[] = allDocs.map(doc => ({
-    name: doc.title,
-    url: doc.slug,
-  }));
+  const getStarted = allDocs.find(doc => doc.slug === '/docs/get-started');
+  const docs = allDocs.filter(doc => doc.slug !== '/docs/get-started');
 
   return (
     <div className={cn('sticky top-24 h-min', className)}>
       <ul className='flex flex-col gap-2 text-xl font-medium text-white'>
-        {sidebarContents.map(tab => {
-          return <Tab key={tab.name} {...tab} />;
+        {getStarted && <Tab {...getStarted} />}
+        {docs.map(tab => {
+          return <Tab key={tab.slug} {...tab} />;
         })}
       </ul>
     </div>
