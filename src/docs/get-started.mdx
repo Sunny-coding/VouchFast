@@ -3,19 +3,30 @@ title: Get Started
 description: Get started with the basics of VouchFast.
 ---
 
-# Get started
+# Introduction
 
-Hey hustler, welcome to VouchFast! 🚀
+This guide will help you get started with the basics of the VouchFast API.
 
-This guide will help you get started with the basics of VouchFast.
+First, learn about the basic terms used in the VouchFast API.
 
-<br />
+1. **List**: Lists are categorized testimonial collections.
+   You can create separate lists for different types of testimonials.
+   eg. `Customer Testimonials`, `Employee Testimonials`, etc.
+2. **API Key**: An API key is a unique identifier that authenticates your requests to the VouchFast API.
+   You need to include the API key in the request headers to authenticate your requests.
 
-### Invite Clients for Testimonials
+**API Base URL**: `https://api.vouchfast.com`
 
-<br />
+## API Auth
 
-1. **Sign Up** - Create an account on [VouchFast](/auth).
-2. **Create a List** - Create a list from [Dashboard](/dashboard/lists).\
-   Lists are a categorized testimonials. Organize testimonials based on different projects, clients, or topics.
-3. **Add Testimonials** - Select a list and click on 'Share' to copy the link. Share the link with your clients.
+Every request must contain an `Api-Key` header with your API key.
+Create an API key from the [VouchFast Dashboard](/dashboard/api-keys).
+
+## API Endpoints
+
+| METHOD | ENDPOINT          | DESCRIPTION                                |
+| ------ | ----------------- | ------------------------------------------ |
+| GET    | /lists            | Get all lists                              |
+| GET    | /lists/:id        | Get all testimonials from a specific list. |
+| GET    | /testimonials     | Get all testimonials                       |
+| GET    | /testimonials/:id | Get a specific testimonial                 |
