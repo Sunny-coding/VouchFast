@@ -35,7 +35,7 @@ const components = {
   h4: ({ className, ...props }: Props) => (
     <h4
       className={cn(
-        'mt-8 scroll-m-20 text-xl font-semibold tracking-tight text-gray-300',
+        'mt-8 scroll-m-20 text-2xl font-black tracking-tight text-gray-300',
         className,
       )}
       {...props}
@@ -93,7 +93,7 @@ const components = {
     </div>
   ),
   tr: ({ className, ...props }: Props) => (
-    <tr className={cn('m-0 border-t p-0 even:bg-muted', className)} {...props} />
+    <tr className={cn('m-0 border-t p-0', className)} {...props} />
   ),
   th: ({ className, ...props }: Props) => (
     <th
