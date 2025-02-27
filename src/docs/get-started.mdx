@@ -17,16 +17,24 @@ First, learn about the basic terms used in the VouchFast API.
 
 **API Base URL**: `https://api.vouchfast.com`
 
+## API Endpoints
+
+### [Lists](/docs/lists)
+
+| METHOD | ENDPOINT   | DESCRIPTION                             |
+| ------ | ---------- | --------------------------------------- |
+| GET    | /lists     | Get all lists associated with the user. |
+| GET    | /lists/:id | Get testimonials from a specific list.  |
+
+<br />
+### [Testimonials](/docs/testimonials)
+
+| METHOD | ENDPOINT          | DESCRIPTION                                    |
+| ------ | ----------------- | ---------------------------------------------- |
+| GET    | /testimonials     | Get all testimonials associated with the user. |
+| GET    | /testimonials/:id | Get a specific testimonial                     |
+
 ## API Auth
 
 Every request must contain an `Api-Key` header with your API key.
 Create an API key from the [VouchFast Dashboard](/dashboard/api-keys).
-
-## API Endpoints
-
-| METHOD | ENDPOINT          | DESCRIPTION                                |
-| ------ | ----------------- | ------------------------------------------ |
-| GET    | /lists            | Get all lists                              |
-| GET    | /lists/:id        | Get all testimonials from a specific list. |
-| GET    | /testimonials     | Get all testimonials                       |
-| GET    | /testimonials/:id | Get a specific testimonial                 |

@@ -1,0 +1,128 @@
+---
+title: Lists
+description: Retrieves lists associated with the authenticated user.
+---
+
+# Introduction
+
+Lists are collections of testimonials. This API allows you to retrieve all lists or fetch testimonials from a specific list.
+
+## 1. Get All Lists
+
+Retrieve all testimonial lists associated with the authenticated user.
+
+```http
+GET https://vouchfast.vectorized.tech/api/lists
+```
+
+### Request Headers
+
+| HEADER  | TYPE   | REQUIRED | DESCRIPTION                                                |
+| ------- | ------ | -------- | ---------------------------------------------------------- |
+| Api-Key | string | true     | A valid [API key](/dashboard/api-keys) for authentication. |
+
+### Request
+
+```javascript
+const url = 'https://vouchfast.vectorized.tech/api/lists';
+
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'Api-Key': 'vf_abcdefghijklmnopqrstuvwxyz1234',
+  },
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+
+### Succcess Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "674c092d7zf97c90e2cdb7d4",
+      "name": "List 1",
+      "headerTitle": "Web Development",
+      "headerDesc": "Please leave a testimonial for us.",
+      "questions": ["How was your experience?", "What did you like most?"]
+    },
+    {
+      "id": "674c0e2d7af97c90f5cdb7d7",
+      "name": "List 2",
+      "headerTitle": "Freelancing",
+      "headerDesc": "We would love to hear from you.",
+      "questions": ["How do you rate our service?", "What can we improve?"]
+    }
+  ]
+}
+```
+
+## 2. Get Testimonials from a Specific List
+
+Retrieve all testimonials within a given list.
+
+```http
+GET https://vouchfast.vectorized.tech/api/lists/:id
+```
+
+### Request Headers
+
+| HEADER  | TYPE   | REQUIRED | DESCRIPTION                                                |
+| ------- | ------ | -------- | ---------------------------------------------------------- |
+| Api-Key | string | true     | A valid [API key](/dashboard/api-keys) for authentication. |
+
+### Request
+
+```javascript
+const url = 'https://vouchfast.vectorized.tech/api/lists/674c092d7zf97c90e2cdb7d4';
+
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'Api-Key': 'vf_abcdefghijklmnopqrstuvwxyz1234',
+  },
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+
+### Success Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "67457810bce6ffb04a3aafba",
+      "name": "Acid",
+      "message": "AcidOP is a terrific developer!",
+      "email": "acid@acidop.codes",
+      "listId": "674c092d7zf97c90e2cdb7d4",
+      "createdAt": "2024-11-26T07:26:08.344Z",
+      "updatedAt": "2025-01-04T10:36:06.623Z"
+    },
+    {
+      "id": "67790ed73beae625b0031805",
+      "name": "Arnold Schwarzenneger",
+      "message": "Good job with the bulking!",
+      "email": "arnie@mail.com",
+      "listId": "674c092d7zf97c90e2cdb7d4",
+      "createdAt": "2025-01-04T10:35:03.231Z",
+      "updatedAt": "2025-01-04T10:35:48.566Z"
+    }
+  ]
+}
+```
+
+### Error Responses
+
+| Status Code | Meaning               | Example                                                               |
+| ----------- | --------------------- | --------------------------------------------------------------------- |
+| 401         | API key is required.  | `{ success: false, error: 'API Key is required' }`                    |
+| 404         | No lists found.       | `{ success: false, error: 'Lists not found' }`                        |
+| 500         | Internal server error | `{ success: false, error: 'Failed to fetch testimonials from list' }` |
