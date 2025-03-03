@@ -21,7 +21,7 @@ const PricingBox = ({
     <div
       className={cn(
         'flex w-full flex-col rounded-lg bg-accent p-10 shadow-lg',
-        active ? 'relative border-2 border-primary' : '',
+        active && 'relative border-2 border-primary',
       )}
     >
       <div>
