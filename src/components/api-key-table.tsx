@@ -2,8 +2,8 @@ import { ApiKey } from '@prisma/client';
 
 import { formatDate } from '@/lib/utils';
 
-import ApiKeyDropdown from '@/components/api-key-dropdown';
 import CopyButton from '@/components/copy-btn';
+import DeleteApiKey from '@/components/delete-api-key';
 
 import {
   Table,
@@ -43,7 +43,7 @@ const ApiKeyTable = ({ apiKeys, className }: IProps) => {
             <TableCell>{formatDate(apiKey.createdAt)}</TableCell>
 
             <TableCell>
-              <ApiKeyDropdown apiKey={apiKey} />
+              <DeleteApiKey apiKeyId={apiKey.id} />
             </TableCell>
           </TableRow>
         ))}

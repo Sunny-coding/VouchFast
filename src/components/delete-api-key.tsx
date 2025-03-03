@@ -17,6 +17,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
 
 interface IProps {
   apiKeyId: string;
@@ -38,10 +39,9 @@ const DeleteApiKey = ({ apiKeyId }: IProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <div className='flex items-center gap-2 text-destructive'>
-          <Trash2 size={20} />
-          <span>Delete API Key</span>
-        </div>
+        <Button variant='ghost' className='px-2'>
+          <Trash2 size={20} className='cursor-pointer text-destructive' />
+        </Button>
       </AlertDialogTrigger>
 
       <AlertDialogContent>
