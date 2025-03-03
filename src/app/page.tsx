@@ -10,7 +10,8 @@ import Pricing from '@/components/homepage/pricing';
 import Problem from '@/components/homepage/Problem';
 import ProductBox from '@/components/homepage/ProductBox';
 import Testimonials from '@/components/homepage/Testimonials';
-import Newsletter from '@/components/Newsletter';
+
+// import Newsletter from '@/components/Newsletter';
 
 const Homepage = async () => {
   const session = await getServerSession();
@@ -24,9 +25,9 @@ const Homepage = async () => {
       <Compare />
       <Audience />
       <Pricing />
-      <CTA />
       <Testimonials />
-      <Newsletter />
+      <CTA />
+      {/* <Newsletter /> */}
     </>
   );
 };

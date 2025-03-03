@@ -1,4 +1,6 @@
-const pricingModel = [
+import type { PricingBoxProps } from '@/types/pricing-model';
+
+const pricingModel: PricingBoxProps[] = [
   {
     heading: 'Free',
     price: '$0',
@@ -11,12 +13,12 @@ const pricingModel = [
       'Lifetime access',
       'Dedicated Landing Page',
     ],
-    paymentType: 'No credit card required.',
+    subheading: 'No credit card required.',
   },
   {
     heading: 'Lifetime',
-    price: '$19.99',
-    originalPrice: '$99.99',
+    price: '$9.99',
+    originalPrice: '$29.99',
     description:
       'Everything from Free plan and more. Get unlimited access to VouchFast for lifetime and collect unlimited testimonials.',
     features: [
@@ -24,13 +26,10 @@ const pricingModel = [
       'Unlimited clients',
       'Full Dashboard access',
       'API access',
-      'Personalize watermark',
-      'Remove watermark',
-      'Custom Profile URL',
       'Priority Customer Support',
       'Discord Community Access',
     ],
-    paymentType: 'Pay once. Use forever.',
+    subheading: 'Pay once. Use forever.',
     active: true,
   },
 ];

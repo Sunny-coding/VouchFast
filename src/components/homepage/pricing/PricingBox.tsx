@@ -6,15 +6,7 @@ import { grotesque } from '@/components/font/grotesque';
 
 import { Button } from '@/components/ui/button';
 
-interface PricingBoxProps {
-  heading: string;
-  price: string | number;
-  originalPrice?: string | number;
-  description: string;
-  features: string[];
-  paymentType: string;
-  active?: boolean;
-}
+import type { PricingBoxProps } from '@/types/pricing-model';
 
 const PricingBox = ({
   heading,
@@ -22,7 +14,7 @@ const PricingBox = ({
   originalPrice,
   description,
   features,
-  paymentType,
+  subheading,
   active,
 }: PricingBoxProps) => {
   return (
@@ -57,7 +49,7 @@ const PricingBox = ({
 
         <Button className='z-10 mt-10'>Get Started</Button>
       </div>
-      <p className='mt-2 text-center text-gray-400'>{paymentType}</p>
+      <p className='mt-2 text-center text-gray-400'>{subheading}</p>
 
       {active && (
         <div className='absolute left-1/2 right-0 top-0 w-min -translate-x-1/2 -translate-y-1/2 text-nowrap rounded-full bg-primary px-3 font-medium text-black'>
