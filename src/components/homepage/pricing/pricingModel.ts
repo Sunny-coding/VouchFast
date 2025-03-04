@@ -14,6 +14,7 @@ const pricingModel: PricingBoxProps[] = [
       'Dedicated Landing Page',
     ],
     subheading: 'No credit card required.',
+    link: '/auth',
   },
   {
     heading: 'Lifetime',
@@ -31,6 +32,7 @@ const pricingModel: PricingBoxProps[] = [
     ],
     subheading: 'Pay once. Use forever.',
     active: true,
+    link: '/pricing',
   },
 ];
 

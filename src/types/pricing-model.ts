@@ -6,4 +6,5 @@ export type PricingBoxProps = {
   features: string[];
   subheading: string;
   active?: boolean;
+  link: string;
 };
