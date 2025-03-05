@@ -7,7 +7,7 @@ import { grotesque } from '@/components/font/grotesque';
 
 const Pricing = () => {
   return (
-    <div className='layout mb-24 lg:my-36'>
+    <div id='pricing' className='layout mb-24 lg:my-36'>
       <h1
         className={cn(
           'text-center text-7xl font-black md:text-9xl',
