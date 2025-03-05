@@ -4,15 +4,15 @@ const links = [
     label: 'Home',
   },
   {
-    url: '/#features',
+    url: '#features',
     label: 'Features',
   },
   {
-    url: '/pricing',
+    url: '#pricing',
     label: 'Pricing',
   },
   {
-    url: '/#faq',
+    url: '#faq',
     label: 'FAQ',
   },
   {

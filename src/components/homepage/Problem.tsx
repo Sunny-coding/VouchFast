@@ -28,7 +28,7 @@ const Consequences = () => {
   ];
 
   return (
-    <div className='layout my-36 text-center'>
+    <div id='features' className='layout my-36 text-center'>
       <h1
         className={cn(
           'mx-auto max-w-5xl text-4xl font-bold lg:text-6xl',

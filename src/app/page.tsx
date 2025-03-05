@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { getServerSession } from '@/server/session';
 
+import Faq from '@/components/faq';
 import Audience from '@/components/homepage/Audience';
 import Compare from '@/components/homepage/Compare';
 import CTA from '@/components/homepage/CTA';
@@ -27,6 +28,7 @@ const Homepage = async () => {
       <Pricing />
       <Testimonials />
       <CTA />
+      <Faq />
       {/* <Newsletter /> */}
     </>
   );
