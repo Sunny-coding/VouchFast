@@ -32,7 +32,7 @@ const pricingModel: PricingBoxProps[] = [
     ],
     subheading: 'Pay once. Use forever.',
     active: true,
-    link: '/pricing',
+    link: '/get-vouchfast',
   },
 ];
 
