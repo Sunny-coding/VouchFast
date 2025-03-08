@@ -9,20 +9,20 @@ import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 const testimonials = [
   {
     quote:
-      'Using this platform made collecting client feedback effortless. My clients appreciated how simple the process was, and it’s made a real difference in securing new projects.',
-    name: 'Sarah Williams',
+      'This platform has made collecting and showcasing testimonials effortless. My clients love how easy it is to leave feedback, and I love how professional it makes my business look.',
+    name: 'Sarah Wright',
     title: 'Freelance Graphic Designer',
   },
   {
     quote:
-      "Our agency used to spend hours manually collecting testimonials. With this app, it's all automated, and we can display them on our site in just a few clicks.",
+      'We integrated the API in minutes, and now we have a dynamic testimonial section that updates automatically. Highly recommend it to any SaaS founder looking for social proof.',
     name: 'James Thompson',
     title: 'Managing Director, Creative Solutions Agency',
   },
   {
     quote:
-      "This platform has streamlined our testimonial process. It's not just a time-saver, but it adds a level of professionalism to our client feedback collection.",
-    name: 'Megan Brown',
+      'Before using this, I had testimonials scattered across emails and DMs. Now, everything is in one place, and I can embed them beautifully on my website.',
+    name: 'Robert Rennie',
     title: 'Marketing Manager, Tech Innovators',
   },
   {
@@ -34,20 +34,14 @@ const testimonials = [
   {
     quote:
       "We've seen a noticeable improvement in client trust after integrating testimonials collected through this platform into our product pages. It's a game changer!",
-    name: 'Linda Nguyen',
-    title: 'Co-Founder, SaaS Company',
+    name: 'Kyu Nguyen',
+    title: 'Software Engineer',
   },
   {
     quote:
-      'Gathering client feedback used to be a hassle, but this platform has simplified everything. The API integration also made embedding testimonials into our site seamless.',
-    name: 'Chris Evans',
+      'As an agency, we manage multiple clients, and this tool has been a lifesaver for organizing testimonials by project!',
+    name: 'Chris Martinez',
     title: 'Head of Product, WebAppify',
-  },
-  {
-    quote:
-      "I was struggling to collect client testimonials consistently, but with this tool, it's all automated. Plus, having them displayed on my profile looks super professional!",
-    name: 'Jessica Lee',
-    title: 'Freelance UX Designer',
   },
   {
     quote:
@@ -58,14 +52,8 @@ const testimonials = [
   {
     quote:
       'This platform has become an essential part of our sales strategy. Testimonials collected through it have directly contributed to closing new deals.',
-    name: 'Olivia Martinez',
+    name: 'Josh Harris',
     title: 'Business Development Manager, SoftLabs',
-  },
-  {
-    quote:
-      'I love how easy it is to invite clients for feedback. The testimonial dashboard is intuitive, and the results are immediate.',
-    name: 'Daniel Harris',
-    title: 'Freelance Mobile App Developer',
   },
 ];
 
