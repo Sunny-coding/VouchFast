@@ -1,7 +1,7 @@
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-import { config } from '@/config/config';
+import { siteConfig as config } from '@/config/config';
 
 import db from '@/lib/prisma';
 
