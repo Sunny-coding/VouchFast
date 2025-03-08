@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from 'next/link';
 
 import { grotesque } from '../font/grotesque';
 import { Button } from '../ui/button';
@@ -24,9 +24,11 @@ const CTA = () => {
           </p>
         </div>
 
-        <Button className='mt-5 bg-black px-10 py-3 text-white hover:scale-105 hover:bg-black lg:mt-0'>
-          Get Started &rarr;
-        </Button>
+        <Link href='/auth'>
+          <Button className='mt-5 bg-black px-10 py-3 text-white hover:bg-zinc-900 lg:mt-0'>
+            Get Started &rarr;
+          </Button>
+        </Link>
       </div>
     </div>
   );
