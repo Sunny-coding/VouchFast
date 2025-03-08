@@ -1,8 +1,11 @@
 import Link from 'next/link';
 
+import EmailAuth from '../mail-auth';
+
+import { cn } from '@/lib/utils';
+
 import Oauth from '@/components/Oauth';
 
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -10,14 +13,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 type AuthCardProps = {
   type: 'login' | 'signup';
+  className?: string;
 };
 
-export default function AuthCard({ type }: AuthCardProps) {
+export default function AuthCard({ type, className }: AuthCardProps) {
   const isLogin = type === 'login';
   const title = isLogin ? 'Login' : 'Signup';
   const buttonText = isLogin ? 'Login' : 'Signup';
@@ -26,9 +28,9 @@ export default function AuthCard({ type }: AuthCardProps) {
   const alternateAuthLinkText = isLogin ? 'Signup' : 'Login';
 
   return (
-    <Card className='w-full max-w-md'>
+    <Card className={cn('w-full max-w-md', className)}>
       <CardHeader>
-        <CardTitle className='text-5xl font-black'>{title}</CardTitle>
+        <CardTitle className='text-center text-5xl font-black'>{title}</CardTitle>
       </CardHeader>
 
       <CardContent className='space-y-6'>
@@ -40,10 +42,7 @@ export default function AuthCard({ type }: AuthCardProps) {
           <hr className='flex-grow' />
         </div>
 
-        <div className='space-y-2'>
-          <Label htmlFor='email'>Email</Label>
-          <Input type='email' id='email' placeholder='Email Address' />
-        </div>
+        <EmailAuth buttonText={buttonText} />
 
         {!isLogin && (
           <p className='text-xs text-muted-foreground'>
@@ -57,8 +56,6 @@ export default function AuthCard({ type }: AuthCardProps) {
             </Link>
           </p>
         )}
-
-        <Button className='w-full'>{buttonText}</Button>
       </CardContent>
 
       <CardFooter className='justify-center'>
