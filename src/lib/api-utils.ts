@@ -38,6 +38,7 @@ export const getApiKey = () => {
   return headersList.get(API_KEY_TOKEN_NAME);
 };
 
+// HOA to check API Auth in all API routes
 export const checkApiAuthorization = async () => {
   const authHeader = getApiKey();
 
