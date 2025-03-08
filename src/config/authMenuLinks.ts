@@ -4,7 +4,7 @@ import {
   LayoutGrid,
   LockKeyholeOpen,
   ReceiptText,
-  Settings,
+  // Settings,
   User,
 } from 'lucide-react';
 
@@ -19,7 +19,7 @@ const authMenu = [
   },
   { name: 'API Docs', url: '/docs', icon: FileCode, dropdown: 'API' },
   { name: 'My Profile', url: '/dashboard/profile', icon: User },
-  { name: 'Settings', url: '/dashboard/settings', icon: Settings },
+  // { name: 'Settings', url: '/dashboard/settings', icon: Settings },
   { name: 'Billing', url: '/dashboard/billing', icon: ReceiptText },
 ];
 
