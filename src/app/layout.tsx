@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from 'next-auth/react';
 
 import { ThemeProvider } from '@/providers/theme-provider';
@@ -38,6 +39,7 @@ export default function RootLayout({
           <SessionProvider>
             <Navbar />
             {children}
+            <Analytics />
             <Footer />
             <Toaster />
           </SessionProvider>
