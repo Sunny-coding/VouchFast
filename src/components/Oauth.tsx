@@ -7,15 +7,19 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import { authenticateWithProvider } from '@/actions/auth';
 
+import { cn } from '@/lib/utils';
+
 import { useToast } from '@/components/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
 
 interface OauthProps {
   type: 'signup' | 'login';
+  className?: string;
+  btnClassName?: string;
 }
 
-const Oauth = ({ type }: OauthProps) => {
+const Oauth = ({ type, className, btnClassName }: OauthProps) => {
   const [isLoading, setIsLoading] = useState<{ [key: string]: boolean }>({
     google: false,
     github: false,
@@ -39,9 +43,9 @@ const Oauth = ({ type }: OauthProps) => {
   };
 
   return (
-    <div className='flex flex-col space-y-2'>
+    <div className={cn('flex flex-col space-y-2', className)}>
       <Button
-        className='w-full gap-3 text-lg font-medium'
+        className={cn('w-full gap-3 text-lg font-bold', btnClassName)}
         variant='secondary'
         onClick={() => handleOAuthSignIn('github')}
         disabled={isLoading.github}
@@ -51,11 +55,11 @@ const Oauth = ({ type }: OauthProps) => {
         ) : (
           <FaGithub className='text-2xl' />
         )}
-        <span className='text-gray-200'>{loginType} with Github</span>
+        <span>{loginType} with Github</span>
       </Button>
 
       <Button
-        className='mt-2 w-full gap-3 text-lg font-medium'
+        className={cn('w-full gap-3 text-lg font-bold text-black', btnClassName)}
         variant='secondary'
         onClick={() => handleOAuthSignIn('google')}
         disabled={isLoading.google}
@@ -65,7 +69,7 @@ const Oauth = ({ type }: OauthProps) => {
         ) : (
           <FaGoogle className='text-2xl' />
         )}
-        <span className='text-gray-200'>{loginType} with Google</span>
+        <span>{loginType} with Google</span>
       </Button>
     </div>
   );

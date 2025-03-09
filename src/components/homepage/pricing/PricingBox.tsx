@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 import { grotesque } from '@/components/font/grotesque';
+import Oauth from '@/components/Oauth';
 
 import { Button } from '@/components/ui/button';
 
@@ -47,9 +48,21 @@ const PricingBox = ({
           ))}
         </ul>
 
-        <Link href={link} className='z-10 mt-10 w-full'>
-          <Button className='w-full text-xl'>Get Started</Button>
-        </Link>
+        {!active && (
+          <Oauth
+            type='signup'
+            className='mt-10'
+            btnClassName='bg-primary hover:bg-primary/90 text-black'
+          />
+        )}
+
+        {active && (
+          <Link href={link} className='z-10 mt-10 w-full'>
+            <Button className='w-full bg-black text-xl text-primary'>
+              Get Started
+            </Button>
+          </Link>
+        )}
       </div>
 
       <p className='mt-2 text-center text-gray-400'>{subheading}</p>
