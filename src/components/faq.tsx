@@ -11,7 +11,7 @@ import type { ReactNode } from 'react';
 
 const faqs = [
   {
-    header: 'What is this platform used for?',
+    header: 'What is this platform used for? ',
     content:
       'Our platform helps freelancers, agencies, and SaaS creators collect, manage, and showcase testimonials from their clients. You can easily gather feedback, approve testimonials, and embed them on your website.',
   },
